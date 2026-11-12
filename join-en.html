@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Join Thrice | Thrice</title>
-<meta name="description" content="Thrice is looking for three kinds of people. Experts and trainees are selected only by the result of a practical test: completing a task within a time limit on realistic data, with any AI tool allowed.">
+<meta name="description" content="Thrice is looking for four kinds of people. Experts, trainees and placement candidates are selected only by the result of a practical test: completing a task within a time limit on realistic data, with any AI tool allowed.">
 <meta name="theme-color" content="#ffffff">
 <meta name="format-detection" content="telephone=no">
 <link rel="canonical" href="https://thrice.cn/join-en.html">
@@ -12,7 +12,7 @@
 <link rel="alternate" hreflang="en" href="https://thrice.cn/join-en.html">
 <script>document.documentElement.className+=" js"</script>
 <meta property="og:title" content="Join Thrice | Thrice">
-<meta property="og:description" content="Thrice is looking for three kinds of people. Experts and trainees are selected only by the result of a practical test: completing a task within a time limit on realistic data, with any AI tool allowed.">
+<meta property="og:description" content="Thrice is looking for four kinds of people. Experts, trainees and placement candidates are selected only by the result of a practical test: completing a task within a time limit on realistic data, with any AI tool allowed.">
 <link rel="icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyMDAgMjAwIiB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCI+PHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjIwMCIgaGVpZ2h0PSIyMDAiIHJ4PSI0NSIgZmlsbD0iIzE0MTYxQSIvPjxwYXRoIGQ9Ik0xMTMuMDEgMTYwTDEzMCAxNDMuMDFMMTQ2Ljk5IDE2MEwxNjAgMTYwTDEzNSAxMzVMMTM1IDgwTDEyNSA4MEwxMjUgMTM1TDEwMCAxNjBaTTE0NSA3MEwxNDUgMTMwTDE1NSAxMzBMMTU1IDYwTDEzNSA2MEwxMzUgNTBMMTYwIDUwTDE2MCA0MEwxMDAgNDBMMTAwIDUwTDEyNSA1MEwxMjUgNjBMMTA1IDYwTDEwNSAxMzBMMTE1IDEzMEwxMTUgNzBaTTUwIDE1MEw1MCA1MEw5NSA1MEw5NSA0MEw0OS44OCA0MEw0MCA0OS44OEw0MCAxNjBaTTYyLjUgNzBMNjIuNSA4MEw5Mi41IDgwTDkyLjUgNzBaTTY1IDk1TDY1IDEwNUw5MCAxMDVMOTAgOTVaIiBmaWxsPSIjRkZGRkZGIi8+PHBhdGggZD0iTTk1IDEyMEw2MCAxMjBMNjAgMTMwTDk1IDEzMFoiIGZpbGw9IiMzMzY2RkYiLz48L3N2Zz4=">
 <style>
 /* Headline typeface: Noto Serif CJK SC Bold (subset). Copyright Google and Adobe. SIL Open Font License 1.1. */
@@ -527,7 +527,8 @@ h4{font-size:14px;line-height:1.5;color:var(--mute);font-weight:700}
 .tracks{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px}
 .tracks > li{background:#fff;padding:30px 30px 28px;border-top:4px solid var(--ink);display:flex;flex-direction:column}
 .tracks > li:first-child{border-top-color:var(--blue)}
-.tracks > li:nth-child(3){border-top-color:#9AA3B5}
+.tracks > li:nth-child(3){border-top-color:#6B7A99}
+.tracks > li:nth-child(4){border-top-color:#B4BCCB}
 .tracks h3{font-family:var(--serif);font-size:28px;line-height:1.35}
 .tr-sub{margin-top:4px;font-size:15.5px;line-height:1.5;color:var(--blue);font-weight:600}
 .tracks dl{margin-top:8px}
@@ -580,7 +581,8 @@ h4{font-size:14px;line-height:1.5;color:var(--mute);font-weight:700}
 .done p{margin-top:8px;font-size:16px;line-height:1.6;color:var(--mute)}
 
 /* home page: short sections that lead to the two form pages */
-.tracks-s .tr-go{margin-top:18px;text-decoration:none}
+.tracks-s .tr-go{margin-top:auto;text-decoration:none}
+.tracks-s .tr-sub{margin-bottom:18px}
 .cta{grid-template-columns:minmax(0,1fr) auto;align-items:center}
 .cta .btn{height:60px;padding:0 44px;font-size:18px;justify-self:start}
 /* form pages: one section fills the window */
@@ -588,8 +590,15 @@ h4{font-size:14px;line-height:1.5;color:var(--mute);font-weight:700}
 @media (min-width:901px){
   .page .tracks{grid-template-columns:repeat(2,minmax(0,1fr))}
   .page .tracks > li:nth-child(2){grid-column:2;grid-row:1 / span 2}
-  .page .tracks > li:nth-child(3){grid-column:1;grid-row:2}
+  .page .tracks > li:nth-child(4){grid-column:1;grid-row:2}
+  .page .tracks > li:nth-child(3){grid-column:1 / -1;grid-row:3}
+  .page .tracks > li:nth-child(3) dl{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));grid-auto-flow:column;grid-template-rows:repeat(4,auto);column-gap:56px}
 }
+.page .s-head{max-width:none}
+.fields .f-kinds{margin-top:10px;font-size:14.5px;line-height:1.5;color:var(--mute)}
+.tracks-s{grid-template-columns:repeat(4,minmax(0,1fr));gap:22px}
+@media (max-width:1080px){.tracks-s{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:560px){.tracks-s{grid-template-columns:minmax(0,1fr)}}
 
 /* tablet */
 @media (max-width:1080px){
@@ -860,6 +869,7 @@ h2{font-size:clamp(28px,3.1vw,40px);line-height:1.2;word-spacing:normal}
   .stats div+div{border-left:0;padding-left:0;border-top:1px solid var(--line)}
 }
 @media (max-width:359px){
+  .after h3{flex-wrap:wrap;gap:2px 12px}
   .head-in{gap:10px}
   .brand svg{height:38px}
   .head .btn-s{padding:0 12px}
@@ -890,7 +900,7 @@ h2{font-size:clamp(28px,3.1vw,40px);line-height:1.2;word-spacing:normal}
 <section class="s s-mist" id="join"><div class="wrap">
   <div class="s-head">
     <h2>Join Thrice</h2>
-    <p>Thrice is looking for three kinds of people. Experts and trainees are selected only by the result of a practical test: completing a task within a time limit on realistic data, with any AI tool allowed.</p>
+    <p>Thrice is looking for four kinds of people. Experts, trainees and placement candidates are selected only by the result of a practical test: completing a task within a time limit on realistic data, with any AI tool allowed.</p>
   </div>
   <ul class="tracks">
     <li>
@@ -922,6 +932,21 @@ h2{font-size:clamp(28px,3.1vw,40px);line-height:1.2;word-spacing:normal}
       <button type="button" class="tr-go" data-track="trainee">Apply as a trainee</button>
     </li>
     <li>
+      <h3>Placement</h3>
+      <p class="tr-sub">Experienced people who want a job at a company</p>
+      <dl>
+        <dt>The work</dt>
+        <dd>Companies ask Thrice to fill data and AI roles. We give you a practical test that matches the role and, if you pass, recommend you to the company. The contract is between you and the company.</dd>
+        <dt>Afterwards</dt>
+        <dd>After you join, Thrice experts can guide your work if the company arranges it. We ask for your consent before recommending you, and Thrice charges you no fees of any kind.</dd>
+        <dt>What we look for</dt>
+        <dd>You have worked in data or AI and can carry out one kind of task on your own, for example reports and dashboards, data preparation, applications of large language models, or forecasting and optimization.</dd>
+        <dt>Note</dt>
+        <dd>The company is being set up, and placements start once it holds a human resources services licence. If you apply now, you go on the candidate list.</dd>
+      </dl>
+      <button type="button" class="tr-go" data-track="referral">Apply for placement</button>
+    </li>
+    <li>
       <h3>Company roles</h3>
       <p class="tr-sub">Finance, operations, human resources and others</p>
       <dl>
@@ -940,6 +965,7 @@ h2{font-size:clamp(28px,3.1vw,40px);line-height:1.2;word-spacing:normal}
         <legend>Applying as</legend>
         <label><input type="radio" name="track" value="expert" checked><span>Expert</span></label>
         <label><input type="radio" name="track" value="trainee"><span>Trainee</span></label>
+        <label><input type="radio" name="track" value="referral"><span>Placement</span></label>
         <label><input type="radio" name="track" value="staff"><span>Company role</span></label>
       </fieldset>
       <div class="f3">
@@ -997,7 +1023,7 @@ h2{font-size:clamp(28px,3.1vw,40px);line-height:1.2;word-spacing:normal}
     m2: function (w, n) { return 'Metric: items out of stock for more than three days in the week<br>Scope: week ' + w + ', ' + n + ' stores'; },
     a3: function (s, g) { return '<b>The ' + s + ' store</b>. Its sales in the last 4 weeks were ' + g + '% higher than in the first 4 weeks.'; },
     m3: function (w0, w1, n) { return 'Metric: sales, weekly total<br>Scope: weeks ' + w0 + ' to ' + w1 + ', ' + n + ' stores'; },
-    j: { head: 'Application: ', tracks: { expert: 'expert', trainee: 'trainee', staff: 'company role' }, bg: 'Current work or field of study: ', intro: 'Experience and skills: ', link: 'Link to work or CV: ' },
+    j: { head: 'Application: ', tracks: { expert: 'expert', trainee: 'trainee', referral: 'placement', staff: 'company role' }, bg: 'Current work or field of study: ', intro: 'Experience and skills: ', link: 'Link to work or CV: ' },
     f: { off: 'The form is being set up', name: 'Please enter your name.', contact: 'Please enter a phone number, WeChat ID or email address.', company: 'Please enter your company name.', city: 'Please enter your city.', background: 'Please enter your current work or field of study.', sending: 'Sending', submit: 'Send', fail: 'The message was not sent. Please try again in a moment.', doneT: 'Message received', doneP: 'Thank you. We will contact you soon using the details you left.' }
   }/*>I18N*/; /* all wording lives in this object, one per language */
 
@@ -1273,7 +1299,7 @@ h2{font-size:clamp(28px,3.1vw,40px);line-height:1.2;word-spacing:normal}
 
   /* arriving from the home page with ?track=...: that direction is already picked in the form */
   (function () {
-    var q = /[?&]track=(expert|trainee|staff)(?:&|$)/.exec(location.search); if (!q) return;
+    var q = /[?&]track=(expert|trainee|referral|staff)(?:&|$)/.exec(location.search); if (!q) return;
     var r = $('#join-form input[name="track"][value="' + q[1] + '"]'); if (r) r.checked = true;
   })();
 
