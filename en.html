@@ -802,8 +802,9 @@ h2{font-size:clamp(28px,3.1vw,40px);line-height:1.2;word-spacing:normal}
 
 /* three visits */
 .step h3 .heavy{font-size:36px;letter-spacing:0}
-.after{grid-template-columns:300px 1fr auto}
+.after{grid-template-columns:230px 1fr auto}
 .after h3 .heavy{letter-spacing:0}
+.after h3{flex-direction:column;align-items:flex-start;gap:4px}
 
 /* four areas */
 .cg{grid-template-columns:344px minmax(0,1fr);gap:56px}
@@ -877,6 +878,14 @@ h2{font-size:clamp(28px,3.1vw,40px);line-height:1.2;word-spacing:normal}
   .kpi em{white-space:normal}
   .kpi svg{width:72px}
 }
+
+/* English text: plain wrapping (the "pretty" setting breaks lines early), and equal heading heights in a row */
+p,dd,li{text-wrap:wrap}
+@media (min-width:1081px){
+  .rules h3{min-height:2.8em;display:flex;align-items:flex-end}
+  .fields h3{min-height:2.8em;box-sizing:content-box;display:flex;align-items:flex-end}
+}
+.tracks-s h3{font-size:24px;white-space:nowrap}
 </style>
 </head>
 <body>
