@@ -395,7 +395,7 @@ h4{font-size:14px;line-height:1.5;color:var(--mute);font-weight:700}
 .cg-items h4{position:relative;padding-left:20px;font-size:18.5px;line-height:1.5;color:var(--ink)}
 .cg-items h4::before{content:"";position:absolute;left:0;top:.62em;width:10px;height:4px;background:var(--blue)}
 .cg-items p{margin-top:6px;padding-left:20px;font-size:15.5px;line-height:1.65;color:var(--mute)}
-.mv-inv{display:block;width:100%;height:auto}
+.mv-inv,.mv-flow{display:block;width:100%;height:auto}
 
 /* second case: reading package inserts */
 .case-b{margin-top:64px;padding-top:60px;border-top:1px solid var(--line);align-items:center}
@@ -477,6 +477,79 @@ h4{font-size:14px;line-height:1.5;color:var(--mute);font-weight:700}
   .js .hours .now{transition-delay:.9s}
   .js .hours.in i{transform:none}
 }
+
+/* the book: cover on an ink panel with the cut corner */
+.book{display:grid;grid-template-columns:minmax(0,340px) minmax(0,1fr);gap:64px;align-items:center;background:var(--ink);color:#D9DDE5;padding:56px 64px 56px 72px;clip-path:polygon(34px 0,100% 0,100% 100%,0 100%,0 34px)}
+.book-cover{display:block;line-height:0;box-shadow:0 24px 48px rgba(0,0,0,.5),0 0 0 1px rgba(255,255,255,.14);transition:transform .2s}
+.book-cover:hover{transform:translateY(-4px)}
+.book-cover img{display:block;width:100%;height:auto}
+.book-t h3{font-family:var(--serif);font-size:28px;line-height:1.4;color:#fff}
+.book-parts{margin-top:14px}
+.book-parts li{display:grid;grid-template-columns:7.2em 1fr;gap:16px;padding:13px 0;border-top:1px solid rgba(255,255,255,.16);font-size:16px;line-height:1.55}
+.book-parts b{color:#9DB4FF;font-weight:600;white-space:nowrap}
+.book-facts{display:flex;flex-wrap:wrap;gap:8px 44px;margin-top:8px;padding-top:22px;border-top:1px solid rgba(255,255,255,.16)}
+.book-facts li{display:flex;align-items:baseline;gap:8px;font-size:15px;color:#AEB6C4;white-space:nowrap}
+.book-facts b{font-family:var(--serif);font-size:38px;line-height:1.1;color:#fff}
+.book-cta{display:flex;align-items:center;gap:22px;flex-wrap:wrap;margin-top:30px;font-size:14px;color:#AEB6C4}
+
+/* cases three and four */
+.case-c{margin-top:64px;padding-top:60px;border-top:1px solid var(--line);align-items:center}
+.pc{margin-top:20px}
+.pc-row,.pc-axis{display:grid;grid-template-columns:4.4em minmax(0,1fr) 6.2em;gap:14px;align-items:center;font-size:14.5px;line-height:1.5;color:var(--ink)}
+.pc-row{padding:9px 0;border-bottom:1px solid var(--line)}
+.pc-tr{position:relative;height:16px;margin:0 8px}
+.pc-axis div{margin:0 8px}
+.pc-tr i,.pc-lg i{position:absolute;top:50%;width:13px;height:13px;border-radius:50%;transform:translate(-50%,-50%)}
+.pc-tr .pc-bar{height:3px;width:auto;border-radius:0;transform:translateY(-50%);background:#AEB6C4}
+.pc-off{background:var(--ink)}
+.pc-on{background:var(--blue)}
+.pc-row b{font-size:13.5px;font-weight:600;color:var(--mute);text-align:right;white-space:nowrap}
+.pc-row b.lo{color:var(--blue-d)}
+.pc-row b.hi{color:var(--warn)}
+.pc-axis{padding-top:6px;font-size:12px;color:var(--mute)}
+.pc-axis div{position:relative;height:18px}
+.pc-axis div i{position:absolute;font-style:normal;transform:translateX(-50%);white-space:nowrap}
+.pc-lg{margin-top:14px;display:flex;align-items:center;gap:8px;font-size:13.5px;line-height:1.5;color:var(--mute)}
+.pc-lg i{position:static;transform:none;display:block;flex:none}
+.pc-lg i + i,.pc-lg i:nth-of-type(2){margin-left:0}
+.pc-lg .pc-on{margin-left:16px}
+.netmap{display:block;width:100%;height:auto;margin-top:18px}
+.net-lg i{width:22px;height:12px;border-radius:2px}
+
+/* five kinds of client and one open cell, three to a row */
+.fields > li:nth-child(3n){border-right:0}
+.fields > li:nth-child(n+4){border-top:1px solid var(--hair)}
+.fields > li:last-child{border-right:0}
+.fields-else p{margin-top:16px;font-size:16px;line-height:1.6;color:var(--mute)}
+.fields-else .link{display:inline-block;margin-top:18px}
+
+/* joining: three kinds of opening and one application form */
+.tracks{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px}
+.tracks > li{background:#fff;padding:30px 30px 28px;border-top:4px solid var(--ink);display:flex;flex-direction:column}
+.tracks > li:first-child{border-top-color:var(--blue)}
+.tracks h3{font-family:var(--serif);font-size:28px;line-height:1.35}
+.tr-sub{margin-top:4px;font-size:15.5px;line-height:1.5;color:var(--blue);font-weight:600}
+.tracks dl{margin-top:8px}
+.tracks dt{margin-top:16px;font-size:14px;font-weight:700;color:var(--mute)}
+.tracks dd{margin-top:4px;font-size:16px;line-height:1.6}
+.tr-go{margin-top:auto;align-self:flex-start;font:inherit;font-size:16px;font-weight:600;color:var(--blue);background:none;border:0;border-bottom:1.5px solid currentColor;padding:0 0 2px;cursor:pointer}
+.tracks dl + .tr-go{margin-top:auto}
+.tracks dl{margin-bottom:24px}
+.tr-go:hover{color:var(--blue-d)}
+.tr-go:focus-visible{outline:3px solid var(--blue);outline-offset:3px}
+.join-pw{margin-top:40px}
+.join-form{padding:36px 44px 34px 52px}
+.join-form h3{font-family:var(--serif);font-size:26px;line-height:1.4}
+.f3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.seg{border:0;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:10px;min-width:0}
+.seg legend{float:left;width:100%;padding:0;margin-bottom:8px;font-size:14px;font-weight:600;line-height:1.5}
+.form .seg label{display:block;font-weight:400}
+.form .seg label{position:relative}
+.form .seg input{position:absolute;left:0;top:0;opacity:0;width:1px;height:1px;padding:0;border:0}
+.seg span{display:block;padding:9px 22px;border:1.5px solid var(--line);border-radius:3px;font-size:16px;line-height:1.5;cursor:pointer;background:#fff;color:var(--ink)}
+.seg input:checked + span{border-color:var(--blue);background:var(--tint2);color:var(--blue);font-weight:600}
+.seg input:focus-visible + span{outline:3px solid var(--blue);outline-offset:2px}
+.join-form .btn{width:auto;justify-self:start;padding:0 44px}
 
 /* contact form */
 .contact{grid-template-columns:minmax(0,1fr) minmax(0,500px);align-items:start}
@@ -593,15 +666,35 @@ h4{font-size:14px;line-height:1.5;color:var(--mute);font-weight:700}
 /* ================= version 3 responsive ================= */
 @media (max-width:1080px){
   .scene{height:668px;max-width:520px}
+  .fields{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .fields > li:nth-child(3n){border-right:1px solid var(--hair)}
+  .fields > li:nth-child(2n){border-right:0}
+  .fields > li:nth-child(n+3){border-top:1px solid var(--hair)}
+  .book{grid-template-columns:minmax(0,260px) minmax(0,1fr);gap:40px;padding:44px 40px 44px 48px}
   .cg{grid-template-columns:minmax(0,1fr);gap:28px}
   .cg-l .cap-v{max-width:420px}
   .case-b .case-fig{order:0}
+  .case-c{margin-top:48px;padding-top:44px}
   .demo-main,.demo-row2{grid-template-columns:minmax(0,1fr)}
   .contact{grid-template-columns:minmax(0,1fr)}
   .thesis{padding-top:108px}
 }
 @media (max-width:760px){
   .hero::before{background-size:40px 40px}
+  .book{grid-template-columns:minmax(0,1fr);gap:30px;padding:40px 22px 34px 30px;clip-path:polygon(24px 0,100% 0,100% 100%,0 100%,0 24px)}
+  .book-cover{max-width:230px}
+  .book-t h3{font-size:24px}
+  .book-parts li{grid-template-columns:1fr;gap:2px}
+  .book-facts{gap:8px 26px;flex-wrap:wrap}
+  .book-facts b{font-size:30px}
+  .fields{grid-template-columns:minmax(0,1fr)}
+  .fields > li,.fields > li:nth-child(3n){border-right:0;border-top:0}
+  .tracks > li{padding:26px 22px 24px}
+  .tracks h3{font-size:25px}
+  .join-form{padding:28px 22px 26px 30px}
+  .f3{grid-template-columns:minmax(0,1fr)}
+  .seg span{padding:8px 16px}
+  .join-form .btn{width:100%}
   .lang{margin-left:auto;margin-right:0;padding:4px 9px}
   .head .btn-s{margin-left:0;padding:0 16px}
   .scene{height:auto;max-width:none}
@@ -632,6 +725,9 @@ h4{font-size:14px;line-height:1.5;color:var(--mute);font-weight:700}
   .f2{grid-template-columns:1fr}
   .form{padding:28px 22px 26px 30px}
   .done{padding:40px 24px 36px 32px}
+}
+@media (max-width:980px){
+  .tracks{grid-template-columns:minmax(0,1fr);gap:18px}
 }
 /* narrow tablets: keep the menu on one line */
 @media (max-width:860px){
@@ -709,6 +805,9 @@ h2{font-size:clamp(28px,3.1vw,40px);line-height:1.2;word-spacing:normal}
 .ticks{grid-column:2;grid-row:1 / span 2;margin-top:8px}
 
 /* cases */
+.pc-row,.pc-axis{grid-template-columns:5.4em minmax(0,1fr) 9.6em}
+.pc-row span{white-space:nowrap}
+.book-parts li{grid-template-columns:9em 1fr}
 .loop li{grid-template-columns:30px 76px 1fr}
 .ocr-rows li{grid-template-columns:7.2em minmax(0,1fr) auto}
 
@@ -725,7 +824,7 @@ h2{font-size:clamp(28px,3.1vw,40px);line-height:1.2;word-spacing:normal}
   .ticks{margin-top:26px}
 }
 /* the English menu is wider than the Chinese one: it gives way earlier */
-@media (max-width:960px){
+@media (max-width:1040px){
   .nav{display:none}
   .lang{margin-left:auto}
 }
@@ -739,6 +838,10 @@ h2{font-size:clamp(28px,3.1vw,40px);line-height:1.2;word-spacing:normal}
   .heat{grid-template-columns:6.6em repeat(12,minmax(0,1fr))}
   .loop li{grid-template-columns:24px 68px 1fr}
   .stats{grid-template-columns:minmax(0,1fr)}
+  .pc-row,.pc-axis{grid-template-columns:5em minmax(0,1fr);gap:2px 10px}
+  .pc-row b{grid-column:2;text-align:left;margin-left:8px}
+  .pc-axis b{display:none}
+  .book-parts li{grid-template-columns:1fr}
   .p-report .p-head,.tests .p-head{flex-wrap:wrap;row-gap:2px}
   .p-report .p-head b,.tests .p-head b{flex:0 0 100%}
   .stats div+div{border-left:0;padding-left:0;border-top:1px solid var(--line)}
@@ -763,6 +866,7 @@ h2{font-size:clamp(28px,3.1vw,40px);line-height:1.2;word-spacing:normal}
     <a href="#accept">Acceptance</a>
     <a href="#cases">Cases</a>
     <a href="#about">About</a>
+    <a href="#join">Join</a>
   </nav>
   <a class="lang" href="index.html" lang="zh-CN" hreflang="zh-CN">中文</a>
   <a class="btn btn-s" href="#contact">Contact us</a>
@@ -952,13 +1056,20 @@ h2{font-size:clamp(28px,3.1vw,40px);line-height:1.2;word-spacing:normal}
       <h3>Hand off the repetitive work</h3>
       <p>The model does the repetitive part. People confirm the result.</p>
       <div class="cap-v" aria-hidden="true">
-        <ol class="mv-chain"><li>Read data</li><li>Score by rules</li><li>Suggest</li><li class="ok">Staff confirm</li></ol>
-        <p class="mv-cap">The reasons staff give for a rejection are used to correct the rules for the next round</p>
+        <svg class="mv-flow" viewBox="0 0 300 104" role="img" aria-label="Read data, score by rules, suggest, staff confirm. The reasons staff give for a rejection correct the next round of rules.">
+          <g fill="#fff" stroke="#CDD3DE" stroke-width="1.5"><path d="M1 8h58v46H1zM81 8h58v46H81zM161 8h58v46h-58z"/></g>
+          <path d="M241 8h58v46h-58z" fill="#E2F3EB" stroke="#12805A" stroke-width="1.5"/>
+          <g fill="none" stroke="#14161A" stroke-width="1.6"><path d="M64 31h11M71 27l4.5 4-4.5 4M144 31h11M151 27l4.5 4-4.5 4M224 31h11M231 27l4.5 4-4.5 4"/></g>
+          <path d="M270 58v18H110V61M105.5 66l4.5-5 4.5 5" fill="none" stroke="#3366FF" stroke-width="1.6"/>
+          <g font-size="12.5" text-anchor="middle" fill="#14161A"><text x="30" y="27.5">Read</text><text x="30" y="44">data</text><text x="110" y="27.5">Score</text><text x="110" y="44">by rules</text><text x="190" y="35.5">Suggest</text></g>
+          <g font-size="12.5" font-weight="700" text-anchor="middle" fill="#12805A"><text x="270" y="27.5">Staff</text><text x="270" y="44">confirm</text></g>
+          <text x="150" y="97" font-size="12" text-anchor="middle" fill="#5C6470">Reasons for rejection update the rules</text>
+        </svg>
       </div>
     </div>
     <ul class="cg-items">
       <li><h4>Business agents</h4><p>An agent takes over one repetitive judgment task, such as product discontinuation, replenishment suggestions, price comparison or account reconciliation. Your staff confirm every suggestion.</p></li>
-      <li><h4>Document recognition and data entry</h4><p>Paper documents and photos are converted to text and arranged into fields, for example drug package inserts, receipts and contracts. Anything that cannot be read clearly is flagged, and a person checks it before it is saved.</p></li>
+      <li><h4>Document recognition and data entry</h4><p>Paper documents and photos are converted to text and arranged into fields, for example receipts, contracts and product leaflets. Anything that cannot be read clearly is flagged, and a person checks it before it is saved.</p></li>
       <li><h4>Skill</h4><p>The steps, rules and examples of one task, written as instructions that a model can follow. When staff or models change, the way the task is done stays in the company.</p></li>
       <li><h4>Harness</h4><p>The environment a model runs in: which tools it may call and which data it may read, a record of every step, and a stop with a notice to a person when something goes wrong.</p></li>
     </ul>
@@ -1108,14 +1219,14 @@ h2{font-size:clamp(28px,3.1vw,40px);line-height:1.2;word-spacing:normal}
 <section class="s" id="cases"><div class="wrap">
   <div class="s-head">
     <h2>Past projects</h2>
-    <p>The founder led the projects below at a pharmacy chain. The company has about 160 directly operated stores, and the projects cover pricing, assortment and the store network.</p>
+    <p>The founder led the projects below at a retail chain. The company is a pharmacy chain with about 160 directly operated stores, and the projects cover pricing, assortment and the store network.</p>
   </div>
   <div class="case">
     <div>
       <h3 class="case-t serif">Product discontinuation agent</h3>
       <dl class="case-dl">
         <dt>Background</dt>
-        <dd>Every quarter the chain has to decide which products to discontinue. The work used to take more than 100 hours a quarter.</dd>
+        <dd>Every quarter the company has to decide which products to discontinue. The work used to take more than 100 hours a quarter.</dd>
         <dt>Approach</dt>
         <dd>The founder built a product discontinuation agent, an AI program that follows rules to complete a task of several steps without interruption. It places each product in a group of products that can substitute for one another, scores the candidates for discontinuation by sales volume, gross profit, price and trend, and applies protection rules for chronic-disease medicines, category coverage and the main products sold online. Staff accept or reject each suggestion and give a reason. The reasons are turned into corrected rules for the next round of suggestions.</dd>
         <dt>Result</dt>
@@ -1167,31 +1278,83 @@ h2{font-size:clamp(28px,3.1vw,40px);line-height:1.2;word-spacing:normal}
       <p class="fig-note">Fields that cannot be read clearly are marked “To check”, and a staff member confirms them against the original.</p>
     </figure>
   </div>
-  <ul class="more">
-    <li>
-      <h3>Online versus <span class="nw">in-store</span> prices</h3>
-      <p>Every week, in-store prices and prices on online platforms are put in one table and compared. The result is an analysis report that management can read directly and a dashboard they can click through, with suggested price changes.</p>
-    </li>
-    <li>
-      <h3>Store network assessment</h3>
-      <p>Each store’s monthly operating data is combined with its location to analyze how the stores are distributed. The findings are written up as an assessment report for management.</p>
-    </li>
-  </ul>
+  <div class="case case-b case-c">
+    <div>
+      <h3 class="case-t serif">Online versus <span class="nw">in-store</span> prices</h3>
+      <dl class="case-dl">
+        <dt>Background</dt>
+        <dd>The same product has different prices in the stores and on online platforms. The price table is updated every week, and comparing it line by line by hand is not practical. Management has to judge which parts of the current price arrangement are reasonable and which are not.</dd>
+        <dt>Approach</dt>
+        <dd>Every week, store prices and the prices on two online platforms are put in one table that keeps the last four weeks. The gap is calculated for each product, and the products and categories with large gaps are identified. The analysis report, written for staff and management, states where the current arrangement is reasonable and where it is not, and recommends changes.</dd>
+        <dt>Delivered</dt>
+        <dd>An analysis report, and a dashboard that can be clicked through by category, platform and week.</dd>
+      </dl>
+    </div>
+    <figure class="case-fig">
+      <p class="fig-t">Price of the same product in store and online<i class="tag">Illustration</i></p>
+      <div class="pc" role="img" aria-label="Illustration: store and online prices of six products. Four are lower online, one is higher online and one is the same.">
+        <div class="pc-row"><span>Product A</span><div class="pc-tr"><i class="pc-bar" style="left:2.9%;width:54.2%"></i><i class="pc-off" style="left:57.1%"></i><i class="pc-on" style="left:2.9%"></i></div><b class="lo">Online 19% lower</b></div>
+        <div class="pc-row"><span>Product B</span><div class="pc-tr"><i class="pc-bar" style="left:20.0%;width:37.1%"></i><i class="pc-off" style="left:57.1%"></i><i class="pc-on" style="left:20.0%"></i></div><b class="lo">Online 13% lower</b></div>
+        <div class="pc-row"><span>Product C</span><div class="pc-tr"><i class="pc-bar" style="left:28.6%;width:28.5%"></i><i class="pc-off" style="left:57.1%"></i><i class="pc-on" style="left:28.6%"></i></div><b class="lo">Online 10% lower</b></div>
+        <div class="pc-row"><span>Product D</span><div class="pc-tr"><i class="pc-bar" style="left:42.9%;width:14.2%"></i><i class="pc-off" style="left:57.1%"></i><i class="pc-on" style="left:42.9%"></i></div><b class="lo">Online 5% lower</b></div>
+        <div class="pc-row"><span>Product E</span><div class="pc-tr"><i class="pc-off" style="left:57.1%"></i></div><b>Same</b></div>
+        <div class="pc-row"><span>Product F</span><div class="pc-tr"><i class="pc-bar" style="left:57.1%;width:31.5%"></i><i class="pc-off" style="left:57.1%"></i><i class="pc-on" style="left:88.6%"></i></div><b class="hi">Online 11% higher</b></div>
+        <div class="pc-axis"><span></span><div><i style="left:0">80%</i><i style="left:28.6%">90%</i><i style="left:57.1%">100%</i><i style="left:85.7%">110%</i></div><b></b></div>
+      </div>
+      <p class="pc-lg"><i class="pc-off"></i>Store price, set to 100%<i class="pc-on"></i>Online price</p>
+      <p class="fig-note">The report first answers whether a gap is intended, then lists the products that need a change.</p>
+    </figure>
+  </div>
+  <div class="case case-c">
+    <div>
+      <h3 class="case-t serif">Store network assessment</h3>
+      <dl class="case-dl">
+        <dt>Background</dt>
+        <dd>Management has to judge which stores need a change and where to open new ones. The operating data sits in monthly reports and the locations on a map, and the two used to be looked at separately.</dd>
+        <dt>Approach</dt>
+        <dd>Twelve months of operating data for each store are joined with its coordinates. On the map, stores are colored by performance, and stores close to one another and areas without a store are marked. The assessment report is written for management and comes with a store table that can be filtered and exported.</dd>
+        <dt>Note</dt>
+        <dd>The assessment uses operating data and location. A store may also perform poorly because of staffing or a change in nearby competition, and management judges that part from what it knows on the ground.</dd>
+      </dl>
+    </div>
+    <figure class="case-fig">
+      <p class="fig-t">Operating data placed on the map<i class="tag">Illustration</i></p>
+      <svg class="netmap" viewBox="0 0 420 290" role="img" aria-label="Illustration: fifteen stores on a street map, darker for higher sales. Two stores close to each other are circled. An area at the lower right has no store.">
+        <rect x="0.5" y="0.5" width="419" height="289" fill="#fff" stroke="#DCE0E7"/>
+        <g stroke="#E6EAF2" stroke-width="7" fill="none"><path d="M0 70H420M0 150H420M0 228H420M70 0V290M165 0V290M262 0V290M350 0V290"/><path d="M0 262L130 150L262 110L420 40"/></g>
+        <path d="M0 196C60 186 120 204 180 196S300 180 420 200" fill="none" stroke="#D6E0FF" stroke-width="12"/>
+        <g stroke="#fff" stroke-width="2">
+          <circle cx="70" cy="70" r="9" fill="#264CC2"/><circle cx="118" cy="52" r="9" fill="#85A3FF"/><circle cx="165" cy="70" r="9" fill="#3366FF"/>
+          <circle cx="208" cy="126" r="9" fill="#264CC2"/><circle cx="262" cy="70" r="9" fill="#85A3FF"/><circle cx="318" cy="88" r="9" fill="#3366FF"/>
+          <circle cx="386" cy="56" r="9" fill="#C2D1FF"/><circle cx="40" cy="150" r="9" fill="#85A3FF"/><circle cx="104" cy="172" r="9" fill="#3366FF"/>
+          <circle cx="165" cy="150" r="9" fill="#C2D1FF"/><circle cx="184" cy="162" r="9" fill="#85A3FF"/>
+          <circle cx="262" cy="150" r="9" fill="#264CC2"/><circle cx="350" cy="150" r="9" fill="#3366FF"/>
+          <circle cx="70" cy="238" r="9" fill="#C2D1FF"/><circle cx="165" cy="246" r="9" fill="#85A3FF"/>
+        </g>
+        <circle cx="174.5" cy="156" r="24" fill="none" stroke="#14161A" stroke-width="1.6"/>
+        <path d="M196 170l26 22" stroke="#14161A" stroke-width="1.4" fill="none"/>
+        <text x="224" y="203" font-size="15" fill="#14161A" stroke="#fff" stroke-width="4" paint-order="stroke">Two stores 300 m apart</text>
+        <rect x="232" y="214" width="178" height="62" fill="none" stroke="#8F5600" stroke-width="1.6" stroke-dasharray="6 5"/>
+        <text x="321" y="251" font-size="15" text-anchor="middle" fill="#8F5600" stroke="#fff" stroke-width="4" paint-order="stroke">No store in this area</text>
+      </svg>
+      <p class="pc-lg net-lg">Store sales: low<i style="background:#C2D1FF"></i><i style="background:#85A3FF"></i><i style="background:#3366FF"></i><i style="background:#264CC2"></i>high</p>
+    </figure>
+  </div>
 </div></section>
 
 <section class="s s-mist" id="fields"><div class="wrap">
   <div class="s-head">
     <h2>What a first project can be</h2>
-    <p>Below are common first projects for three kinds of company. The diagnosis decides which one to do.</p>
+    <p>Below are common first projects for five kinds of client. The diagnosis decides which one to do.</p>
   </div>
   <ul class="fields">
     <li>
-      <h3>Retail chains and pharmacy chains</h3>
+      <h3>Retail chains</h3>
       <ul>
         <li>Weekly store reports and data Q&amp;A</li>
         <li>Online versus in-store price comparison, and pricing</li>
         <li>Which items to keep and which to discontinue</li>
-        <li>Recognition and entry of package inserts and receipts</li>
+        <li>Recognition and entry of receipts and product leaflets</li>
         <li>Closing, merging and opening stores</li>
       </ul>
     </li>
@@ -1210,6 +1373,27 @@ h2{font-size:clamp(28px,3.1vw,40px);line-height:1.2;word-spacing:normal}
         <li>Inventory turnover and stock-outs</li>
         <li>Contribution analysis by customer and by item</li>
       </ul>
+    </li>
+    <li>
+      <h3>Logistics and supply chain</h3>
+      <ul>
+        <li>Weekly reports on shipments, warehousing and orders</li>
+        <li>Delivery routes and vehicle schedules</li>
+        <li>Alerts for late arrivals and low stock</li>
+      </ul>
+    </li>
+    <li>
+      <h3>Hospitals</h3>
+      <ul>
+        <li>Forecasts of outpatient visits and bed demand</li>
+        <li>Schedules for doctors, nurses and operating rooms</li>
+        <li>Stock alerts for medicines and supplies</li>
+      </ul>
+    </li>
+    <li class="fields-else">
+      <h3>Other sectors</h3>
+      <p>We can talk even if you are not in one of these. The diagnosis decides what the first project is.</p>
+      <a class="link" href="#contact">Book a one-hour conversation</a>
     </li>
   </ul>
 </div></section>
@@ -1238,10 +1422,105 @@ h2{font-size:clamp(28px,3.1vw,40px);line-height:1.2;word-spacing:normal}
     <p>The Chinese name, 三顾 (Sangu), means “three visits”. It comes from the story in which Liu Bei went to Zhuge Liang’s cottage three times to ask him to serve. The name describes two things we do. First, we help companies find and keep people who can do the work. Second, the service itself is three visits: diagnosis, project and staffing. The English name, Thrice, means “three times”.</p>
     <p>The diagnosis report written on the first visit is called the Longzhong Plan, after the plan Zhuge Liang set out for Liu Bei when they met. It states what to do first, what not to do, and what counts as done.</p>
     <h3>Founder</h3>
-    <p>The founder is the Chief Data and Analytics Officer of a pharmacy chain, where he leads the company’s AI and digital reform. The projects cover pricing, assortment and the store network for about 160 directly operated stores. From January 2027 he will be a PhD student at the National University of Singapore, working on large language models and operations management. His paper on checking the output of large language models has been accepted at NeurIPS 2026, an international conference on artificial intelligence. Thrice’s methods for diagnosis and acceptance come from these projects and this research.</p>
+    <p>The founder is the Chief Data and Analytics Officer of a retail chain, where he leads the company’s AI and digital reform. The projects cover pricing, assortment and the store network for about 160 directly operated stores. He is a PhD student at the Institute of Operations Research and Analytics, National University of Singapore (entering in January 2027), and his research combines large language models with operations management. His paper on checking the output of large language models has been accepted at NeurIPS 2026, an international conference on artificial intelligence. Thrice’s methods for diagnosis and acceptance come from these projects and this research.</p>
     <h3>Engineers</h3>
     <p>Every engineer who delivers on site has passed a practical test: complete a task within a time limit on realistic data. Any AI tool may be used, and only the result counts.</p>
   </div>
+</div></section>
+
+<section class="s" id="book"><div class="wrap">
+  <div class="s-head">
+    <h2>A first book on AI for your staff</h2>
+    <p>An Introduction to Artificial Intelligence: Principles, Tools and Everyday Practice is written by Thrice and used as the textbook in staff training. Readers need no programming and no mathematics. The book is in Chinese.</p>
+  </div>
+  <div class="book">
+    <a class="book-cover" href="ai-intro-book.pdf" target="_blank" rel="noopener" aria-label="Open the PDF of the book (in Chinese)"><img src="book-cover.jpg" width="640" height="899" loading="lazy" alt="Cover of the book: dark ground, the title in white, a drawing of a neural network, and the Thrice logo below."></a>
+    <div class="book-t">
+      <h3>What the book covers</h3>
+      <ol class="book-parts">
+        <li><b>Chapters 1 to 3</b><span>What artificial intelligence is, the stages it has gone through in more than seventy years, how a large language model produces an answer, and why the answer is sometimes wrong.</span></li>
+        <li><b>Chapters 4 and 5</b><span>How to choose among the main tools, and what to do the first time you use one.</span></li>
+        <li><b>Chapters 6 to 9</b><span>Prompts, agents, Skills and Harnesses, each chapter harder than the one before.</span></li>
+        <li><b>Chapters 10 and 11</b><span>Worked examples from retail and office work, then data security and rules of use.</span></li>
+      </ol>
+      <ul class="book-facts">
+        <li><b>90</b><span>pages</span></li>
+        <li><b>13</b><span>figures</span></li>
+        <li><b>33</b><span>exercises, with answers</span></li>
+      </ul>
+      <div class="book-cta">
+        <a class="btn" href="ai-intro-book.pdf" target="_blank" rel="noopener">Open the book</a>
+        <span>PDF in Chinese, 1.2 MB, first edition, November 2026</span>
+      </div>
+    </div>
+  </div>
+</div></section>
+
+<section class="s s-mist" id="join"><div class="wrap">
+  <div class="s-head">
+    <h2>Join Thrice</h2>
+    <p>Thrice is looking for three kinds of people. Experts and trainees are selected only by the result of a practical test: completing a task within a time limit on realistic data, with any AI tool allowed.</p>
+  </div>
+  <ul class="tracks">
+    <li>
+      <h3>Experts</h3>
+      <p class="tr-sub">Long-term work at Thrice</p>
+      <dl>
+        <dt>The work</dt>
+        <dd>Diagnoses and projects at client companies: put the data in order, build the system and take it through acceptance. Guide and train trainees, and review their work at regular intervals.</dd>
+        <dt>What we look for</dt>
+        <dd>You have carried out data or AI projects on your own, for example data preparation and metric definitions, reports and dashboards, applications of large language models, or forecasting and optimization. You can settle a question clearly with the people in charge at a company.</dd>
+      </dl>
+      <button type="button" class="tr-go" data-track="expert">Apply as an expert</button>
+    </li>
+    <li>
+      <h3>Trainees</h3>
+      <p class="tr-sub">Training inside a project, with the chance to stay at the client company</p>
+      <dl>
+        <dt>The work</dt>
+        <dd>After passing the test, you work on a project at a client company alongside Thrice experts, and learn how data preparation, reports, prompts and Skills are done.</dd>
+        <dt>Where it leads</dt>
+        <dd>When the project ends, the company needs someone to take the system over. If the company and you both agree, you stay as its employee, and Thrice experts continue to guide your work. The company decides whether to keep you.</dd>
+        <dt>What we look for</dt>
+        <dd>The bar is lower than for experts. You work comfortably on a computer, are willing to learn, and want a long-term job at a local company. Experience in data, finance, operations or IT helps.</dd>
+      </dl>
+      <button type="button" class="tr-go" data-track="trainee">Apply as a trainee</button>
+    </li>
+    <li>
+      <h3>Company roles</h3>
+      <p class="tr-sub">Finance, operations, human resources and others</p>
+      <dl>
+        <dt>The work</dt>
+        <dd>Thrice’s own finance, operations and human resources work, among others. The company is being set up, and these roles are created as the business grows.</dd>
+        <dt>What we look for</dt>
+        <dd>Work experience in the role you apply for. If you already use AI tools in that work, say how in your application.</dd>
+      </dl>
+      <button type="button" class="tr-go" data-track="staff">Apply for a company role</button>
+    </li>
+  </ul>
+  <div class="pw join-pw"><div class="panel" id="join-box">
+    <form class="form join-form" id="join-form" novalidate>
+      <h3>Application form</h3>
+      <fieldset class="seg">
+        <legend>Applying as</legend>
+        <label><input type="radio" name="track" value="expert" checked><span>Expert</span></label>
+        <label><input type="radio" name="track" value="trainee"><span>Trainee</span></label>
+        <label><input type="radio" name="track" value="staff"><span>Company role</span></label>
+      </fieldset>
+      <div class="f3">
+        <label><span>Your name</span><input name="name" required maxlength="40" autocomplete="name"></label>
+        <label><span>Phone, WeChat or email</span><input name="contact" required maxlength="60" autocomplete="tel"></label>
+        <label><span>City</span><input name="city" required maxlength="40" autocomplete="address-level2"></label>
+      </div>
+      <label><span>Current work or field of study</span><input name="background" required maxlength="120"></label>
+      <label><span>Experience and skills<i>optional</i></span><textarea name="intro" rows="4" maxlength="1200" placeholder="For example: projects or jobs you have done and the tools you use. For a company role, name the role you want"></textarea></label>
+      <label><span>Link to your work or CV<i>optional</i></span><input name="link" maxlength="300" inputmode="url"></label>
+      <input class="hp" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <button class="btn" type="submit" id="join-btn">Send application</button>
+      <p class="f-msg" id="join-msg" role="alert"></p>
+      <small>You can send a CV after we contact you. What you enter is used only to contact you and assess your application. We ask for your consent before recommending you to a company.</small>
+    </form>
+  </div></div>
 </div></section>
 
 <section class="s" id="faq"><div class="wrap">
@@ -1296,10 +1575,11 @@ h2{font-size:clamp(28px,3.1vw,40px);line-height:1.2;word-spacing:normal}
       <label><span>Industry<i>optional</i></span>
         <select name="industry">
           <option value="">Select</option>
-          <option>Retail chain</option>
-          <option>Pharmacy chain</option>
+          <option>Retail chains</option>
           <option>Manufacturing</option>
           <option>Wholesale and distribution</option>
+          <option>Logistics and supply chain</option>
+          <option>Hospitals</option>
           <option>Other</option>
         </select>
       </label>
@@ -1351,7 +1631,8 @@ h2{font-size:clamp(28px,3.1vw,40px);line-height:1.2;word-spacing:normal}
     m2: function (w, n) { return 'Metric: items out of stock for more than three days in the week<br>Scope: week ' + w + ', ' + n + ' stores'; },
     a3: function (s, g) { return '<b>The ' + s + ' store</b>. Its sales in the last 4 weeks were ' + g + '% higher than in the first 4 weeks.'; },
     m3: function (w0, w1, n) { return 'Metric: sales, weekly total<br>Scope: weeks ' + w0 + ' to ' + w1 + ', ' + n + ' stores'; },
-    f: { off: 'The form is being set up', name: 'Please enter your name.', contact: 'Please enter a phone number, WeChat ID or email address.', company: 'Please enter your company name.', sending: 'Sending', submit: 'Send', fail: 'The message was not sent. Please try again in a moment.', doneT: 'Message received', doneP: 'Thank you. We will contact you soon using the details you left.' }
+    j: { head: 'Application: ', tracks: { expert: 'expert', trainee: 'trainee', staff: 'company role' }, bg: 'Current work or field of study: ', intro: 'Experience and skills: ', link: 'Link to work or CV: ' },
+    f: { off: 'The form is being set up', name: 'Please enter your name.', contact: 'Please enter a phone number, WeChat ID or email address.', company: 'Please enter your company name.', city: 'Please enter your city.', background: 'Please enter your current work or field of study.', sending: 'Sending', submit: 'Send', fail: 'The message was not sent. Please try again in a moment.', doneT: 'Message received', doneP: 'Thank you. We will contact you soon using the details you left.' }
   }/*>I18N*/; /* all wording lives in this object, one per language */
 
   /* ---------- nav: mark the section in view ---------- */
@@ -1579,22 +1860,21 @@ h2{font-size:clamp(28px,3.1vw,40px);line-height:1.2;word-spacing:normal}
     if ('ResizeObserver' in window) new ResizeObserver(fit).observe(svg);
   })();
 
-  /* ---------- contact form: posts what the visitor wrote to the address set in config.js ---------- */
-  (function () {
-    var form = $('#lead'); if (!form || !T) return;
-    var F = T.f, btn = $('#lead-btn'), msg = $('#lead-msg');
+  /* ---------- forms: post what the visitor wrote to the address set in config.js ---------- */
+  function bindForm(o) {
+    var form = $(o.form); if (!form || !T) return;
+    var F = T.f, btn = $(o.btn), msg = $(o.msg), label = btn.textContent;
     var endpoint = (window.THRICE_FORM && window.THRICE_FORM.endpoint) || '';
     if (!endpoint) { btn.disabled = true; btn.textContent = F.off; }
-    function val(n) { return (form.elements[n].value || '').trim(); }
+    function val(n) { var f = form.elements[n]; return ((f && f.value) || '').trim(); }
     function fail(text, field) { msg.textContent = text; if (field) { field.classList.add('bad'); field.focus(); } }
     $$('input,select,textarea', form).forEach(function (f) { f.addEventListener('input', function () { f.classList.remove('bad'); msg.textContent = ''; }); });
     form.addEventListener('submit', function (e) {
       e.preventDefault(); msg.textContent = '';
       if (!endpoint) return;
-      if (!val('name')) return fail(F.name, form.elements.name);
-      if (!val('contact')) return fail(F.contact, form.elements.contact);
-      if (!val('company')) return fail(F.company, form.elements.company);
-      var data = { name: val('name'), contact: val('contact'), company: val('company'), industry: val('industry'), need: val('need'), website: val('website'), page: location.href, lang: T.lang };
+      for (var k = 0; k < o.required.length; k++) if (!val(o.required[k])) return fail(F[o.required[k]], form.elements[o.required[k]]);
+      var data = o.data(val);
+      data.website = val('website'); data.page = location.href; data.lang = T.lang;
       btn.disabled = true; btn.textContent = F.sending;
       var ctl = ('AbortController' in window) ? new AbortController() : null;
       var timer = setTimeout(function () { if (ctl) ctl.abort(); }, 20000);
@@ -1603,14 +1883,37 @@ h2{font-size:clamp(28px,3.1vw,40px);line-height:1.2;word-spacing:normal}
         .then(function (ok) {
           clearTimeout(timer);
           if (!ok) throw new Error('rejected');
-          $('#lead-box').innerHTML = '<div class="done"><svg viewBox="0 0 44 44" aria-hidden="true"><circle cx="22" cy="22" r="20" fill="none" stroke="currentColor" stroke-width="2.5"/><path d="M13 22.5l6.5 6.5L32 16" fill="none" stroke="currentColor" stroke-width="3"/></svg><h3>' + F.doneT + '</h3><p>' + F.doneP + '</p></div>';
+          $(o.box).innerHTML = '<div class="done"><svg viewBox="0 0 44 44" aria-hidden="true"><circle cx="22" cy="22" r="20" fill="none" stroke="currentColor" stroke-width="2.5"/><path d="M13 22.5l6.5 6.5L32 16" fill="none" stroke="currentColor" stroke-width="3"/></svg><h3>' + F.doneT + '</h3><p>' + F.doneP + '</p></div>';
         })
         .catch(function () {
-          clearTimeout(timer); btn.disabled = false; btn.textContent = F.submit;
+          clearTimeout(timer); btn.disabled = false; btn.textContent = label;
           fail(F.fail);
         });
     });
-  })();
+  }
+
+  /* enquiry from a company */
+  bindForm({ form: '#lead', btn: '#lead-btn', msg: '#lead-msg', box: '#lead-box', required: ['name', 'contact', 'company'],
+    data: function (val) { return { name: val('name'), contact: val('contact'), company: val('company'), industry: val('industry'), need: val('need') }; } });
+
+  /* application to join. company and need are also filled in, so an older copy of the mail function still delivers everything */
+  bindForm({ form: '#join-form', btn: '#join-btn', msg: '#join-msg', box: '#join-box', required: ['name', 'contact', 'city', 'background'],
+    data: function (val) {
+      var J = T.j, track = val('track') || 'expert';
+      return { form: 'join', track: track, name: val('name'), contact: val('contact'), city: val('city'), background: val('background'), intro: val('intro'), link: val('link'),
+        company: J.head + J.tracks[track], industry: val('city'),
+        need: [J.bg + val('background'), J.intro + val('intro'), J.link + val('link')].join('\n') };
+    } });
+
+  /* the button under each kind of opening picks it in the form and moves there */
+  $$('.tr-go').forEach(function (b) {
+    b.addEventListener('click', function () {
+      var r = $('#join-form input[name="track"][value="' + b.getAttribute('data-track') + '"]'); if (!r) return;
+      r.checked = true;
+      $('#join-box').scrollIntoView({ behavior: 'smooth', block: 'center' });
+      var first = $('#join-form input[name="name"]'); if (first) setTimeout(function () { first.focus({ preventScroll: true }); }, 500);
+    });
+  });
 })();
 </script>
 
