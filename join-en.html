@@ -1030,6 +1030,17 @@ h2{font-size:clamp(28px,3.1vw,40px);line-height:1.2;word-spacing:normal}
     f: { off: 'The form is being set up', name: 'Please enter your name.', contact: 'Please enter a phone number, WeChat ID or email address.', company: 'Please enter your company name.', city: 'Please enter your city.', background: 'Please enter your current work or field of study.', sending: 'Sending', submit: 'Send', fail: 'The message was not sent. Please try again in a moment.', doneT: 'Message received', doneP: 'Thank you. We will contact you soon using the details you left.' }
   }/*>I18N*/; /* all wording lives in this object, one per language */
 
+  /* ---------- logo on the home page: back to the top without reloading or adding #top to the address ---------- */
+  (function () {
+    var brand = $('.brand'); if (!brand || !$('main .hero')) return;
+    brand.addEventListener('click', function (e) {
+      if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button) return;
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      if (location.hash && history.replaceState) history.replaceState(null, '', location.pathname + location.search);
+    });
+  })();
+
   /* ---------- nav: mark the section in view ---------- */
   (function () {
     var links = $$('.nav a[href^="#"]'); if (!links.length || !('IntersectionObserver' in window)) return;

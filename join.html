@@ -930,6 +930,17 @@ h4{font-size:14px;line-height:1.5;color:var(--mute);font-weight:700}
     f: { off: '留言功能开通中', name: '请填写怎么称呼您。', contact: '请填写手机或微信。', company: '请填写企业名称。', city: '请填写所在城市。', background: '请填写现在的工作或所学专业。', sending: '正在提交', submit: '提交', fail: '提交没有成功，请过一会儿再试一次。', doneT: '已经收到', doneP: '谢谢。我们会尽快按您留下的方式联系您。' }
   }/*>I18N*/; /* all wording lives in this object, one per language */
 
+  /* ---------- logo on the home page: back to the top without reloading or adding #top to the address ---------- */
+  (function () {
+    var brand = $('.brand'); if (!brand || !$('main .hero')) return;
+    brand.addEventListener('click', function (e) {
+      if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button) return;
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      if (location.hash && history.replaceState) history.replaceState(null, '', location.pathname + location.search);
+    });
+  })();
+
   /* ---------- nav: mark the section in view ---------- */
   (function () {
     var links = $$('.nav a[href^="#"]'); if (!links.length || !('IntersectionObserver' in window)) return;
