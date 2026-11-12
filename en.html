@@ -527,6 +527,7 @@ h4{font-size:14px;line-height:1.5;color:var(--mute);font-weight:700}
 .tracks{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px}
 .tracks > li{background:#fff;padding:30px 30px 28px;border-top:4px solid var(--ink);display:flex;flex-direction:column}
 .tracks > li:first-child{border-top-color:var(--blue)}
+.tracks > li:nth-child(3){border-top-color:#9AA3B5}
 .tracks h3{font-family:var(--serif);font-size:28px;line-height:1.35}
 .tr-sub{margin-top:4px;font-size:15.5px;line-height:1.5;color:var(--blue);font-weight:600}
 .tracks dl{margin-top:8px}
@@ -577,6 +578,18 @@ h4{font-size:14px;line-height:1.5;color:var(--mute);font-weight:700}
 .done svg{width:44px;height:44px;color:var(--ok);display:block}
 .done h3{margin-top:16px;font-family:var(--sans);font-size:24px}
 .done p{margin-top:8px;font-size:16px;line-height:1.6;color:var(--mute)}
+
+/* home page: short sections that lead to the two form pages */
+.tracks-s .tr-go{margin-top:18px;text-decoration:none}
+.cta{grid-template-columns:minmax(0,1fr) auto;align-items:center}
+.cta .btn{height:60px;padding:0 44px;font-size:18px;justify-self:start}
+/* form pages: one section fills the window */
+.page main > section{min-height:calc(100vh - 230px)}
+@media (min-width:901px){
+  .page .tracks{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .page .tracks > li:nth-child(2){grid-column:2;grid-row:1 / span 2}
+  .page .tracks > li:nth-child(3){grid-column:1;grid-row:2}
+}
 
 /* tablet */
 @media (max-width:1080px){
@@ -866,10 +879,10 @@ h2{font-size:clamp(28px,3.1vw,40px);line-height:1.2;word-spacing:normal}
     <a href="#accept">Acceptance</a>
     <a href="#cases">Cases</a>
     <a href="#about">About</a>
-    <a href="#join">Join</a>
+    <a href="join-en.html">Join</a>
   </nav>
   <a class="lang" href="index.html" lang="zh-CN" hreflang="zh-CN">中文</a>
-  <a class="btn btn-s" href="#contact">Contact us</a>
+  <a class="btn btn-s" href="contact-en.html">Contact us</a>
 </div></header>
 
 <main id="top">
@@ -880,7 +893,7 @@ h2{font-size:clamp(28px,3.1vw,40px);line-height:1.2;word-spacing:normal}
     <p class="hero-sub serif">We get one thing done first, then leave you the people to run it.</p>
     <p class="hero-lead">Thrice provides AI implementation and talent services for traditional businesses. We visit your company three times. On the first visit we choose the one thing worth doing first. On the second we build it and test it against your own reports and questions. On the third we help you put the right person in place to take it over.</p>
     <div class="hero-cta">
-      <a class="btn" href="#contact">Book a one-hour conversation</a>
+      <a class="btn" href="contact-en.html">Book a one-hour conversation</a>
       <a class="link" href="#method">See how we work</a>
     </div>
     <p class="hero-facts">The conversation is free. The diagnosis takes one to two weeks and the project six to ten weeks, at a fixed price.</p>
@@ -987,7 +1000,7 @@ h2{font-size:clamp(28px,3.1vw,40px);line-height:1.2;word-spacing:normal}
         <li><span>Fee</span>A percentage of the annual salary of the person hired, or a training fee</li>
       </ul>
       <h4>What we do</h4>
-      <p>We help you put in place the person who takes the system over. You choose one of three ways: keep the engineer who worked on site during the project, have us recruit and assess someone new, or have us train one of your current employees. Our engineers guide and train that person and review their work at regular intervals.</p>
+      <p>We help you put in place the person who takes the system over. We first look among your current employees, and if someone suitable is there, we train that person. If not, we bring a trainee into the project and you decide at the end whether to keep them, or we recruit and assess someone new. Our engineers guide and train that person and review their work at regular intervals.</p>
       <h4>What you get</h4>
       <p>After the project, someone in your company can use the system and change it.</p>
       <p class="solves">For situation 2: you cannot find the right person, or judge a candidate</p>
@@ -1091,7 +1104,7 @@ h2{font-size:clamp(28px,3.1vw,40px);line-height:1.2;word-spacing:normal}
       <li><h4>Model access</h4><p>You can call a model provider’s API directly, or deploy a model on your own servers. With an API, the agreement states in advance which data may be sent to the model.</p></li>
       <li><h4>Pilots and comparisons</h4><p>Whether a change works is tested with a pilot and a comparison group: the change is made in a few stores, and they are compared with stores that did not change.</p></li>
       <li><h4>Staff training</h4><p>We explain to managers and front-line staff what AI can do and how to use it, with course materials and practical exercises.</p></li>
-      <li><h4>Assessment and hiring</h4><p>A practical test shows whether a person can do the work. We help you hire someone new, or train a current employee to take over. Our engineers guide and train that person.</p></li>
+      <li><h4>Assessment and hiring</h4><p>A practical test shows whether a person can do the work. We first train one of your current employees to take over, and help you hire someone new only when no one suitable is there. Our engineers guide and train that person.</p></li>
     </ul>
   </div>
 </div></section>
@@ -1393,7 +1406,7 @@ h2{font-size:clamp(28px,3.1vw,40px);line-height:1.2;word-spacing:normal}
     <li class="fields-else">
       <h3>Other sectors</h3>
       <p>We can talk even if you are not in one of these. The diagnosis decides what the first project is.</p>
-      <a class="link" href="#contact">Book a one-hour conversation</a>
+      <a class="link" href="contact-en.html">Book a one-hour conversation</a>
     </li>
   </ul>
 </div></section>
@@ -1422,7 +1435,7 @@ h2{font-size:clamp(28px,3.1vw,40px);line-height:1.2;word-spacing:normal}
     <p>The Chinese name, 三顾 (Sangu), means “three visits”. It comes from the story in which Liu Bei went to Zhuge Liang’s cottage three times to ask him to serve. The name describes two things we do. First, we help companies find and keep people who can do the work. Second, the service itself is three visits: diagnosis, project and staffing. The English name, Thrice, means “three times”.</p>
     <p>The diagnosis report written on the first visit is called the Longzhong Plan, after the plan Zhuge Liang set out for Liu Bei when they met. It states what to do first, what not to do, and what counts as done.</p>
     <h3>Founder</h3>
-    <p>The founder is the Chief Data and Analytics Officer of a retail chain, where he leads the company’s AI and digital reform. The projects cover pricing, assortment and the store network for about 160 directly operated stores. He is a PhD student at the Institute of Operations Research and Analytics, National University of Singapore (entering in January 2027), and his research combines large language models with operations management. His paper on checking the output of large language models has been accepted at NeurIPS 2026, an international conference on artificial intelligence. Thrice’s methods for diagnosis and acceptance come from these projects and this research.</p>
+    <p>The founder is the Chief Data and Analytics Officer of a retail chain, where he leads the company’s AI and digital reform. The projects cover pricing, assortment and the store network for about 160 directly operated stores. He is a PhD student at the Institute of Operations Research and Analytics, National University of Singapore, and his research combines large language models with operations management. His paper on checking the output of large language models has been accepted at NeurIPS 2026, an international conference on artificial intelligence. Thrice’s methods for diagnosis and acceptance come from these projects and this research.</p>
     <h3>Engineers</h3>
     <p>Every engineer who delivers on site has passed a practical test: complete a task within a time limit on realistic data. Any AI tool may be used, and only the result counts.</p>
   </div>
@@ -1459,68 +1472,13 @@ h2{font-size:clamp(28px,3.1vw,40px);line-height:1.2;word-spacing:normal}
 <section class="s s-mist" id="join"><div class="wrap">
   <div class="s-head">
     <h2>Join Thrice</h2>
-    <p>Thrice is looking for three kinds of people. Experts and trainees are selected only by the result of a practical test: completing a task within a time limit on realistic data, with any AI tool allowed.</p>
+    <p>Thrice is looking for three kinds of people. The requirements and the application form are on the application page.</p>
   </div>
-  <ul class="tracks">
-    <li>
-      <h3>Experts</h3>
-      <p class="tr-sub">Long-term work at Thrice</p>
-      <dl>
-        <dt>The work</dt>
-        <dd>Diagnoses and projects at client companies: put the data in order, build the system and take it through acceptance. Guide and train trainees, and review their work at regular intervals.</dd>
-        <dt>What we look for</dt>
-        <dd>You have carried out data or AI projects on your own, for example data preparation and metric definitions, reports and dashboards, applications of large language models, or forecasting and optimization. You can settle a question clearly with the people in charge at a company.</dd>
-      </dl>
-      <button type="button" class="tr-go" data-track="expert">Apply as an expert</button>
-    </li>
-    <li>
-      <h3>Trainees</h3>
-      <p class="tr-sub">Training inside a project, with the chance to stay at the client company</p>
-      <dl>
-        <dt>The work</dt>
-        <dd>After passing the test, you work on a project at a client company alongside Thrice experts, and learn how data preparation, reports, prompts and Skills are done.</dd>
-        <dt>Where it leads</dt>
-        <dd>When the project ends, the company needs someone to take the system over. If the company and you both agree, you stay as its employee, and Thrice experts continue to guide your work. The company decides whether to keep you.</dd>
-        <dt>What we look for</dt>
-        <dd>The bar is lower than for experts. You work comfortably on a computer, are willing to learn, and want a long-term job at a local company. Experience in data, finance, operations or IT helps.</dd>
-      </dl>
-      <button type="button" class="tr-go" data-track="trainee">Apply as a trainee</button>
-    </li>
-    <li>
-      <h3>Company roles</h3>
-      <p class="tr-sub">Finance, operations, human resources and others</p>
-      <dl>
-        <dt>The work</dt>
-        <dd>Thrice’s own finance, operations and human resources work, among others. The company is being set up, and these roles are created as the business grows.</dd>
-        <dt>What we look for</dt>
-        <dd>Work experience in the role you apply for. If you already use AI tools in that work, say how in your application.</dd>
-      </dl>
-      <button type="button" class="tr-go" data-track="staff">Apply for a company role</button>
-    </li>
+  <ul class="tracks tracks-s">
+    <li><h3>Experts</h3><p class="tr-sub">Long-term work at Thrice</p><a class="tr-go" href="join-en.html?track=expert">Apply as an expert</a></li>
+    <li><h3>Trainees</h3><p class="tr-sub">Training inside a project, with the chance to stay at the client company</p><a class="tr-go" href="join-en.html?track=trainee">Apply as a trainee</a></li>
+    <li><h3>Company roles</h3><p class="tr-sub">Finance, operations, human resources and others</p><a class="tr-go" href="join-en.html?track=staff">Apply for a company role</a></li>
   </ul>
-  <div class="pw join-pw"><div class="panel" id="join-box">
-    <form class="form join-form" id="join-form" novalidate>
-      <h3>Application form</h3>
-      <fieldset class="seg">
-        <legend>Applying as</legend>
-        <label><input type="radio" name="track" value="expert" checked><span>Expert</span></label>
-        <label><input type="radio" name="track" value="trainee"><span>Trainee</span></label>
-        <label><input type="radio" name="track" value="staff"><span>Company role</span></label>
-      </fieldset>
-      <div class="f3">
-        <label><span>Your name</span><input name="name" required maxlength="40" autocomplete="name"></label>
-        <label><span>Phone, WeChat or email</span><input name="contact" required maxlength="60" autocomplete="tel"></label>
-        <label><span>City</span><input name="city" required maxlength="40" autocomplete="address-level2"></label>
-      </div>
-      <label><span>Current work or field of study</span><input name="background" required maxlength="120"></label>
-      <label><span>Experience and skills<i>optional</i></span><textarea name="intro" rows="4" maxlength="1200" placeholder="For example: projects or jobs you have done and the tools you use. For a company role, name the role you want"></textarea></label>
-      <label><span>Link to your work or CV<i>optional</i></span><input name="link" maxlength="300" inputmode="url"></label>
-      <input class="hp" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
-      <button class="btn" type="submit" id="join-btn">Send application</button>
-      <p class="f-msg" id="join-msg" role="alert"></p>
-      <small>You can send a CV after we contact you. What you enter is used only to contact you and assess your application. We ask for your consent before recommending you to a company.</small>
-    </form>
-  </div></div>
 </div></section>
 
 <section class="s" id="faq"><div class="wrap">
@@ -1555,41 +1513,12 @@ h2{font-size:clamp(28px,3.1vw,40px);line-height:1.2;word-spacing:normal}
   </div>
 </div></section>
 
-<section class="s s-blue" id="contact"><div class="wrap contact">
+<section class="s s-blue" id="contact"><div class="wrap contact cta">
   <div>
     <h2>Start with a <span class="nw">one-hour</span> conversation</h2>
     <p>Leave your contact details and we will get in touch to arrange a time. The conversation is free. If it is a fit, the next step is a diagnosis of one to two weeks.</p>
-    <ol class="c-steps">
-      <li>Fill in the form and leave your contact details</li>
-      <li>We contact you and arrange an hour</li>
-      <li>We talk about the one thing you want to solve. You are free to stop there.</li>
-    </ol>
   </div>
-  <div class="pw"><div class="panel" id="lead-box">
-    <form class="form" id="lead" novalidate>
-      <div class="f2">
-        <label><span>Your name</span><input name="name" required maxlength="40" autocomplete="name"></label>
-        <label><span>Phone, WeChat or email</span><input name="contact" required maxlength="60" autocomplete="tel"></label>
-      </div>
-      <label><span>Company</span><input name="company" required maxlength="80" autocomplete="organization"></label>
-      <label><span>Industry<i>optional</i></span>
-        <select name="industry">
-          <option value="">Select</option>
-          <option>Retail chains</option>
-          <option>Manufacturing</option>
-          <option>Wholesale and distribution</option>
-          <option>Logistics and supply chain</option>
-          <option>Hospitals</option>
-          <option>Other</option>
-        </select>
-      </label>
-      <label><span>The one thing you want to solve first<i>optional</i></span><textarea name="need" rows="3" maxlength="1000" placeholder="For example: our weekly business report is compiled by hand and we want it generated automatically"></textarea></label>
-      <input class="hp" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
-      <button class="btn" type="submit" id="lead-btn">Send</button>
-      <p class="f-msg" id="lead-msg" role="alert"></p>
-      <small>What you enter is used only to contact you and is not shared with third parties.</small>
-    </form>
-  </div></div>
+  <a class="btn btn-w" href="contact-en.html">Contact us</a>
 </div></section>
 
 </main>
@@ -1904,6 +1833,12 @@ h2{font-size:clamp(28px,3.1vw,40px);line-height:1.2;word-spacing:normal}
         company: J.head + J.tracks[track], industry: val('city'),
         need: [J.bg + val('background'), J.intro + val('intro'), J.link + val('link')].join('\n') };
     } });
+
+  /* arriving from the home page with ?track=...: that direction is already picked in the form */
+  (function () {
+    var q = /[?&]track=(expert|trainee|staff)(?:&|$)/.exec(location.search); if (!q) return;
+    var r = $('#join-form input[name="track"][value="' + q[1] + '"]'); if (r) r.checked = true;
+  })();
 
   /* the button under each kind of opening picks it in the form and moves there */
   $$('.tr-go').forEach(function (b) {
