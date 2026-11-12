@@ -778,6 +778,27 @@ h4{font-size:14px;line-height:1.5;color:var(--mute);font-weight:700}
   .def .eq{white-space:normal}
 }
 
+/* phone menu: the three-bar button opens the section links under the header */
+.menu-btn{display:none;flex:none;flex-direction:column;justify-content:center;gap:5px;width:44px;height:44px;padding:0 10px;margin-right:-10px;background:none;border:0;cursor:pointer}
+.menu-btn span{display:block;height:2px;background:var(--ink);transition:transform .18s,opacity .18s}
+.head.open .menu-btn span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.head.open .menu-btn span:nth-child(2){opacity:0}
+.head.open .menu-btn span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+@media (prefers-reduced-motion:reduce){.menu-btn span{transition:none}}
+@media (max-width:760px){
+  .menu-btn{display:inline-flex}
+  .head.open .nav{display:flex;position:absolute;left:0;right:0;top:100%;margin:0;flex-direction:column;gap:0;padding:4px 20px 14px;background:#fff;border-bottom:1px solid var(--hair);box-shadow:0 18px 30px -18px rgba(20,22,26,.25)}
+  .head.open .nav a{padding:15px 2px;font-size:17px;font-weight:600;border-bottom:1px solid var(--hair)}
+  .head.open .nav a:last-child{border-bottom:0}
+  .head.open .nav a.on::after{display:none}
+  .head-in{gap:12px}
+}
+.nav .nav-cta{display:none}
+@media (max-width:420px){
+  .head .btn-s{display:none}
+  .head.open .nav .nav-cta{display:block;color:var(--blue)}
+}
+
 /* ================= English page ================= */
 :root{
   --serif:"Thrice Display",Georgia,"Times New Roman","Songti SC","Noto Serif CJK SC",serif;
@@ -886,6 +907,18 @@ p,dd,li{text-wrap:wrap}
   .fields h3{min-height:2.8em;box-sizing:content-box;display:flex;align-items:flex-end}
 }
 .tracks-s h3{font-size:24px;white-space:nowrap}
+
+@media (max-width:1040px){
+  .menu-btn{display:inline-flex}
+  .head.open .nav{display:flex;position:absolute;left:0;right:0;top:100%;margin:0;flex-direction:column;gap:0;padding:4px 20px 14px;background:#fff;border-bottom:1px solid var(--hair);box-shadow:0 18px 30px -18px rgba(20,22,26,.25)}
+  .head.open .nav a{padding:15px 2px;font-size:17px;font-weight:600;border-bottom:1px solid var(--hair)}
+  .head.open .nav a:last-child{border-bottom:0}
+  .head.open .nav a.on::after{display:none}
+}
+@media (max-width:520px){
+  .head .btn-s{display:none}
+  .head.open .nav .nav-cta{display:block;color:var(--blue)}
+}
 </style>
 </head>
 <body>
@@ -900,9 +933,11 @@ p,dd,li{text-wrap:wrap}
     <a href="#cases">Cases</a>
     <a href="#about">About</a>
     <a href="join-en">Join</a>
+    <a class="nav-cta" href="contact-en">Contact us</a>
   </nav>
   <a class="lang" href="./" lang="zh-CN" hreflang="zh-CN">中文</a>
   <a class="btn btn-s" href="contact-en">Contact us</a>
+  <button type="button" class="menu-btn" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
 </div></header>
 
 <main id="top">
@@ -1595,6 +1630,17 @@ p,dd,li{text-wrap:wrap}
       window.scrollTo({ top: 0, behavior: 'smooth' });
       if (location.hash && history.replaceState) history.replaceState(null, '', location.pathname + location.search);
     });
+  })();
+
+  /* ---------- phone menu ---------- */
+  (function () {
+    var head = $('.head'), btn = $('.menu-btn'); if (!head || !btn) return;
+    function set(open) { head.classList.toggle('open', open); btn.setAttribute('aria-expanded', open ? 'true' : 'false'); }
+    btn.addEventListener('click', function () { set(!head.classList.contains('open')); });
+    $$('.nav a').forEach(function (a) { a.addEventListener('click', function () { set(false); }); });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape') set(false); });
+    document.addEventListener('click', function (e) { if (!head.contains(e.target)) set(false); });
+    window.addEventListener('resize', function () { set(false); });
   })();
 
   /* ---------- nav: mark the section in view ---------- */
