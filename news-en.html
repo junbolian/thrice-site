@@ -1066,6 +1066,15 @@ p,dd,li{text-wrap:wrap}
 @media (min-width:1081px){.home .news-s .gap{order:-1}}
 .news-list > li{padding:44px 0;border-top:3px solid var(--ink)}
 .news-list > li:last-child{padding-bottom:0}
+.news-also{margin-top:30px;padding-top:18px;border-top:1px solid var(--line);display:grid;gap:2px;font-size:16px;line-height:1.7}
+.news-also span{font-size:14px;color:var(--mute);font-variant-numeric:tabular-nums}
+.news-also a{font-weight:600}
+.news-cover{display:block;background:var(--ink);padding:40px 36px;line-height:0;text-align:center;clip-path:polygon(34px 0,100% 0,100% 100%,0 100%,0 34px)}
+.news-cover img{display:inline-block;width:auto;max-width:100%;height:auto;max-height:440px;box-shadow:0 24px 48px rgba(0,0,0,.5),0 0 0 1px rgba(255,255,255,.14);transition:transform .2s}
+.news-cover:hover img{transform:translateY(-4px)}
+.art-cta{margin-top:28px;display:flex;flex-wrap:wrap;align-items:center;gap:12px 20px;font-size:14.5px;color:var(--mute)}
+.pages3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.art-body .pages3 img{border:1px solid var(--line)}
 .news-more{margin-top:56px;padding-top:22px;border-top:1px solid var(--line);font-size:16px;color:var(--mute)}
 
 /* the article */
@@ -1174,6 +1183,9 @@ p,dd,li{text-wrap:wrap}
   .fam{grid-template-columns:repeat(2,minmax(0,1fr))}
   .means li{grid-template-columns:minmax(0,1fr)}
   .news-list > li{padding:34px 0}
+  .news-cover{padding:30px 24px}
+  .news-cover img{max-height:360px}
+  .pages3{gap:8px}
 }
 @media (max-width:520px){
   .art-facts{grid-template-columns:minmax(0,1fr)}
@@ -1230,6 +1242,15 @@ p,dd,li{text-wrap:wrap}
       </div>
       <p class="gap-note">From the 190 retail problems in the paper. Generated directly by the AI, with no checking.</p>
     </figure>
+    </li>
+    <li class="news-s">
+      <div>
+        <p class="news-date">13 November 2026</p>
+        <h3 class="news-t"><a href="news-book-en">An Introduction to Artificial Intelligence, written by Thrice, is published and free to read</a></h3>
+        <p>The book is for employees and managers who have never studied artificial intelligence. It needs no programming and no mathematics. It has 90 pages, 11 chapters and 33 exercises with answers, and it is the textbook of the course Thrice gives with every job. It is written in Chinese.</p>
+        <p class="see-all"><a class="link" href="news-book-en">Read the article</a><a class="link" href="ai-intro-book.pdf" target="_blank" rel="noopener">Open the book</a></p>
+      </div>
+      <a class="news-cover" href="news-book-en" aria-label="Read about An Introduction to Artificial Intelligence"><img src="book-cover.jpg" width="640" height="899" loading="lazy" alt="Cover of An Introduction to Artificial Intelligence."></a>
     </li>
   </ul>
   <p class="news-more">For earlier work, see <a href="cases-en">past projects</a> and <a href="about-en">about Thrice</a>.</p>
