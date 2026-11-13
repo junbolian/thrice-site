@@ -962,6 +962,9 @@ h4{font-size:14px;line-height:1.5;color:var(--mute);font-weight:700}
 .art-body h3{margin-top:34px;font-size:19px}
 .art-body p{margin-top:16px;font-size:17.5px;line-height:1.95}
 .art-body p strong{color:var(--ink)}
+.art-body .art-src{margin-top:10px;font-size:14px;line-height:1.7;color:var(--mute)}
+.art-body > h3{margin-top:44px;padding-top:22px;border-top:1px solid var(--line);font-family:var(--serif);font-size:23px;line-height:1.45}
+.art-body > h2 + p + h3{margin-top:28px}
 .art-body figure{margin-top:32px}
 .art-body figure img{display:block;width:100%;height:auto;border:1px solid var(--line);background:#fff}
 .art-body figcaption{margin-top:10px;font-size:14px;line-height:1.7;color:var(--mute)}
@@ -1084,22 +1087,22 @@ h4{font-size:14px;line-height:1.5;color:var(--mute);font-weight:700}
       <div>
         <p class="news-date">2026 年 11 月 13 日</p>
         <h3 class="news-t"><a href="news-reloop">三顾首席执行官为第一作者的论文 ReLoop 被 NeurIPS 2026 接收</a></h3>
-        <p>大模型写出的优化模型能运行、也给出了方案，但模型本身可能写错了。论文给出一套不需要标准答案的检验办法，并公开了 190 道零售优化题。代码在 GitHub 上公开，已有 122 个星标。</p>
+        <p>NeurIPS 是人工智能领域的顶级国际会议，2026 年约四分之一的投稿被接收。这篇论文解决的是企业用 AI 时的一个实际问题：AI 给出的方案看起来没有问题，其实是错的，怎样把它查出来。代码在 GitHub 上公开，已有 122 个星标。</p>
         <p class="see-all"><a class="link" href="news-reloop">读全文</a></p>
       </div>
-      <figure class="gap" role="img" aria-label="直接让大模型为 190 道零售优化题写代码：DeepSeek-V3.2 有 91.1% 的程序给出了可行方案，模型正确的只有 0.5%；Claude Opus 4.6 是 72.1% 和 22.6%。">
-      <figcaption><b>能运行，不等于算对了</b>直接让大模型为 190 道零售优化题写代码</figcaption>
+      <figure class="gap" role="img" aria-label="让 AI 直接为 190 道零售优化题做方案：DeepSeek-V3.2 有 91.1% 给出了方案，方案正确的只有 0.5%；Claude Opus 4.6 是 72.1% 和 22.6%。">
+      <figcaption><b>AI 给出了方案，不等于方案是对的</b>让 AI 直接为 190 道零售优化题做方案</figcaption>
       <div class="gap-g">
         <h4>DeepSeek-V3.2</h4>
-        <div class="gap-r"><span>给出可行方案</span><i style="--v:91.1"></i><b>91.1%</b></div>
-        <div class="gap-r right"><span>模型正确</span><i style="--v:0.5"></i><b>0.5%</b></div>
+        <div class="gap-r"><span>给出了方案</span><i style="--v:91.1"></i><b>91.1%</b></div>
+        <div class="gap-r right"><span>方案正确</span><i style="--v:0.5"></i><b>0.5%</b></div>
       </div>
       <div class="gap-g">
         <h4>Claude Opus 4.6</h4>
-        <div class="gap-r"><span>给出可行方案</span><i style="--v:72.1"></i><b>72.1%</b></div>
-        <div class="gap-r right"><span>模型正确</span><i style="--v:22.6"></i><b>22.6%</b></div>
+        <div class="gap-r"><span>给出了方案</span><i style="--v:72.1"></i><b>72.1%</b></div>
+        <div class="gap-r right"><span>方案正确</span><i style="--v:22.6"></i><b>22.6%</b></div>
       </div>
-      <p class="gap-note">数据来自论文的 RetailOpt-190 基准。模型直接生成，未经检验。</p>
+      <p class="gap-note">数据来自论文的 190 道零售题。AI 直接生成，没有经过检验。</p>
     </figure>
     </li>
   </ul>

@@ -1088,6 +1088,9 @@ p,dd,li{text-wrap:wrap}
 .art-body h3{margin-top:34px;font-size:19px}
 .art-body p{margin-top:16px;font-size:17.5px;line-height:1.95}
 .art-body p strong{color:var(--ink)}
+.art-body .art-src{margin-top:10px;font-size:14px;line-height:1.7;color:var(--mute)}
+.art-body > h3{margin-top:44px;padding-top:22px;border-top:1px solid var(--line);font-family:var(--serif);font-size:23px;line-height:1.45}
+.art-body > h2 + p + h3{margin-top:28px}
 .art-body figure{margin-top:32px}
 .art-body figure img{display:block;width:100%;height:auto;border:1px solid var(--line);background:#fff}
 .art-body figcaption{margin-top:10px;font-size:14px;line-height:1.7;color:var(--mute)}
@@ -1210,22 +1213,22 @@ p,dd,li{text-wrap:wrap}
       <div>
         <p class="news-date">13 November 2026</p>
         <h3 class="news-t"><a href="news-reloop-en">ReLoop, with the CEO of Thrice as first author, is accepted at NeurIPS 2026</a></h3>
-        <p>An optimization model written by a large language model can run and return a plan while the model itself is wrong. The paper gives a way to check for this without reference answers, and releases 190 retail optimization problems. The code is public on GitHub and has 122 stars.</p>
+        <p>NeurIPS is a top international conference in artificial intelligence, and in 2026 it accepted about one in four submissions. The paper addresses a practical problem for any company that uses AI: a plan from an AI can look fine and still be wrong, and the question is how to find that out. The code is public on GitHub and has 122 stars.</p>
         <p class="see-all"><a class="link" href="news-reloop-en">Read the article</a></p>
       </div>
-      <figure class="gap" role="img" aria-label="Large language models asked directly to write code for 190 retail optimization problems: with DeepSeek-V3.2, 91.1% of programs return a feasible plan and 0.5% encode the correct model; with Claude Opus 4.6, 72.1% and 22.6%.">
-      <figcaption><b>It runs, but is it right?</b>Models asked directly to write code for 190 retail optimization problems</figcaption>
+      <figure class="gap" role="img" aria-label="An AI asked directly for plans for 190 retail optimization problems: with DeepSeek-V3.2, 91.1% return a plan and 0.5% of the plans are right; with Claude Opus 4.6, 72.1% and 22.6%.">
+      <figcaption><b>The AI gives a plan. Is the plan right?</b>An AI asked directly for plans for 190 retail optimization problems</figcaption>
       <div class="gap-g">
         <h4>DeepSeek-V3.2</h4>
-        <div class="gap-r"><span>Feasible plan</span><i style="--v:91.1"></i><b>91.1%</b></div>
-        <div class="gap-r right"><span>Correct model</span><i style="--v:0.5"></i><b>0.5%</b></div>
+        <div class="gap-r"><span>Gives a plan</span><i style="--v:91.1"></i><b>91.1%</b></div>
+        <div class="gap-r right"><span>Plan is right</span><i style="--v:0.5"></i><b>0.5%</b></div>
       </div>
       <div class="gap-g">
         <h4>Claude Opus 4.6</h4>
-        <div class="gap-r"><span>Feasible plan</span><i style="--v:72.1"></i><b>72.1%</b></div>
-        <div class="gap-r right"><span>Correct model</span><i style="--v:22.6"></i><b>22.6%</b></div>
+        <div class="gap-r"><span>Gives a plan</span><i style="--v:72.1"></i><b>72.1%</b></div>
+        <div class="gap-r right"><span>Plan is right</span><i style="--v:22.6"></i><b>22.6%</b></div>
       </div>
-      <p class="gap-note">From the RetailOpt-190 benchmark in the ReLoop paper. Direct generation, with no checking.</p>
+      <p class="gap-note">From the 190 retail problems in the paper. Generated directly by the AI, with no checking.</p>
     </figure>
     </li>
   </ul>
