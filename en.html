@@ -671,6 +671,9 @@ h4{font-size:14px;line-height:1.5;color:var(--mute);font-weight:700}
 .caps4{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0 28px}
 .caps4 > li{display:flex;flex-direction:column}
 .caps4 .cap-v{height:150px;padding:16px 16px 14px 22px}
+.caps4 .mv-two{gap:8px}
+.caps4 .mv-opt{padding:11px 6px 10px;min-width:0}
+.caps4 .mv-opt b,.caps4 .mv-opt span{overflow-wrap:anywhere}
 .caps4 h3{margin-top:20px;font-family:var(--serif);font-size:23px;line-height:1.4}
 .caps4 > li > p{margin-top:6px;font-size:15px;line-height:1.55;color:var(--mute);min-height:3.5em}
 .cap-names{margin-top:14px;padding-top:14px;border-top:1px solid var(--line)}
@@ -836,9 +839,10 @@ h4{font-size:14px;line-height:1.5;color:var(--mute);font-weight:700}
   .tracks{grid-template-columns:minmax(0,1fr);gap:18px}
 }
 /* narrow tablets: keep the menu on one line */
-@media (max-width:860px){
-  .head-in{gap:24px}
-  .nav{gap:18px}
+@media (max-width:940px){
+  .head-in{gap:20px}
+  .nav{gap:13px}
+  .nav a{font-size:15.5px}
 }
 @media (max-width:359px){
   .hero-cta .btn{height:auto;min-height:56px;padding:8px 20px;line-height:1.3;text-align:center}
@@ -1030,6 +1034,148 @@ p,dd,li{text-wrap:wrap}
 .train-h h3 .heavy{letter-spacing:0}
 .train-h h3{flex-direction:column;align-items:flex-start;gap:4px}
 @media (min-width:901px){.train-list b{min-width:9em}}
+
+/* ================= news ================= */
+/* the finding the paper opens with, as two pairs of bars on ink with the cut corner */
+.gap{background:var(--ink);color:#D9DDE5;padding:34px 36px 30px 44px;clip-path:polygon(34px 0,100% 0,100% 100%,0 100%,0 34px)}
+.gap figcaption{font-size:15px;line-height:1.6;color:#AEB6C4}
+.gap figcaption b{display:block;font-size:17px;color:#fff;font-weight:700}
+.gap-g{margin-top:24px}
+.gap-g + .gap-g{padding-top:22px;border-top:1px solid rgba(255,255,255,.16)}
+.gap-g h4{font-size:14px;color:#fff;font-weight:700}
+.gap-r{display:grid;grid-template-columns:7.2em minmax(0,1fr) 78px;gap:14px;align-items:center;margin-top:10px;font-size:14.5px;line-height:1.5;color:#C9CFDA}
+.gap-r i{display:block;height:14px;background:#262B36}
+.gap-r i::before{content:"";display:block;height:100%;width:calc(var(--v)*1%);min-width:3px;background:#8E97A8}
+.gap-r.right i::before{background:#7C9BFF}
+.gap-r b{font-family:var(--serif);font-size:23px;line-height:1.2;color:#fff;text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+.gap-r.right b{color:#9DB4FF}
+.gap-note{margin-top:22px;font-size:13.5px;line-height:1.7;color:#8E97A8;text-wrap:balance}
+@media (prefers-reduced-motion:no-preference){
+  .js .gap-r i::before{transform-origin:left center;animation:gapgrow 1s cubic-bezier(.2,.7,.2,1) .25s both}
+}
+@keyframes gapgrow{from{transform:scaleX(0)}}
+
+/* the news block on the home page, and the list on the news page */
+.news-s{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:72px;align-items:center}
+.news-date{font-size:14.5px;line-height:1.6;color:var(--mute);font-variant-numeric:tabular-nums}
+.news-s h2 + .news-date{margin-top:26px}
+.news-t{margin-top:6px;font-family:var(--serif);font-size:clamp(23px,2.3vw,30px);line-height:1.42;color:var(--ink)}
+.news-t a{color:inherit}
+.news-t a:hover{color:var(--blue);text-decoration:none}
+.news-s .news-t + p{margin-top:14px;font-size:17px;line-height:1.9}
+@media (min-width:1081px){.home .news-s .gap{order:-1}}
+.news-list > li{padding:44px 0;border-top:3px solid var(--ink)}
+.news-list > li:last-child{padding-bottom:0}
+.news-more{margin-top:56px;padding-top:22px;border-top:1px solid var(--line);font-size:16px;color:var(--mute)}
+
+/* the article */
+.art{padding-top:72px}
+.art-top{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:64px;align-items:center}
+.art-crumb{display:flex;flex-wrap:wrap;gap:4px 18px;font-size:15px;line-height:1.6;color:var(--mute);font-variant-numeric:tabular-nums}
+.art-crumb a{font-weight:600}
+.art h1{margin-top:16px;font-size:clamp(31px,3.7vw,50px);line-height:1.3;word-spacing:-.1em;text-wrap:balance}
+.art-lead{margin-top:24px;font-size:19px;line-height:1.9;color:var(--text)}
+.art-main{display:grid;grid-template-columns:250px minmax(0,1fr);gap:72px;align-items:start;margin-top:80px;padding-top:44px;border-top:3px solid var(--ink)}
+.art-facts{position:sticky;top:116px}
+.art-facts .fact + .fact{margin-top:20px}
+.art-facts dt{font-size:13.5px;font-weight:700;color:var(--blue)}
+.art-facts dd{margin-top:3px;font-size:15.5px;line-height:1.7;color:var(--ink)}
+.art-facts dd small{display:block;font-size:13.5px;color:var(--mute)}
+.art-links{margin-top:26px;padding-top:20px;border-top:1px solid var(--line);display:grid;gap:10px;justify-items:start;font-size:15.5px}
+.art-body{max-width:46em}
+.art-body h2{margin-top:68px;font-size:clamp(25px,2.5vw,33px);line-height:1.4}
+.art-body h2:first-child{margin-top:0}
+.art-body h3{margin-top:34px;font-size:19px}
+.art-body p{margin-top:16px;font-size:17.5px;line-height:1.95}
+.art-body p strong{color:var(--ink)}
+.art-body figure{margin-top:32px}
+.art-body figure img{display:block;width:100%;height:auto;border:1px solid var(--line);background:#fff}
+.art-body figcaption{margin-top:10px;font-size:14px;line-height:1.7;color:var(--mute)}
+.art-steps{margin-top:18px;counter-reset:st}
+.art-steps li{counter-increment:st;position:relative;padding:14px 0 14px 46px;border-top:1px solid var(--line);font-size:17px;line-height:1.85}
+.art-steps li:last-child{border-bottom:1px solid var(--line)}
+.art-steps li::before{content:counter(st);position:absolute;left:0;top:11px;font-family:var(--serif);font-weight:700;font-size:26px;line-height:1.4;color:var(--blue)}
+.art-steps b{color:var(--ink)}
+/* how the second check decides */
+.rule{margin-top:28px;background:var(--mist);padding:28px 32px 26px 40px;clip-path:polygon(26px 0,100% 0,100% 100%,0 100%,0 26px)}
+.rule h3{margin-top:0;font-size:17px}
+.rule ul{margin-top:14px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0 24px}
+.rule li{padding-left:18px;border-left:3px solid var(--line);font-size:15px;line-height:1.7;color:var(--text)}
+.rule li b{display:block;font-size:16.5px;color:var(--ink)}
+.rule li.warn{border-left-color:#D99A2B}
+.rule li.pass{border-left-color:var(--ok)}
+.rule p{margin-top:18px;font-size:14.5px;line-height:1.8;color:var(--mute)}
+/* results: before and after on three sets of problems */
+.res{margin-top:28px;display:grid;gap:22px}
+.res-g{display:grid;grid-template-columns:11.5em minmax(0,1fr);gap:6px 24px;align-items:center;padding-top:20px;border-top:1px solid var(--line)}
+.res-g h4{grid-row:span 2;font-size:16px;line-height:1.5;color:var(--ink)}
+.res-g h4 small{display:block;margin-top:2px;font-size:13.5px;font-weight:400;color:var(--mute)}
+.res-r{display:grid;grid-template-columns:5.4em minmax(0,1fr) 3.4em;gap:12px;align-items:center;font-size:14.5px;line-height:1.5;color:var(--mute)}
+.res-r i{display:block;height:13px;background:var(--hair)}
+.res-r i::before{content:"";display:block;height:100%;width:calc(var(--v)*1%);background:#A4ACBA}
+.res-r.new{color:var(--ink);font-weight:600}
+.res-r.new i::before{background:var(--blue)}
+.res-r b{text-align:right;font-size:16px;color:var(--ink);font-variant-numeric:tabular-nums}
+.tbl{margin-top:28px;overflow-x:auto}
+.tbl table{width:100%;min-width:520px;border-collapse:collapse;font-size:15.5px;line-height:1.6;font-variant-numeric:tabular-nums}
+.tbl caption{caption-side:top;text-align:left;padding-bottom:10px;font-size:15px;font-weight:700;color:var(--ink)}
+.tbl th,.tbl td{padding:9px 10px;text-align:right;border-bottom:1px solid var(--line)}
+.tbl th:first-child,.tbl td:first-child{text-align:left;padding-left:0}
+.tbl thead th{white-space:nowrap;font-size:13.5px;color:var(--mute);font-weight:700;border-bottom:2px solid var(--ink);vertical-align:bottom}
+.tbl thead tr:first-child th{border-bottom:0;padding-bottom:0;color:var(--ink);text-align:center}
+.tbl td.up{color:var(--blue-d);font-weight:700}
+.kv{margin-top:26px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0 28px}
+.kv li{padding-top:14px;border-top:3px solid var(--ink);font-size:15px;line-height:1.7;color:var(--text)}
+.kv b{display:block;font-family:var(--serif);font-size:32px;line-height:1.25;color:var(--ink);font-variant-numeric:tabular-nums}
+.fam{margin-top:26px;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line)}
+.fam li{background:#fff;padding:14px 16px 15px;font-size:14px;line-height:1.65;color:var(--mute)}
+.fam b{display:block;font-size:16px;color:var(--ink)}
+.means{margin-top:22px}
+.means li{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,8fr);gap:8px 32px;padding:20px 0;border-top:1px solid var(--line)}
+.means li:last-child{border-bottom:1px solid var(--line)}
+.means h3{margin-top:0;font-family:var(--serif);font-size:21px;line-height:1.5}
+.means p{margin-top:0;font-size:16.5px;line-height:1.9}
+.cite{margin-top:22px;padding:22px 26px;border-left:4px solid var(--blue);background:var(--tint2);font-size:15.5px;line-height:1.85;color:var(--ink)}
+.cite p{margin-top:0;font-size:15.5px;line-height:1.85}
+.cite p + p{margin-top:10px;color:var(--mute);font-size:14.5px}
+.art-body .poster{margin-top:36px}
+.art-body .poster a{display:block;line-height:0}
+.art-body .poster a:hover img{border-color:var(--blue)}
+.art-back{margin-top:64px}
+
+@media (max-width:1080px){
+  .news-s{grid-template-columns:minmax(0,1fr);gap:40px}
+  .art-top{grid-template-columns:minmax(0,1fr);gap:40px}
+  .art-main{grid-template-columns:minmax(0,1fr);gap:44px;margin-top:64px}
+  .art-facts{position:static;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 32px}
+  .art-facts dl{display:contents}
+  .art-facts .fact,.art-facts .fact + .fact{margin:0 0 18px}
+  .art-links{grid-column:1 / -1;grid-template-columns:repeat(2,minmax(0,1fr));margin-top:8px}
+}
+@media (max-width:760px){
+  .gap{padding:28px 24px 26px 30px}
+  .gap-r{grid-template-columns:6.4em minmax(0,1fr) 66px;gap:10px;font-size:14px}
+  .gap-r b{font-size:20px}
+  .art{padding-top:48px}
+  .art-lead{font-size:17.5px}
+  .art-body p{font-size:17px}
+  .rule{padding:24px 22px 22px 28px}
+  .rule ul{grid-template-columns:minmax(0,1fr);gap:14px}
+  .res-g{grid-template-columns:minmax(0,1fr);gap:6px}
+  .res-g h4{grid-row:auto;margin-bottom:4px}
+  .kv{grid-template-columns:minmax(0,1fr);gap:18px}
+  .tbl table{min-width:0;font-size:13.5px}
+  .tbl th,.tbl td{padding:8px 4px}
+  .tbl thead th{font-size:12px}
+  .tbl td:first-child{overflow-wrap:anywhere}
+  .fam{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .means li{grid-template-columns:minmax(0,1fr)}
+  .news-list > li{padding:34px 0}
+}
+@media (max-width:520px){
+  .art-facts{grid-template-columns:minmax(0,1fr)}
+  .art-links{grid-template-columns:minmax(0,1fr)}
+}
 </style>
 </head>
 <body class="home">
@@ -1042,6 +1188,7 @@ p,dd,li{text-wrap:wrap}
     <a href="services-en">Services</a>
     <a href="demo-en">Example</a>
     <a href="cases-en">Cases</a>
+    <a href="news-en">News</a>
     <a href="about-en">About</a>
     <a href="join-en">Join</a>
     <a class="nav-cta" href="contact-en">Contact us</a>
@@ -1266,6 +1413,30 @@ p,dd,li{text-wrap:wrap}
     </figure>
 </div></section>
 
+<section class="s s-mist" id="news"><div class="wrap news-s">
+  <div>
+    <h2>News</h2>
+    <p class="news-date">13 November 2026</p>
+    <h3 class="news-t"><a href="news-reloop-en">ReLoop, with the CEO of Thrice as first author, is accepted at NeurIPS 2026</a></h3>
+    <p>An optimization model written by a large language model can run and return a plan while the model itself is wrong. The paper gives a way to check for this without reference answers, and releases 190 retail optimization problems.</p>
+    <p class="see-all"><a class="link" href="news-reloop-en">Read the article</a><a class="link" href="news-en">All news</a></p>
+  </div>
+  <figure class="gap" role="img" aria-label="Large language models asked directly to write code for 190 retail optimization problems: with DeepSeek-V3.2, 91.1% of programs return a feasible plan and 0.5% encode the correct model; with Claude Opus 4.6, 72.1% and 22.6%.">
+      <figcaption><b>It runs, but is it right?</b>Models asked directly to write code for 190 retail optimization problems</figcaption>
+      <div class="gap-g">
+        <h4>DeepSeek-V3.2</h4>
+        <div class="gap-r"><span>Feasible plan</span><i style="--v:91.1"></i><b>91.1%</b></div>
+        <div class="gap-r right"><span>Correct model</span><i style="--v:0.5"></i><b>0.5%</b></div>
+      </div>
+      <div class="gap-g">
+        <h4>Claude Opus 4.6</h4>
+        <div class="gap-r"><span>Feasible plan</span><i style="--v:72.1"></i><b>72.1%</b></div>
+        <div class="gap-r right"><span>Correct model</span><i style="--v:22.6"></i><b>22.6%</b></div>
+      </div>
+      <p class="gap-note">From the RetailOpt-190 benchmark in the ReLoop paper. Direct generation, with no checking.</p>
+    </figure>
+</div></section>
+
 <section class="s s-blue" id="contact"><div class="wrap contact cta">
   <div>
     <h2>Start with a <span class="nw">one-hour</span> conversation</h2>
@@ -1284,6 +1455,7 @@ p,dd,li{text-wrap:wrap}
     <a href="services-en">Services</a>
     <a href="demo-en">Example</a>
     <a href="cases-en">Cases</a>
+    <a href="news-en">News</a>
     <a href="why-en">Compared with others</a>
     <a href="about-en">About</a>
     <a href="faq-en">Questions</a>
@@ -1291,7 +1463,7 @@ p,dd,li{text-wrap:wrap}
     <a href="contact-en">Contact us</a>
   </nav>
   <svg role="img" aria-label="Thrice" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 464 200"><rect x="0" y="0" width="200" height="200" rx="45" fill="#3366FF"/><path d="M113.01 160L130 143.01L146.99 160L160 160L135 135L135 80L125 80L125 135L100 160ZM145 70L145 130L155 130L155 60L135 60L135 50L160 50L160 40L100 40L100 50L125 50L125 60L105 60L105 130L115 130L115 70ZM50 150L50 50L95 50L95 40L49.88 40L40 49.88L40 160ZM62.5 70L62.5 80L92.5 80L92.5 70ZM65 95L65 105L90 105L90 95Z" fill="#FFFFFF"/><path d="M95 120L60 120L60 130L95 130Z" fill="#FFFFFF"/><path d="M261 28.5L261 39.7L335 39.7L335 28.5ZM267 65.9L267 77.1L329 77.1L329 65.9Z" fill="#FFFFFF"/><path d="M342 103.3L254 103.3L254 114.5L342 114.5Z" fill="#FFFFFF"/><path d="M439 107.34L453.16 121.5L464 121.5L443.17 100.67L443.17 54.83L434.83 54.83L434.83 100.67L414 121.5L424.84 121.5ZM434.83 29.83L434.83 38.17L418.17 38.17L418.17 96.5L426.5 96.5L426.5 46.5L451.5 46.5L451.5 96.5L459.83 96.5L459.83 38.17L443.17 38.17L443.17 29.83L464 29.83L464 21.5L414 21.5L414 29.83ZM380.67 46.92L380.67 96.08L409.83 96.08L409.83 82.33L402.58 82.33L402.58 88.58L387.92 88.58L387.92 75.25L409.83 75.25L409.83 46.92ZM402.58 67.75L387.92 67.75L387.92 54.42L402.58 54.42ZM409.83 21.5L372.23 21.5L364 29.73L364 121.5L372.33 113.17L372.33 29.83L409.83 29.83Z" fill="#FFFFFF"/><path d="M266.01 178.5V156.73H254V151.46H283.99V156.73H271.99V178.5ZM293.33 178.5V151.46H299.31V162.09H317.69V151.46H323.67V178.5H317.69V167.36H299.31V178.5ZM335.8 178.5V151.46H357.21Q360.08 151.46 361.91 152.62Q363.74 153.78 364.65 155.69Q365.55 157.6 365.55 159.92Q365.55 162.32 364.31 164.43Q363.07 166.53 360.48 167.72L366.22 178.5H359.49L354.53 168.86H341.78V178.5ZM341.78 163.9H355.56Q357.41 163.9 358.41 162.82Q359.41 161.73 359.41 160.04Q359.41 158.9 358.98 158.09Q358.55 157.29 357.68 156.87Q356.82 156.46 355.56 156.46H341.78ZM376.5 178.5V151.46H382.48V178.5ZM410 178.97Q404.53 178.97 400.83 177.38Q397.13 175.78 395.28 172.66Q393.43 169.53 393.43 164.96Q393.43 158.27 397.68 154.63Q401.93 150.99 409.96 150.99Q414.53 150.99 418.01 152.29Q421.49 153.59 423.44 156.03Q425.39 158.47 425.39 161.93H419.52Q419.52 159.96 418.3 158.64Q417.08 157.33 414.92 156.66Q412.75 155.99 409.84 155.99Q406.69 155.99 404.39 156.99Q402.09 157.99 400.83 159.88Q399.57 161.77 399.57 164.45V165.43Q399.57 168.15 400.83 170.06Q402.09 171.97 404.41 172.97Q406.73 173.97 409.88 173.97Q412.91 173.97 415.1 173.32Q417.28 172.67 418.48 171.36Q419.68 170.04 419.68 168.11H425.43Q425.43 171.49 423.5 173.93Q421.57 176.37 418.11 177.67Q414.64 178.97 410 178.97ZM436.33 178.5V151.46H463.69V156.46H442.32V162.24H461.33V167.24H442.32V173.5H464V178.5Z" fill="#FFFFFF"/></svg>
-  <p>Thrice is being set up. The registered company name will be published here once registration is complete.</p>
+  <p>Thrice (Zhejiang) Artificial Intelligence Technology Co., Ltd.</p>
   <p>© 2026 Thrice</p>
 </div></footer>
 
