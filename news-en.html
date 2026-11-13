@@ -911,6 +911,20 @@ h4{font-size:14px;line-height:1.5;color:var(--mute);font-weight:700}
   .foot-nav{gap:8px 24px}
 }
 
+/* eleven links in the menu: tighter spacing on small desktops, and the three-bar menu below 1040px */
+@media (min-width:1041px) and (max-width:1260px){.nav{gap:22px}.head-in{gap:24px}}
+@media (max-width:1040px){
+  .nav{display:none}
+  .lang{margin-left:auto}
+}
+@media (max-width:1040px){
+  .menu-btn{display:inline-flex}
+  .head.open .nav{display:flex;position:absolute;left:0;right:0;top:100%;margin:0;flex-direction:column;gap:0;padding:4px 20px 14px;background:#fff;border-bottom:1px solid var(--hair);box-shadow:0 18px 30px -18px rgba(20,22,26,.25)}
+  .head.open .nav a{padding:15px 2px;font-size:17px;font-weight:600;border-bottom:1px solid var(--hair)}
+  .head.open .nav a:last-child{border-bottom:0}
+  .head.open .nav a.on::after{display:none}
+}
+
 /* ================= English page ================= */
 :root{
   --serif:"Thrice Display",Georgia,"Times New Roman","Songti SC","Noto Serif CJK SC",serif;
@@ -982,7 +996,7 @@ h2{font-size:clamp(28px,3.1vw,40px);line-height:1.2;word-spacing:normal}
   .ticks{margin-top:26px}
 }
 /* the English menu is wider than the Chinese one: it gives way earlier */
-@media (max-width:1040px){
+@media (max-width:1240px){
   .nav{display:none}
   .lang{margin-left:auto}
 }
@@ -1021,7 +1035,7 @@ p,dd,li{text-wrap:wrap}
 }
 .tracks-s h3{font-size:24px;white-space:nowrap}
 
-@media (max-width:1040px){
+@media (max-width:1240px){
   .menu-btn{display:inline-flex}
   .head.open .nav{display:flex;position:absolute;left:0;right:0;top:100%;margin:0;flex-direction:column;gap:0;padding:4px 20px 14px;background:#fff;border-bottom:1px solid var(--hair);box-shadow:0 18px 30px -18px rgba(20,22,26,.25)}
   .head.open .nav a{padding:15px 2px;font-size:17px;font-weight:600;border-bottom:1px solid var(--hair)}
@@ -1036,6 +1050,9 @@ p,dd,li{text-wrap:wrap}
 .train-h h3 .heavy{letter-spacing:0}
 .train-h h3{flex-direction:column;align-items:flex-start;gap:4px}
 @media (min-width:901px){.train-list b{min-width:9em}}
+
+/* eleven links: tighter spacing until the screen is wide */
+@media (min-width:1241px) and (max-width:1560px){.nav{gap:20px}.head-in{gap:24px}}
 
 /* ================= news ================= */
 /* the finding the paper opens with, as two pairs of bars on ink with the cut corner */
@@ -1200,11 +1217,13 @@ p,dd,li{text-wrap:wrap}
 <header class="head"><div class="wrap head-in">
   <a class="brand" href="en" aria-label="Thrice, back to the home page"><svg role="img" aria-label="Thrice" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 464 200"><rect x="0" y="0" width="200" height="200" rx="45" fill="#14161A"/><path d="M113.01 160L130 143.01L146.99 160L160 160L135 135L135 80L125 80L125 135L100 160ZM145 70L145 130L155 130L155 60L135 60L135 50L160 50L160 40L100 40L100 50L125 50L125 60L105 60L105 130L115 130L115 70ZM50 150L50 50L95 50L95 40L49.88 40L40 49.88L40 160ZM62.5 70L62.5 80L92.5 80L92.5 70ZM65 95L65 105L90 105L90 95Z" fill="#FFFFFF"/><path d="M95 120L60 120L60 130L95 130Z" fill="#3366FF"/><path d="M261 28.5L261 39.7L335 39.7L335 28.5ZM267 65.9L267 77.1L329 77.1L329 65.9Z" fill="#14161A"/><path d="M342 103.3L254 103.3L254 114.5L342 114.5Z" fill="#14161A"/><path d="M439 107.34L453.16 121.5L464 121.5L443.17 100.67L443.17 54.83L434.83 54.83L434.83 100.67L414 121.5L424.84 121.5ZM434.83 29.83L434.83 38.17L418.17 38.17L418.17 96.5L426.5 96.5L426.5 46.5L451.5 46.5L451.5 96.5L459.83 96.5L459.83 38.17L443.17 38.17L443.17 29.83L464 29.83L464 21.5L414 21.5L414 29.83ZM380.67 46.92L380.67 96.08L409.83 96.08L409.83 82.33L402.58 82.33L402.58 88.58L387.92 88.58L387.92 75.25L409.83 75.25L409.83 46.92ZM402.58 67.75L387.92 67.75L387.92 54.42L402.58 54.42ZM409.83 21.5L372.23 21.5L364 29.73L364 121.5L372.33 113.17L372.33 29.83L409.83 29.83Z" fill="#14161A"/><path d="M266.01 178.5V156.73H254V151.46H283.99V156.73H271.99V178.5ZM293.33 178.5V151.46H299.31V162.09H317.69V151.46H323.67V178.5H317.69V167.36H299.31V178.5ZM335.8 178.5V151.46H357.21Q360.08 151.46 361.91 152.62Q363.74 153.78 364.65 155.69Q365.55 157.6 365.55 159.92Q365.55 162.32 364.31 164.43Q363.07 166.53 360.48 167.72L366.22 178.5H359.49L354.53 168.86H341.78V178.5ZM341.78 163.9H355.56Q357.41 163.9 358.41 162.82Q359.41 161.73 359.41 160.04Q359.41 158.9 358.98 158.09Q358.55 157.29 357.68 156.87Q356.82 156.46 355.56 156.46H341.78ZM376.5 178.5V151.46H382.48V178.5ZM410 178.97Q404.53 178.97 400.83 177.38Q397.13 175.78 395.28 172.66Q393.43 169.53 393.43 164.96Q393.43 158.27 397.68 154.63Q401.93 150.99 409.96 150.99Q414.53 150.99 418.01 152.29Q421.49 153.59 423.44 156.03Q425.39 158.47 425.39 161.93H419.52Q419.52 159.96 418.3 158.64Q417.08 157.33 414.92 156.66Q412.75 155.99 409.84 155.99Q406.69 155.99 404.39 156.99Q402.09 157.99 400.83 159.88Q399.57 161.77 399.57 164.45V165.43Q399.57 168.15 400.83 170.06Q402.09 171.97 404.41 172.97Q406.73 173.97 409.88 173.97Q412.91 173.97 415.1 173.32Q417.28 172.67 418.48 171.36Q419.68 170.04 419.68 168.11H425.43Q425.43 171.49 423.5 173.93Q421.57 176.37 418.11 177.67Q414.64 178.97 410 178.97ZM436.33 178.5V151.46H463.69V156.46H442.32V162.24H461.33V167.24H442.32V173.5H464V178.5Z" fill="#14161A"/></svg></a>
   <nav class="nav" aria-label="Page navigation">
+    <a href="en">Home</a>
     <a href="method-en">Method</a>
     <a href="pricing-en">Prices</a>
     <a href="services-en">Services</a>
     <a href="demo-en">Example</a>
     <a href="cases-en">Cases</a>
+    <a href="why-en">Why Thrice</a>
     <a class="on" href="news-en" aria-current="page">News</a>
     <a href="about-en">About</a>
     <a href="join-en">Join</a>
@@ -1277,7 +1296,7 @@ p,dd,li{text-wrap:wrap}
     <a href="demo-en">Example</a>
     <a href="cases-en">Cases</a>
     <a href="news-en">News</a>
-    <a href="why-en">Compared with others</a>
+    <a href="why-en">Why Thrice</a>
     <a href="about-en">About</a>
     <a href="faq-en">Questions</a>
     <a href="join-en">Join</a>
