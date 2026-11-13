@@ -645,24 +645,40 @@ h4{font-size:14px;line-height:1.5;color:var(--mute);font-weight:700}
 @media (max-width:900px){.cmp-foot{grid-template-columns:minmax(0,1fr);gap:16px;padding:26px 24px}.cmp-foot ul{grid-template-columns:minmax(0,1fr);gap:18px}}
 .s-ink .s-head p{color:#AEB6C4}
 /* short sections on the home page, and the link to the page with the rest */
-.steps-s .step{padding-bottom:8px}
-.steps-s .step h3 + p{margin-top:14px;font-size:17px;line-height:1.6;text-wrap:balance}
-.pledge{margin-top:36px;padding:18px 24px;border-left:4px solid var(--blue);background:var(--tint2);font-size:17px;line-height:1.6;color:var(--ink)}
+.steps-s .step h3 + p{margin-top:14px;font-size:16.5px;line-height:1.6}
+.steps-s .step .gets-s{margin-top:auto;padding-top:16px;font-size:15.5px;line-height:1.55;color:var(--ink)}
+.gets-s span{display:block;margin-top:16px;padding-top:14px;border-top:1px solid var(--line);font-size:13.5px;font-weight:700;color:var(--blue)}
+.pledges{margin-top:44px;display:grid;grid-template-columns:200px minmax(0,1fr);gap:0 36px;align-items:center;padding:26px 32px;background:var(--mist);clip-path:polygon(26px 0,100% 0,100% 100%,0 100%,0 26px)}
+.pledges h3{font-family:var(--serif);font-size:24px;line-height:1.45;color:var(--ink)}
+.pledges ul{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0 32px}
+.pledges li{padding-left:22px;border-left:1px solid var(--hair)}
+.pledges h4{font-size:19px;color:var(--ink)}
+.pledges p{margin-top:2px;font-size:14.5px;line-height:1.5;color:var(--mute)}
+.pledges b{display:block;margin-top:8px;font-size:16px;color:var(--blue)}
 .see-all{margin-top:34px;display:flex;flex-wrap:wrap;gap:14px 36px}
 .see-all .link{font-size:17px}
-.s-ink .see-all .link{color:#9DB4FF}
-/* the four situations on the home page: a heading and four short columns */
-.thesis-s{padding-bottom:96px}
-.sit-top{display:flex;align-items:flex-end;justify-content:space-between;gap:24px 56px;flex-wrap:wrap;margin-bottom:44px}
-.sit-top h2 br{display:none}
-.sit-top p{font-family:var(--serif);font-size:22px;line-height:1.5;color:#AEB6C4}
-.sit-row{grid-template-columns:repeat(4,minmax(0,1fr));gap:0 36px}
-.sit-row li{grid-template-columns:minmax(0,1fr);gap:12px;padding:24px 0 0;align-content:start}
-.thesis .sit-row p{font-size:15.5px;line-height:1.55;text-wrap:balance}
+.s-ink .see-all .link{color:#9DB4FF;border-bottom-color:#9DB4FF}
+/* the home page: sections sit a little closer */
+.home .s{padding:88px 0}
+.home .s-head{margin-bottom:44px}
+.home .thesis{padding-top:116px}
+/* the four situations on the home page: heading and lead on top, the four across the page */
+.home .thesis-s{padding-bottom:80px}
+.sit-top{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:24px 72px;align-items:end;margin-bottom:52px}
+.thesis .sit-top p{color:#D5DAE3;font-size:17.5px;line-height:1.7}
+.thesis-s .sit-h{padding-bottom:18px}
+/* the four areas of work on the home page */
+.caps4{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0 28px}
+.caps4 > li{display:flex;flex-direction:column}
+.caps4 .cap-v{height:150px;padding:16px 16px 14px 22px}
+.caps4 h3{margin-top:20px;font-family:var(--serif);font-size:23px;line-height:1.4}
+.caps4 > li > p{margin-top:6px;font-size:15px;line-height:1.55;color:var(--mute);min-height:3.5em}
+.cap-names{margin-top:14px;padding-top:14px;border-top:1px solid var(--line)}
+.cap-names li{position:relative;padding-left:18px;font-size:15px;line-height:1.75;color:var(--ink)}
+.cap-names li::before{content:"";position:absolute;left:0;top:.92em;width:9px;height:3px;background:var(--blue)}
 /* one project on the home page */
 .case-s{align-items:center}
 .case-s h2 + p{margin-top:20px;font-size:18px;line-height:1.7;color:var(--text)}
-.s-mist .case-fig{background:#fff}
 /* the footer lists every page */
 .foot-nav{flex-basis:100%;display:flex;flex-wrap:wrap;gap:8px 30px;padding-bottom:26px;margin-bottom:4px;border-bottom:1px solid rgba(255,255,255,.14)}
 .foot-nav a{color:#D5DAE3;font-size:15px}
@@ -866,17 +882,25 @@ h4{font-size:14px;line-height:1.5;color:var(--mute);font-weight:700}
   .head.open .nav .nav-cta{display:block;color:var(--blue)}
 }
 @media (max-width:1080px){
-  .sit-row{grid-template-columns:repeat(2,minmax(0,1fr));gap:0 40px}
-  .sit-row li{padding:22px 0 26px}
+  .sit-top{grid-template-columns:minmax(0,1fr);margin-bottom:40px}
+  .caps4{grid-template-columns:repeat(2,minmax(0,1fr));gap:44px 36px}
+  .pledges{grid-template-columns:minmax(0,1fr);gap:18px}
+  .pledges h3 br{display:none}
 }
 @media (max-width:760px){
-  .thesis-s{padding-bottom:64px}
+  .home .s{padding:64px 0}
+  .home .thesis{padding-top:84px}
+  .home .thesis-s{padding-bottom:56px}
+  .home .s-head{margin-bottom:32px}
   .sit-top{margin-bottom:28px}
-  .sit-top h2 br{display:inline}
-  .sit-top p{font-size:19px}
-  .sit-row{grid-template-columns:minmax(0,1fr)}
-  .sit-row li{grid-template-columns:40px minmax(0,1fr);gap:0;padding:18px 0 20px}
-  .pledge{padding:16px 18px;font-size:16.5px}
+  .caps4{grid-template-columns:minmax(0,1fr);gap:36px}
+  .caps4 .cap-v{display:none}
+  .caps4 h3{margin-top:0}
+  .caps4 > li > p{min-height:0}
+  .cap-names{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 14px}
+  .pledges{padding:24px 22px;clip-path:polygon(20px 0,100% 0,100% 100%,0 100%,0 20px)}
+  .pledges ul{grid-template-columns:minmax(0,1fr);gap:16px}
+  .pledges li{padding-left:16px}
   .see-all{gap:12px 28px}
   .foot-nav{gap:8px 24px}
 }
@@ -1008,7 +1032,7 @@ p,dd,li{text-wrap:wrap}
 @media (min-width:901px){.train-list b{min-width:9em}}
 </style>
 </head>
-<body>
+<body class="home">
 
 <header class="head"><div class="wrap head-in">
   <a class="brand" href="en" aria-label="Thrice, back to the top of the page"><svg role="img" aria-label="Thrice" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 464 200"><rect x="0" y="0" width="200" height="200" rx="45" fill="#14161A"/><path d="M113.01 160L130 143.01L146.99 160L160 160L135 135L135 80L125 80L125 135L100 160ZM145 70L145 130L155 130L155 60L135 60L135 50L160 50L160 40L100 40L100 50L125 50L125 60L105 60L105 130L115 130L115 70ZM50 150L50 50L95 50L95 40L49.88 40L40 49.88L40 160ZM62.5 70L62.5 80L92.5 80L92.5 70ZM65 95L65 105L90 105L90 95Z" fill="#FFFFFF"/><path d="M95 120L60 120L60 130L95 130Z" fill="#3366FF"/><path d="M261 28.5L261 39.7L335 39.7L335 28.5ZM267 65.9L267 77.1L329 77.1L329 65.9Z" fill="#14161A"/><path d="M342 103.3L254 103.3L254 114.5L342 114.5Z" fill="#14161A"/><path d="M439 107.34L453.16 121.5L464 121.5L443.17 100.67L443.17 54.83L434.83 54.83L434.83 100.67L414 121.5L424.84 121.5ZM434.83 29.83L434.83 38.17L418.17 38.17L418.17 96.5L426.5 96.5L426.5 46.5L451.5 46.5L451.5 96.5L459.83 96.5L459.83 38.17L443.17 38.17L443.17 29.83L464 29.83L464 21.5L414 21.5L414 29.83ZM380.67 46.92L380.67 96.08L409.83 96.08L409.83 82.33L402.58 82.33L402.58 88.58L387.92 88.58L387.92 75.25L409.83 75.25L409.83 46.92ZM402.58 67.75L387.92 67.75L387.92 54.42L402.58 54.42ZM409.83 21.5L372.23 21.5L364 29.73L364 121.5L372.33 113.17L372.33 29.83L409.83 29.83Z" fill="#14161A"/><path d="M266.01 178.5V156.73H254V151.46H283.99V156.73H271.99V178.5ZM293.33 178.5V151.46H299.31V162.09H317.69V151.46H323.67V178.5H317.69V167.36H299.31V178.5ZM335.8 178.5V151.46H357.21Q360.08 151.46 361.91 152.62Q363.74 153.78 364.65 155.69Q365.55 157.6 365.55 159.92Q365.55 162.32 364.31 164.43Q363.07 166.53 360.48 167.72L366.22 178.5H359.49L354.53 168.86H341.78V178.5ZM341.78 163.9H355.56Q357.41 163.9 358.41 162.82Q359.41 161.73 359.41 160.04Q359.41 158.9 358.98 158.09Q358.55 157.29 357.68 156.87Q356.82 156.46 355.56 156.46H341.78ZM376.5 178.5V151.46H382.48V178.5ZM410 178.97Q404.53 178.97 400.83 177.38Q397.13 175.78 395.28 172.66Q393.43 169.53 393.43 164.96Q393.43 158.27 397.68 154.63Q401.93 150.99 409.96 150.99Q414.53 150.99 418.01 152.29Q421.49 153.59 423.44 156.03Q425.39 158.47 425.39 161.93H419.52Q419.52 159.96 418.3 158.64Q417.08 157.33 414.92 156.66Q412.75 155.99 409.84 155.99Q406.69 155.99 404.39 156.99Q402.09 157.99 400.83 159.88Q399.57 161.77 399.57 164.45V165.43Q399.57 168.15 400.83 170.06Q402.09 171.97 404.41 172.97Q406.73 173.97 409.88 173.97Q412.91 173.97 415.1 173.32Q417.28 172.67 418.48 171.36Q419.68 170.04 419.68 168.11H425.43Q425.43 171.49 423.5 173.93Q421.57 176.37 418.11 177.67Q414.64 178.97 410 178.97ZM436.33 178.5V151.46H463.69V156.46H442.32V162.24H461.33V167.24H442.32V173.5H464V178.5Z" fill="#14161A"/></svg></a>
@@ -1089,14 +1113,15 @@ p,dd,li{text-wrap:wrap}
 <section class="s s-ink thesis thesis-s" id="situations"><div class="wrap">
   <div class="sit-top">
     <h2>Models keep getting stronger. That does not mean a company can use them.</h2>
-    <p>Four situations you may recognize</p>
+    <p>A company cannot use them when its data has not been put in order, its metrics have not been defined, nobody can tell whether a result is right, and nobody is accountable when it is wrong. These four things are the work Thrice does.</p>
   </div>
-  <ol class="sit sit-row">
-    <li><div><h3>You do not know what to do first</h3><p>And it is not clear what result would count as useful.</p></div></li>
-    <li><div><h3>You cannot find the right person, or judge a candidate</h3><p>Nobody suitable is available locally, and you cannot tell whether an outside candidate can do the work.</p></div></li>
-    <li><div><h3>You tried, and saw no result</h3><p>You hired someone or bought software, and months later there is nothing to show.</p></div></li>
-    <li><div><h3>It was built, and nobody can say whether it is right</h3><p>You tried outsourcing, and nobody could say whether the answers were correct.</p></div></li>
-  </ol>
+  <h3 class="sit-h">Four situations you may recognize</h3>
+    <ol class="sit">
+      <li><div><h3>You do not know what to do first</h3><p>Everyone says to use AI. It is not clear which task in your own company to start with, or what result would count as useful.</p></div></li>
+      <li><div><h3>You cannot find the right person, or judge a candidate</h3><p>You want to hire someone who knows AI. Nobody suitable is available locally, and when a candidate comes from elsewhere you cannot tell whether they can really do the work.</p></div></li>
+      <li><div><h3>You tried, and saw no result</h3><p>You hired someone or bought software, and months later there is still no result. The data is spread across the inventory system, the finance system and many spreadsheets, and different departments calculate the same figure differently.</p></div></li>
+      <li><div><h3>It was built, and nobody can say whether it is right</h3><p>You tried outsourcing. Quotes ranged from a few thousand RMB to several million, and after delivery nobody could say whether the answers were correct.</p></div></li>
+    </ol>
 </div></section>
 
 <section class="s" id="method"><div class="wrap">
@@ -1108,28 +1133,125 @@ p,dd,li{text-wrap:wrap}
     <article class="step">
       <svg class="bars" viewBox="0 0 44 43" aria-hidden="true"><rect x="3.5" y="0" width="37" height="5.6" fill="#3366FF"/><rect x="6.5" y="18.7" width="31" height="5.6" fill="#CDD3DE"/><rect x="0" y="37.4" width="44" height="5.6" fill="#CDD3DE"/></svg>
       <h3><span class="heavy">Step 1</span>Diagnosis</h3>
-      <p>We settle the one job worth doing first and write down what counts as done.</p>
+      <p>You name the job, or we help you find it. We settle the one job worth doing first and write down what counts as done.</p>
+      <p class="gets-s"><span>You get</span>A diagnosis report: which job comes first, what counts as done, the quote and the completion date.</p>
     </article>
     <article class="step">
       <svg class="bars" viewBox="0 0 44 43" aria-hidden="true"><rect x="3.5" y="0" width="37" height="5.6" fill="#14161A"/><rect x="6.5" y="18.7" width="31" height="5.6" fill="#3366FF"/><rect x="0" y="37.4" width="44" height="5.6" fill="#CDD3DE"/></svg>
       <h3><span class="heavy">Step 2</span>Project</h3>
-      <p>We build it by the agreed date and test it against your own reports and questions.</p>
+      <p>The completion date and the fixed price go into the contract. We build it on time and test it against your own reports and questions.</p>
+      <p class="gets-s"><span>You get</span>A working system, checked test by test. It is delivered only when it passes.</p>
     </article>
     <article class="step">
       <svg class="bars" viewBox="0 0 44 43" aria-hidden="true"><rect x="3.5" y="0" width="37" height="5.6" fill="#14161A"/><rect x="6.5" y="18.7" width="31" height="5.6" fill="#14161A"/><rect x="0" y="37.4" width="44" height="5.6" fill="#3366FF"/></svg>
       <h3><span class="heavy">Step 3</span>Handover</h3>
-      <p>We teach your people to use and maintain it, so someone can take it over.</p>
+      <p>We teach the people who use it and one maintainer. It counts as taught only when the maintainer passes a hands-on test.</p>
+      <p class="gets-s"><span>You get</span>People in your company who can use it and change it.</p>
     </article>
   </div>
-  <p class="pledge">On time, tested, and taught: three commitments in the contract. Every job has a fixed price.</p>
+  <div class="pledges">
+    <h3>Three commitments<br>in the contract</h3>
+    <ul>
+      <li><h4>On time</h4><p>The completion date is in the contract</p><b>1% off per week late</b></li>
+      <li><h4>By the tests</h4><p>Acceptance looks only at the tests</p><b>Refund if it fails</b></li>
+      <li><h4>Taught</h4><p>The users and one person who takes over</p><b>Taught again at no charge</b></li>
+    </ul>
+  </div>
   <p class="see-all"><a class="link" href="method-en">See the full method</a><a class="link" href="pricing-en">See prices</a></p>
 </div></section>
 
-<section class="s s-mist" id="cases"><div class="wrap case case-s">
+<section class="s s-ink" id="accept"><div class="wrap split2">
+  <div class="acc">
+    <h2>Acceptance rests on the tests, not on what we say</h2>
+    <p>Acceptance is based on a set of tests. The questions come from the reports you use now and the questions you normally ask, for example “What was each store’s gross profit last week?” The system has to answer them correctly, one by one.</p>
+    <ul class="ticks">
+      <li>You set the questions, and your people confirm the answers</li>
+      <li>The pass rate is written into the contract</li>
+      <li>After you change the model, upgrade the system or change the service provider, the same tests are run again</li>
+      <li>The test set belongs to you</li>
+    </ul>
+    <p class="see-all"><a class="link" href="accept-en">See how acceptance works</a></p>
+  </div>
+  <div class="pw"><div class="panel tests" role="img" aria-label="Example: three acceptance tests. Two passed the first time and one passed after a fix.">
+    <div class="p-head"><b>Acceptance tests</b><span>A retail chain</span><i class="tag">Sample data</i></div>
+    <div class="t-row t-h"><span>Question</span><span>Answer you confirmed</span><span>System’s answer</span><span>Result</span></div>
+    <div class="t-row"><span>Gross profit of each store last week</span><span data-l="Answer you confirmed">The 12 stores in the weekly finance report</span><span data-l="System’s answer">All 12 stores match</span><span class="chip ok">Passed</span></div>
+    <div class="t-row"><span>Number of items in stock for more than 90 days</span><span data-l="Answer you confirmed">37</span><span data-l="System’s answer">First answer: 41, because free gifts were counted. After the fix: 37</span><span class="chip fix">Passed after a fix</span></div>
+    <div class="t-row"><span>Items out of stock for more than three days this week</span><span data-l="Answer you confirmed">The warehouse’s stock-out list</span><span data-l="System’s answer">27, and each one matches</span><span class="chip ok">Passed</span></div>
+    <div class="t-foot">The actual questions are set together with you during the diagnosis.</div>
+  </div></div>
+</div></section>
+
+<section class="s s-mist" id="services"><div class="wrap">
+  <div class="s-head">
+    <h2>What we can do</h2>
+    <p>Four areas and eighteen kinds of work. The first project starts with one of them, and the diagnosis decides which.</p>
+  </div>
+  <ul class="caps4">
+    <li>
+      <div class="cap-v" aria-hidden="true"><div class="mv-dash">
+        <div class="mv-k"><span>Sales</span><b>3,862<small>k RMB</small></b></div>
+        <svg viewBox="0 0 190 100"><path d="M0 92.5H190" stroke="#DCE0E7"/><g fill="#C9D2E6"><path d="M6 92V58a3 3 0 0 1 3-3h10a3 3 0 0 1 3 3v34zM33 92V50a3 3 0 0 1 3-3h10a3 3 0 0 1 3 3v42zM60 92V62a3 3 0 0 1 3-3h10a3 3 0 0 1 3 3v30zM87 92V42a3 3 0 0 1 3-3h10a3 3 0 0 1 3 3v50zM114 92V46a3 3 0 0 1 3-3h10a3 3 0 0 1 3 3v46zM141 92V36a3 3 0 0 1 3-3h10a3 3 0 0 1 3 3v56z"/></g><path d="M168 92V24a3 3 0 0 1 3-3h10a3 3 0 0 1 3 3v68z" fill="#3366FF"/><polyline points="14,44 41,36 68,47 95,28 122,31 149,20 176,9" fill="none" stroke="#14161A" stroke-width="2" stroke-linejoin="round"/></svg>
+        <div class="mv-k"><span>Gross margin</span><b>30.4<small>%</small></b></div>
+      </div></div>
+      <h3>See the data clearly</h3>
+      <p>Start with one set of numbers that the whole company accepts.</p>
+      <ul class="cap-names"><li>Data preparation and metric definitions</li><li>Dashboards and reports</li><li>Data Q&amp;A</li><li>Analysis reports</li></ul>
+    </li>
+    <li>
+      <div class="cap-v" aria-hidden="true">
+        <svg class="mv-inv" viewBox="0 0 300 132">
+          <rect x="8" y="96" width="284" height="22" fill="#E8EEFF"/>
+          <path d="M8 118.5H292" stroke="#14161A" stroke-width="1.5"/>
+          <path d="M8 70.5H292" stroke="#3366FF" stroke-width="1.5" stroke-dasharray="5 5"/>
+          <polyline points="12,26 60,88 60,22 108,90 108,26 156,86 156,24 196,78" fill="none" stroke="#14161A" stroke-width="2.2" stroke-linejoin="round"/>
+          <g fill="#3366FF"><circle cx="46.1" cy="70" r="4.5"/><circle cx="93.9" cy="70" r="4.5"/><circle cx="143.2" cy="70" r="4.5"/><circle cx="190.1" cy="70" r="4.5"/></g>
+          <text x="292" y="63" text-anchor="end" font-size="13.5" fill="#3366FF">Reorder point</text>
+          <text x="292" y="111" text-anchor="end" font-size="13.5" fill="#5C6470">Safety stock</text>
+          <text x="14" y="14" font-size="13.5" fill="#5C6470">Stock</text>
+        </svg>
+      </div>
+      <h3>Decide by calculation</h3>
+      <p>Judgments made from experience are written as rules that can be calculated and tested.</p>
+      <ul class="cap-names"><li>Pricing and promotions</li><li>Demand forecasting</li><li>Inventory and replenishment</li><li>Assortment</li><li>Store network and site selection</li><li>Scheduling, production and delivery</li></ul>
+    </li>
+    <li>
+      <div class="cap-v" aria-hidden="true">
+        <svg class="mv-flow" viewBox="0 0 300 104" role="img" aria-label="Read data, score by rules, suggest, staff confirm. The reasons staff give for a rejection correct the next round of rules.">
+          <g fill="#fff" stroke="#CDD3DE" stroke-width="1.5"><path d="M1 8h58v46H1zM81 8h58v46H81zM161 8h58v46h-58z"/></g>
+          <path d="M241 8h58v46h-58z" fill="#E2F3EB" stroke="#12805A" stroke-width="1.5"/>
+          <g fill="none" stroke="#14161A" stroke-width="1.6"><path d="M64 31h11M71 27l4.5 4-4.5 4M144 31h11M151 27l4.5 4-4.5 4M224 31h11M231 27l4.5 4-4.5 4"/></g>
+          <path d="M270 58v18H110V61M105.5 66l4.5-5 4.5 5" fill="none" stroke="#3366FF" stroke-width="1.6"/>
+          <g font-size="12.5" text-anchor="middle" fill="#14161A"><text x="30" y="27.5">Read</text><text x="30" y="44">data</text><text x="110" y="27.5">Score</text><text x="110" y="44">by rules</text><text x="190" y="35.5">Suggest</text></g>
+          <g font-size="12.5" font-weight="700" text-anchor="middle" fill="#12805A"><text x="270" y="27.5">Staff</text><text x="270" y="44">confirm</text></g>
+          <text x="150" y="97" font-size="12" text-anchor="middle" fill="#5C6470">Reasons for rejection update the rules</text>
+        </svg>
+      </div>
+      <h3>Hand off the repetitive work</h3>
+      <p>The model does the repetitive part. People confirm the result.</p>
+      <ul class="cap-names"><li>Business agents</li><li>Document recognition and data entry</li><li>Skill</li><li>Harness</li></ul>
+    </li>
+    <li>
+      <div class="cap-v" aria-hidden="true">
+        <div class="mv-two">
+          <div class="mv-opt"><b>API access</b><span>Fast to launch, low cost</span></div>
+          <div class="mv-opt"><b>Private deployment</b><span>Data stays on your network</span></div>
+        </div>
+        <p class="mv-same">Same acceptance tests for both</p>
+      </div>
+      <h3>Keep the system in use</h3>
+      <p>How the model is connected, how results are tested, and how people are trained.</p>
+      <ul class="cap-names"><li>Model access</li><li>Pilots and comparisons</li><li>Staff training</li><li>Hiring checks</li></ul>
+    </li>
+  </ul>
+  <p class="see-all"><a class="link" href="services-en">See all eighteen kinds of work</a><a class="link" href="demo-en">Open the clickable example</a></p>
+</div></section>
+
+<section class="s" id="cases"><div class="wrap case case-s">
   <div>
     <h2>Past projects</h2>
     <p>Every quarter a retail chain has to decide which products to discontinue. The work used to take more than 100 hours. Now an agent proposes the products, staff accept or reject each suggestion, and the work takes under 1 hour a quarter.</p>
-    <p class="see-all"><a class="link" href="cases-en">See all four projects</a><a class="link" href="demo-en">Open the clickable example</a></p>
+    <p class="see-all"><a class="link" href="cases-en">See all four projects</a></p>
   </div>
     <figure class="case-fig">
       <p class="fig-t">Time spent on product discontinuation each quarter</p>
