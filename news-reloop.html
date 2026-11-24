@@ -590,7 +590,7 @@ h4{font-size:14px;line-height:1.5;color:var(--mute);font-weight:700}
 .fields .f-kinds{margin-top:10px;font-size:14.5px;line-height:1.7;color:var(--mute)}
 .tracks-s{grid-template-columns:repeat(2,minmax(0,1fr));gap:22px}
 @media (max-width:860px){.tracks-s{grid-template-columns:minmax(0,1fr)}}
-.nw{white-space:nowrap}
+.nw,t-nw{white-space:nowrap}
 
 /* hero: the decision areas named under the headline */
 .hero-areas{margin-top:18px;font-size:clamp(17px,1.55vw,21px);font-weight:700;line-height:1.5;letter-spacing:.06em;color:var(--ink)}
@@ -688,6 +688,50 @@ h4{font-size:14px;line-height:1.5;color:var(--mute);font-weight:700}
 .foot-nav{flex-basis:100%;display:flex;flex-wrap:wrap;gap:8px 30px;padding-bottom:26px;margin-bottom:4px;border-bottom:1px solid rgba(255,255,255,.14)}
 .foot-nav a{color:#D5DAE3;font-size:15px}
 .foot-nav a:hover{color:#fff}
+/* the film: a link in the first screen and on the about page, one frame as a screen after the four situations,
+   and a layer over the page that plays it (app.js) */
+.film-link{display:inline-flex;align-items:center;gap:10px;border-bottom:0;padding-bottom:0}
+.film-link svg{width:24px;height:24px;flex:none}
+.film-link span{border-bottom:1.5px solid currentColor;padding-bottom:2px;line-height:1.4}
+.about-t p .film-link{margin-top:2px}
+.home .film{padding-top:0}
+.film-in{border-top:1px solid rgba(255,255,255,.16);padding-top:60px}
+.film-head{display:flex;flex-wrap:wrap;align-items:baseline;gap:10px 44px}
+.film-head h2{flex:none;max-width:100%;font-size:clamp(27px,2.9vw,38px);line-height:1.35}
+.film .film-head p{flex:1 1 320px;color:#D5DAE3;font-size:17.5px;line-height:1.9}
+.film-screen{display:block;position:relative;margin-top:40px;padding:1px;background:rgba(255,255,255,.22);color:#fff;clip-path:polygon(44px 0,100% 0,100% 100%,0 100%,0 44px)}
+.film-screen:hover{text-decoration:none}
+.film-screen picture{display:block;overflow:hidden;background:#0B0C10;clip-path:polygon(43.4px 0,100% 0,100% 100%,0 100%,0 43.4px)}
+.film-screen img{display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;transition:transform .6s cubic-bezier(.2,.7,.2,1),filter .3s}
+.film-screen:hover img{filter:brightness(1.12);transform:scale(1.012)}
+.film-play{position:absolute;left:7.3%;bottom:9%;display:flex;align-items:center;gap:14px;padding:15px 26px 15px 22px;background:var(--blue);color:#fff;font-weight:700;font-size:18px;line-height:1.25;clip-path:polygon(12px 0,100% 0,100% 100%,0 100%,0 12px);transition:background .15s}
+.film-play svg{width:22px;height:22px;flex:none}
+.film-play small{display:block;margin-top:3px;font-weight:500;font-size:13px;opacity:.92}
+.film-screen:hover .film-play{background:var(--blue-d)}
+.film-screen:focus-visible{outline:0}
+.film-screen:focus-visible::after{content:"";position:absolute;top:0;right:0;bottom:0;left:0;border:3px solid #9DB4FF;pointer-events:none}
+@media (prefers-reduced-motion:reduce){.film-screen img{transition:none}.film-screen:hover img{transform:none}}
+/* the layer that plays the film: the film page fills it and keeps its top row free for the close button */
+.film-box{position:fixed;top:0;right:0;bottom:0;left:0;z-index:200;background:#0C0D10}
+.film-box[hidden]{display:none}
+.film-box iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0;opacity:0;transition:opacity .25s}
+.film-box.on iframe{opacity:1}
+.film-wait{position:absolute;left:0;right:0;top:50%;margin-top:-1em;text-align:center;color:#8F99AB;font-size:15px}
+.film-box.on .film-wait{display:none}
+.film-x{position:absolute;top:12px;right:16px;right:max(16px,env(safe-area-inset-right,0px));height:40px;padding:0 14px 0 16px;display:inline-flex;align-items:center;gap:8px;border:0;cursor:pointer;background:#1B1E24;color:#E8ECF3;font:500 14px/1 var(--sans)}
+.film-x svg{width:14px;height:14px;flex:none}
+.film-x:hover{background:#2A2E37;color:#fff}
+.film-x:focus-visible{outline:2px solid #fff;outline-offset:3px}
+html.film-open{overflow:hidden}
+
+/* questions on the FAQ page: lines of similar length, so that no question ends with two or three characters on a line of
+   their own. Breaking only at commas was tried and dropped: at 320 px a clause that does not fit left the question mark alone. */
+.faq summary{text-wrap:balance}
+/* the fact rows of the three steps: lines of similar length, so that a row does not end with one or two words on a line of their own */
+.steps .meta li{text-wrap:balance}
+
+/* Short items and labels that wrap in a narrow column: split them into lines of similar length, so that none ends with one or two characters. */
+.cap-names li,.fields ul li,.c-steps li,.ans .hint{text-wrap:balance}
 
 /* tablet */
 @media (max-width:1080px){
@@ -924,12 +968,27 @@ h4{font-size:14px;line-height:1.5;color:var(--mute);font-weight:700}
   .head.open .nav a:last-child{border-bottom:0}
   .head.open .nav a.on::after{display:none}
 }
+/* the film screen */
+@media (max-width:900px){
+  .film-play{bottom:7%}
+}
+@media (max-width:760px){
+  .film-in{padding-top:44px}
+  .film .film-head p{font-size:17px}
+  .film-screen{margin-top:28px;clip-path:polygon(28px 0,100% 0,100% 100%,0 100%,0 28px)}
+  .film-screen picture{clip-path:polygon(27.4px 0,100% 0,100% 100%,0 100%,0 27.4px)}
+  .film-play{font-size:17px;padding:13px 22px 13px 18px;gap:12px}
+}
+@media (max-width:640px){
+  .film-screen img{aspect-ratio:4/5}
+  .film-play{left:7.8%;bottom:6%}
+}
 
 /* ================= news ================= */
 /* the finding the paper opens with, as two pairs of bars on ink with the cut corner */
 .gap{background:var(--ink);color:#D9DDE5;padding:34px 36px 30px 44px;clip-path:polygon(34px 0,100% 0,100% 100%,0 100%,0 34px)}
 .gap figcaption{font-size:15px;line-height:1.6;color:#AEB6C4}
-.gap figcaption b{display:block;font-size:17px;color:#fff;font-weight:700}
+.gap figcaption b{display:block;font-size:17px;color:#fff;font-weight:700;text-wrap:balance}
 .gap-g{margin-top:24px}
 .gap-g + .gap-g{padding-top:22px;border-top:1px solid rgba(255,255,255,.16)}
 .gap-g h4{font-size:14px;color:#fff;font-weight:700}
@@ -1003,7 +1062,7 @@ h4{font-size:14px;line-height:1.5;color:var(--mute);font-weight:700}
 .rule h3{margin-top:0;font-size:17px}
 .rule ul{margin-top:14px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0 24px}
 .rule li{padding-left:18px;border-left:3px solid var(--line);font-size:15px;line-height:1.7;color:var(--text)}
-.rule li b{display:block;font-size:16.5px;color:var(--ink)}
+.rule li b{display:block;font-size:16.5px;color:var(--ink);text-wrap:balance}
 .rule li.warn{border-left-color:#D99A2B}
 .rule li.pass{border-left-color:var(--ok)}
 .rule p{margin-top:18px;font-size:14.5px;line-height:1.8;color:var(--mute)}
@@ -1081,6 +1140,8 @@ h4{font-size:14px;line-height:1.5;color:var(--mute);font-weight:700}
   .art-facts{grid-template-columns:minmax(0,1fr)}
   .art-links{grid-template-columns:minmax(0,1fr)}
 }
+/* the narrowest phones: the last part of the article headline stays on one line and has to fit */
+@media (max-width:359px){.art h1{font-size:27px}}
 </style>
 </head>
 <body>
@@ -1112,10 +1173,10 @@ h4{font-size:14px;line-height:1.5;color:var(--mute);font-weight:700}
     <div>
       <p class="art-crumb"><a href="news">新闻</a><span>2026 年 11 月 13 日</span><span>三顾（浙江）人工智能科技有限公司</span></p>
       <h1>三顾首席执行官为<span class="nw">第一作者</span><span class="nw">的论文 ReLoop</span> <span class="nw">被 NeurIPS 2026 接收</span></h1>
-      <p class="art-lead">NeurIPS 是人工智能领域的顶级国际会议，2026 年全球三万多篇投稿里约四分之一被接收。三顾的首席执行官是其中一篇的第一作者。这篇论文解决的是企业用 AI 时的一个实际问题：AI 给出的方案看起来没有问题，其实是错的，怎样把它查出来。</p>
+      <p class="art-lead">NeurIPS 是人工智能领域的顶级国际会议，2026 年全球三万多篇投稿里约四分之一被接收。三顾的首席执行官是其中一篇的第一作者。这篇论文解决的是企业用 AI 时的一个实际问题：AI 给出的方案看起来没有问题，其实是错的，怎样<t-nw>把它查出来。</t-nw></p>
     </div>
     <figure class="gap" role="img" aria-label="让 AI 直接为 190 道零售优化题做方案：DeepSeek-V3.2 有 91.1% 给出了方案，方案正确的只有 0.5%；Claude Opus 4.6 是 72.1% 和 22.6%。">
-      <figcaption><b>AI 给出了方案，不等于方案是对的</b>让 AI 直接为 190 道零售优化题做方案</figcaption>
+      <figcaption><b>AI 给出了方案，不等于方案是对的</b>让 AI 直接为 190 道零售<t-nw>优化题做方案</t-nw></figcaption>
       <div class="gap-g">
         <h4>DeepSeek-V3.2</h4>
         <div class="gap-r"><span>给出了方案</span><i style="--v:91.1"></i><b>91.1%</b></div>
@@ -1126,7 +1187,7 @@ h4{font-size:14px;line-height:1.5;color:var(--mute);font-weight:700}
         <div class="gap-r"><span>给出了方案</span><i style="--v:72.1"></i><b>72.1%</b></div>
         <div class="gap-r right"><span>方案正确</span><i style="--v:22.6"></i><b>22.6%</b></div>
       </div>
-      <p class="gap-note">数据来自论文的 190 道零售题。AI 直接生成，没有经过检验。</p>
+      <p class="gap-note">数据来自论文的 190 道零售题。AI 直接生成，没<t-nw>有经过检验。</t-nw></p>
     </figure>
   </div>
 
@@ -1136,7 +1197,7 @@ h4{font-size:14px;line-height:1.5;color:var(--mute);font-weight:700}
         <div class="fact"><dt>会议</dt><dd>NeurIPS 2026<small>神经信息处理系统大会</small></dd></div>
         <div class="fact"><dt>报告</dt><dd>2026 年 12 月 8 日，悉尼会场<small>海报，主题是“优化：离散优化”</small></dd></div>
         <div class="fact"><dt>第一作者</dt><dd>三顾 Thrice AI 首席执行官<small>共同第一作者，署名排第一</small></dd></div>
-        <div class="fact"><dt>代码</dt><dd>GitHub，122 个星标<small>MIT 许可。查于 2026 年 11 月 13 日</small></dd></div>
+        <div class="fact"><dt>代码</dt><dd>GitHub，122 个星标<small>MIT 许可。查于 2026 年 11 <t-nw>月 13 日</t-nw></small></dd></div>
         <div class="fact"><dt>公开的基准</dt><dd>RetailOpt-190<small>190 道零售库存优化题</small></dd></div>
       </dl>
       <p class="art-links">
@@ -1149,90 +1210,90 @@ h4{font-size:14px;line-height:1.5;color:var(--mute);font-weight:700}
 
     <div class="art-body">
       <h2><span class="nw">NeurIPS 是什么会议，</span><span class="nw">有多难进</span></h2>
-      <p>NeurIPS 的全称是神经信息处理系统大会，1987 年创办，每年一届。它与 ICML、ICLR 并列为机器学习领域的三个顶级会议。在中国计算机学会的推荐目录里，它是人工智能方向的 A 类会议，也就是最高的一档。全球主要的大学和 AI 公司，每年把最新的研究投到这里。</p>
+      <p>NeurIPS 的全称是神经信息处理系统大会，1987 年创办，每年一届。它与 ICML、ICLR 并列为机器学习领域的三个顶级会议。在中国计算机学会的推荐目录里，它是人工智能方向的 A 类会议，也就是最高的一档。全球主要的大学和 AI 公司，每年把最新的研<t-nw>究投到这里。</t-nw></p>
       <ul class="kv">
-        <li><b>30,709</b>2026 年主会收到的投稿篇数。</li>
-        <li><b>7,900</b>被接收的篇数，约占四分之一。</li>
-        <li><b>3 地</b>2026 年在悉尼、亚特兰大和巴黎同时举行。</li>
+        <li><b>30,709</b>2026 年主会收到<t-nw>的投稿篇数。</t-nw></li>
+        <li><b>7,900</b>被接收的篇数，约<t-nw>占四分之一。</t-nw></li>
+        <li><b>3 地</b>2026 年在悉尼、亚特兰大和巴<t-nw>黎同时举行。</t-nw></li>
       </ul>
-      <p>每一篇投稿都由几位同行专家匿名评审，作者要逐条书面回应他们的质疑。评审看三件事：研究的是不是真问题，办法是不是新的，实验能不能支持结论。论文被接收，说明同行认可这三件事。</p>
-      <p class="art-src">投稿和接收的篇数来自第三方网站 OpenAccept 的统计。</p>
+      <p>每一篇投稿都由几位同行专家匿名评审，作者要逐条书面回应他们的质疑。评审看三件事：研究的是不是真问题，办法是不是新的，实验能不能支持结论。论文被接收，说明同行认<t-nw>可这三件事。</t-nw></p>
+      <p class="art-src">投稿和接收的篇数来自第三方网站 <t-nw>OpenAccept 的统计。</t-nw></p>
 
       <h2>三顾团队的水平</h2>
-      <p>这篇论文的第一作者是三顾的创始人和首席执行官。论文由他和新加坡国立大学、美国西北大学、温州大学、香港城市大学的研究者合作完成。</p>
+      <p>这篇论文的第一作者是三顾的创始人和首席执行官。论文由他和新加坡国立大学、美国西北大学、温州大学、香港城市大学的研究<t-nw>者合作完成。</t-nw></p>
       <ul class="means">
         <li>
           <h3>研究</h3>
-          <p>他是新加坡国立大学运筹学与分析研究院的博士生，研究大模型怎样用在企业的运营决策上。他有多篇关于大模型在实际业务中可靠使用的论文，被 NeurIPS、IJCAI 等国际会议接收。</p>
+          <p>他是新加坡国立大学运筹学与分析研究院的博士生，研究大模型怎样用在企业的运营决策上。他有多篇关于大模型在实际业务中可靠使用的论文，被 NeurIPS、IJCAI 等国<t-nw>际会议接收。</t-nw></p>
         </li>
         <li>
           <h3>企业里的项目</h3>
-          <p>他同时是某行业一家全国百强连锁零售企业的首席数据与分析官，主持约 160 家直营门店的定价、品类优化和门店网络项目。其中一个项目把每季度 100 多小时的品类淘汰工作减少到 1 小时以内，员工对建议的采纳率超过 95%。</p>
+          <p>他同时是某行业一家全国百强连锁零售企业的首席数据与分析官，主持约 160 家直营门店的定价、品类优化和门店网络项目。其中一个项目把每季度 100 多小时的品类淘汰工作减少到 1 小时以内，员工对建议的采纳率超<t-nw>过 95%。</t-nw></p>
         </li>
         <li>
           <h3>公开的代码</h3>
-          <p>这篇论文的代码和 190 道零售题在 GitHub 上公开，已有 122 个星标，任何人都可以下载和检验。</p>
+          <p>这篇论文的代码和 190 道零售题在 GitHub 上公开，已有 122 个星标，任何人都可以<t-nw>下载和检验。</t-nw></p>
         </li>
         <li>
           <h3>工程师</h3>
-          <p>三顾交付的工程师都要通过上机测试：在限定时间内用真实类型的数据完成任务，可以使用任何 AI 工具，只看结果。</p>
+          <p>三顾交付的工程师都要通过上机测试：在限定时间内用真实类型的数据完成任务，可以使用任何 AI 工<t-nw>具，只看结果。</t-nw></p>
         </li>
       </ul>
-      <p>在顶级会议上发表研究，和在上百家门店的企业里把 AI 用起来，这两件事由同一个人负责。三顾的诊断和验收办法就来自这里。</p>
+      <p>在顶级会议上发表研究，和在上百家门店的企业里把 AI 用起来，这两件事由同一个人负责。三顾的诊断和验收办法<t-nw>就来自这里。</t-nw></p>
 
       <h2>这项研究能帮您什么</h2>
-      <p>很多企业试过让 AI 出方案：补多少货，怎么调价，怎么排班。AI 很快给出一份看起来完整的方案，没有任何报错。问题是，这份方案可能漏掉了一个条件。</p>
-      <p>举一个例子。让 AI 做补货方案，它没有考虑保质期。方案照样算得出来，数字也整齐。但按它执行，仓库里会一直留着已经过期的货。这种错，只看方案本身看不出来。</p>
-      <p>论文测了这种情况有多常见，结果就是本页开头的那张图：让 AI 直接为 190 道零售题做方案，DeepSeek-V3.2 有 91.1% 给出了方案，方案正确的只有 0.5%。</p>
-      <p>论文给出了查这种错的办法，不需要事先知道正确答案。办法是把一个条件改到极端，再算一次。例如把仓库缩到原来的千分之一，补货方案应该大变。如果方案几乎没变，说明 AI 没有把仓库容量考虑进去。每一个条件都这样查一遍，漏掉的就能找出来。</p>
-      <p>对您来说，这意味着拿到手的补货、调价和排班方案，里面的每一条业务规则都检验过。不是 AI 给出了方案，就算做完了。</p>
+      <p>很多企业试过让 AI 出方案：补多少货，怎么调价，怎么排班。AI 很快给出一份看起来完整的方案，没有任何报错。问题是，这份方案可能漏掉<t-nw>了一个条件。</t-nw></p>
+      <p>举一个例子。让 AI 做补货方案，它没有考虑保质期。方案照样算得出来，数字也整齐。但按它执行，仓库里会一直留着已经过期的货。这种错，只看方案本<t-nw>身看不出来。</t-nw></p>
+      <p>论文测了这种情况有多常见，结果就是本页开头的那张图：让 AI 直接为 190 道零售题做方案，DeepSeek-V3.2 有 91.1% 给出了方案，方案正确的只<t-nw>有 0.5%。</t-nw></p>
+      <p>论文给出了查这种错的办法，不需要事先知道正确答案。办法是把一个条件改到极端，再算一次。例如把仓库缩到原来的千分之一，补货方案应该大变。如果方案几乎没变，说明 AI 没有把仓库容量考虑进去。每一个条件都这样查一遍，漏掉的<t-nw>就能找出来。</t-nw></p>
+      <p>对您来说，这意味着拿到手的补货、调价和排班方案，里面的每一条业务规则都检验过。不是 AI 给出了方案，<t-nw>就算做完了。</t-nw></p>
 
       <h2>为什么选三顾</h2>
       <ul class="means">
         <li>
           <h3>知道 AI 会在哪里出错</h3>
-          <p>三顾的方法由研究这个问题的人制定。AI 容易漏掉什么，怎样查出来，我们用的是公开发表、经过同行评审的办法。</p>
+          <p>三顾的方法由研究这个问题的人制定。AI 容易漏掉什么，怎样查出来，我们用的是公开发表、经过同行<t-nw>评审的办法。</t-nw></p>
         </li>
         <li>
           <h3>验收写进合同</h3>
-          <p>每件事都用您确认过答案的测试题验收，逐题通过才算交付。复验两轮仍不通过，您可以解除合同并退款。</p>
+          <p>每件事都用您确认过答案的测试题验收，逐题通过才算交付。复验两轮仍不通过，您可以解除<t-nw>合同并退款。</t-nw></p>
         </li>
         <li>
           <h3>用国产模型，同样先验收</h3>
-          <p>三顾交付时用国内已经正式上线的模型。每一项技能都先在交付用的模型上验收，通过了才交给您。</p>
+          <p>三顾交付时用国内已经正式上线的模型。每一项技能都先在交付用的模型上验收，通过<t-nw>了才交给您。</t-nw></p>
         </li>
         <li>
           <h3>办法公开，您的人可以复查</h3>
-          <p>检验的办法和代码是公开的。每件事做完，我们教会您的一位接手人，他可以自己复查，不必一直依赖三顾。</p>
+          <p>检验的办法和代码是公开的。每件事做完，我们教会您的一位接手人，他可以自己复查，不必一<t-nw>直依赖三顾。</t-nw></p>
         </li>
       </ul>
-      <p class="see-all"><a class="link" href="accept">看三顾怎么验收</a><a class="link" href="cases">看做过的项目</a><a class="link" href="contact">约一次 30 分钟的沟通</a></p>
+      <p class="see-all"><a class="link" href="accept">看三顾怎么验收</a><a class="link" href="cases">看典型案例</a><a class="link" href="contact">约一次 30 分钟的沟通</a></p>
 
       <h2>研究的细节</h2>
-      <p>下面的内容给想了解技术细节的读者。论文的方法叫 ReLoop，由两部分组成。第一部分让模型按固定的四步写，减少写错。第二部分在写完之后检验，不需要标准答案，也不让大模型自己评自己。这里说的“正确”，指最优目标值与参考答案一致，相对误差在万分之一以内。</p>
+      <p>下面的内容给想了解技术细节的读者。论文的方法叫 ReLoop，由两部分组成。第一部分让模型按固定的四步写，减少写错。第二部分在写完之后检验，不需要标准答案，也不让大模型自己评自己。这里说的“正确”，指最优目标值与参考答案一致，相对误差在万<t-nw>分之一以内。</t-nw></p>
       <h3>做法</h3>
       <ol class="art-steps">
-        <li><b>结构化生成。</b>模型在一次调用里依次完成四步：理解问题，写成数学形式，生成代码，对照原文检查。第二步要写明每个变量是连续的、整数的还是 0 和 1 的。</li>
-        <li><b>执行检查（L1）。</b>看代码能否运行，求解器的状态是否正常。不通过时，带着报错重新生成，最多三次。</li>
-        <li><b>行为测试（L2）。</b>模型列出这道题应有的每一条约束和每一项成本。每一条都对应数据里的一个参数。把这个参数改到极端值再求解一次，看最优结果变不变。</li>
-        <li><b>定向修复。</b>结果几乎不变的那一条很可能漏了，系统只针对这一条修改代码。修改后程序出错或结果变差的，退回修改前的版本。</li>
+        <li><b>结构化生成。</b>模型在一次调用里依次完成四步：理解问题，写成数学形式，生成代码，对照原文检查。第二步要写明每个变量是连续的、整数的还是 0 <t-nw>和 1 的。</t-nw></li>
+        <li><b>执行检查（L1）。</b>看代码能否运行，求解器的状态是否正常。不通过时，带着报错重新生<t-nw>成，最多三次。</t-nw></li>
+        <li><b>行为测试（L2）。</b>模型列出这道题应有的每一条约束和每一项成本。每一条都对应数据里的一个参数。把这个参数改到极端值再求解一次，看最优<t-nw>结果变不变。</t-nw></li>
+        <li><b>定向修复。</b>结果几乎不变的那一条很可能漏了，系统只针对这一条修改代码。修改后程序出错或结果变差的，退回修<t-nw>改前的版本。</t-nw></li>
       </ol>
       <div class="rule">
         <h3>行为测试怎样判断</h3>
         <ul>
-          <li class="warn"><b>变化小于 5%</b>这一条很可能没有写进模型。发出警告并修复。</li>
+          <li class="warn"><b>变化小于 5%</b>这一条很可能没有写进模型。发出<t-nw>警告并修复。</t-nw></li>
           <li><b>变化在 5% 到 30% 之间</b>只记录，不修改。</li>
-          <li class="pass"><b>变化大于 30%，或变为无解</b>这一条确实在起作用。通过。</li>
+          <li class="pass"><b>变化大于 30%，或变为无解</b>这一条确实在起<t-nw>作用。通过。</t-nw></li>
         </ul>
-        <p>改动的幅度按参数的类型定：仓库容量和成本缩到千分之一，需求和收入放大一百倍。举一个例子，把仓库容量缩到千分之一，最优成本却几乎不变，说明容量这条约束没有写进模型。</p>
+        <p>改动的幅度按参数的类型定：仓库容量和成本缩到千分之一，需求和收入放大一百倍。举一个例子，把仓库容量缩到千分之一，最优成本却几乎不变，说明容量这条约束没<t-nw>有写进模型。</t-nw></p>
       </div>
       <figure>
         <img src="img/reloop-framework.png" width="1600" height="958" loading="lazy" alt="ReLoop 的流程图：问题和数据进入结构化生成，依次得到对问题的理解、数学形式和代码；代码交给求解器，经过执行检查和行为测试，得到通过、警告或严重错误三种结果，分别对应输出、定向修复和重新生成。">
-        <figcaption>论文里的流程图。上半部分是结构化生成，下半部分是检验和修复。</figcaption>
+        <figcaption>论文里的流程图。上半部分是结构化生成，下半部分是<t-nw>检验和修复。</t-nw></figcaption>
       </figure>
 
       <h3>结果</h3>
-      <p>下面是 Claude Opus 4.6 在三套题上的正确率。RetailOpt-190 是论文自己的零售题，MAMO-ComplexLP 和 IndustryOR 是别的研究组公开的两套题。</p>
+      <p>下面是 Claude Opus 4.6 在三套题上的正确率。RetailOpt-190 是论文自己的零售题，MAMO-ComplexLP 和 IndustryOR 是别的研究组公<t-nw>开的两套题。</t-nw></p>
       <div class="res" role="img" aria-label="Claude Opus 4.6 的正确率，直接生成和使用 ReLoop：RetailOpt-190 从 22.6% 到 31.1%，MAMO-ComplexLP 从 70.4% 到 79.8%，IndustryOR 从 66.0% 到 68.0%。">
         <div class="res-g">
           <h4>RetailOpt-190<small>190 道零售题</small></h4>
@@ -1250,7 +1311,7 @@ h4{font-size:14px;line-height:1.5;color:var(--mute);font-weight:700}
           <div class="res-r new"><span>ReLoop</span><i style="--v:68"></i><b>68.0%</b></div>
         </div>
       </div>
-      <p>在零售题上，提高的 8.5 个百分点来自结构化生成，能运行的程序从 72.1% 提高到 100%。在 MAMO-ComplexLP 上，行为测试单独贡献了 4.4 个百分点：修正 11 道题，有 2 道题改错了。</p>
+      <p>在零售题上，提高的 8.5 个百分点来自结构化生成，能运行的程序从 72.1% 提高到 100%。在 MAMO-ComplexLP 上，行为测试单独贡献了 4.4 个百分点：修正 11 道题，有 2 <t-nw>道题改错了。</t-nw></p>
       <div class="tbl">
         <table>
           <caption>五个模型在两套外部基准上的正确率（%），直接生成和使用 ReLoop</caption>
@@ -1267,19 +1328,19 @@ h4{font-size:14px;line-height:1.5;color:var(--mute);font-weight:700}
           </tbody>
         </table>
       </div>
-      <p>三个通用模型在两套题上都有提高。OptMATH 和 SIRL 是专门为这类任务训练的模型。其中 OptMATH 在 MAMO-ComplexLP 上反而下降，原因是四步提示与它微调时的输出格式冲突，论文如实报告了这一点。</p>
+      <p>三个通用模型在两套题上都有提高。OptMATH 和 SIRL 是专门为这类任务训练的模型。其中 OptMATH 在 MAMO-ComplexLP 上反而下降，原因是四步提示与它微调时的输出格式冲突，论文如实报<t-nw>告了这一点。</t-nw></p>
 
       <h3>检验本身准不准</h3>
-      <p>论文从正确的模型里每次删掉一条约束或一项成本，共 240 次，看行为测试能不能查出来。</p>
+      <p>论文从正确的模型里每次删掉一条约束或一项成本，共 240 次，看行为测试能<t-nw>不能查出来。</t-nw></p>
       <ul class="kv">
-        <li><b>238 / 240</b>删掉的约束和成本被查出来。</li>
-        <li><b>74 / 74</b>平时不起作用的约束，改到极端值后也被查出来。</li>
-        <li><b>26.7%</b>对没有问题的代码发出警告的比例。</li>
+        <li><b>238 / 240</b>删掉的约束和成<t-nw>本被查出来。</t-nw></li>
+        <li><b>74 / 74</b>平时不起作用的约束，改到极端值后<t-nw>也被查出来。</t-nw></li>
+        <li><b>26.7%</b>对没有问题的代码发出<t-nw>警告的比例。</t-nw></li>
       </ul>
-      <p>论文也写明了它查不出什么：系数的大小写错了，或者用了另一种结构、看起来等价的写法，行为测试查不出。在 RetailOpt-190 上，最好的结果也只有 31.1%，这套题对现在的模型仍然很难。</p>
+      <p>论文也写明了它查不出什么：系数的大小写错了，或者用了另一种结构、看起来等价的写法，行为测试查不出。在 RetailOpt-190 上，最好的结果也只有 31.1%，这套题对现在的模<t-nw>型仍然很难。</t-nw></p>
 
       <h3>RetailOpt-190：一套公开的零售题</h3>
-      <p>论文同时公开了 RetailOpt-190。它有 190 道多周期的零售库存题，38 种题型，每种 5 组数据，分成八类。一道典型的题有 3 种商品、5 个地点、20 个周期，20 到 30 条约束要同时成立。</p>
+      <p>论文同时公开了 RetailOpt-190。它有 190 道多周期的零售库存题，38 种题型，每种 5 组数据，分成八类。一道典型的题有 3 种商品、5 个地点、20 个周期，20 到 30 条约束<t-nw>要同时成立。</t-nw></p>
       <ul class="fam">
         <li><b>核心运营</b>保质期，缺货损失</li>
         <li><b>品类与替代</b>商品替代，价格带</li>
@@ -1290,16 +1351,16 @@ h4{font-size:14px;line-height:1.5;color:var(--mute);font-weight:700}
         <li><b>网络与多级</b>调拨，中心仓</li>
         <li><b>全渠道</b>退货，人工</li>
       </ul>
-      <p>代码和题目用 MIT 许可在 GitHub 上公开，任何人都可以拿它检验自己的模型。</p>
+      <p>代码和题目用 MIT 许可在 GitHub 上公开，任何人都可以拿它检验<t-nw>自己的模型。</t-nw></p>
 
 
       <h2>论文和代码</h2>
       <div class="cite">
-        <p>Junbo Jacob Lian, Yujun Sun, Huiling Chen, Chaoyu Zhang, Hanzhang Qin, Chung-Piaw Teo. ReLoop: Structured Modeling and Behavioral Verification for Reliable LLM-Based Optimization. NeurIPS 2026.</p>
+        <p>Junbo Jacob Lian, Yujun Sun, Huiling Chen, Chaoyu Zhang, Hanzhang Qin, Chung-Piaw Teo. ReLoop: Structured Modeling and Behavioral Verification for Reliable LLM-Based Optimization. <t-nw>NeurIPS 2026.</t-nw></p>
       </div>
       <figure class="poster">
         <a href="img/reloop-poster.jpg" aria-label="打开 NeurIPS 2026 海报的大图"><img src="img/reloop-poster-small.jpg" width="1280" height="720" loading="lazy" alt="ReLoop 在 NeurIPS 2026 的海报，分五栏：无声的错误，ReLoop 的流程，结果，行为测试能查出和查不出的错误，RetailOpt-190 基准。"></a>
-        <figcaption>NeurIPS 2026 的海报，英文。点图片看大图。</figcaption>
+        <figcaption>NeurIPS 2026 的海报，英文。点<t-nw>图片看大图。</t-nw></figcaption>
       </figure>
       <p class="see-all art-back"><a class="link" href="news">全部新闻</a><a class="link" href="contact">联系我们</a></p>
     </div>
@@ -1309,7 +1370,7 @@ h4{font-size:14px;line-height:1.5;color:var(--mute);font-weight:700}
 <section class="s s-blue" id="contact"><div class="wrap contact cta">
   <div>
     <h2>从 30 分钟的沟通开始</h2>
-    <p>留下联系方式，我们会尽快联系您约时间。沟通不收费，用视频或电话，约 30 分钟。方便的话，请先想好三件事：想先解决哪件事，现在用哪些系统，手头有哪几张报表。没有想清楚也没关系，我们和您一起理。事情清楚或者简单的，下一步是核对。说不清，下一步是诊断。</p>
+    <p>留下联系方式，我们会尽快联系您约时间。沟通不收费，用视频或电话，约 30 分钟。方便的话，请先想好三件事：想先解决哪件事，现在用哪些系统，手头有哪几张报表。没有想清楚也没关系，我们和您一起理。事情清楚或者简单的，下一步是核对。说不清，下<t-nw>一步是诊断。</t-nw></p>
   </div>
   <a class="btn btn-w" href="contact">联系我们</a>
 </div></section>
@@ -1324,6 +1385,7 @@ h4{font-size:14px;line-height:1.5;color:var(--mute);font-weight:700}
     <a href="services">能做的事</a>
     <a href="demo">示例</a>
     <a href="cases">案例</a>
+    <a href="film" data-film>宣传片</a>
     <a href="news">新闻</a>
     <a href="why">为什么选三顾</a>
     <a href="about">关于</a>
@@ -1332,8 +1394,8 @@ h4{font-size:14px;line-height:1.5;color:var(--mute);font-weight:700}
     <a href="contact">联系我们</a>
   </nav>
   <svg role="img" aria-label="三顾 Thrice" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 464 200"><rect x="0" y="0" width="200" height="200" rx="45" fill="#3366FF"/><path d="M113.01 160L130 143.01L146.99 160L160 160L135 135L135 80L125 80L125 135L100 160ZM145 70L145 130L155 130L155 60L135 60L135 50L160 50L160 40L100 40L100 50L125 50L125 60L105 60L105 130L115 130L115 70ZM50 150L50 50L95 50L95 40L49.88 40L40 49.88L40 160ZM62.5 70L62.5 80L92.5 80L92.5 70ZM65 95L65 105L90 105L90 95Z" fill="#FFFFFF"/><path d="M95 120L60 120L60 130L95 130Z" fill="#FFFFFF"/><path d="M261 28.5L261 39.7L335 39.7L335 28.5ZM267 65.9L267 77.1L329 77.1L329 65.9Z" fill="#FFFFFF"/><path d="M342 103.3L254 103.3L254 114.5L342 114.5Z" fill="#FFFFFF"/><path d="M439 107.34L453.16 121.5L464 121.5L443.17 100.67L443.17 54.83L434.83 54.83L434.83 100.67L414 121.5L424.84 121.5ZM434.83 29.83L434.83 38.17L418.17 38.17L418.17 96.5L426.5 96.5L426.5 46.5L451.5 46.5L451.5 96.5L459.83 96.5L459.83 38.17L443.17 38.17L443.17 29.83L464 29.83L464 21.5L414 21.5L414 29.83ZM380.67 46.92L380.67 96.08L409.83 96.08L409.83 82.33L402.58 82.33L402.58 88.58L387.92 88.58L387.92 75.25L409.83 75.25L409.83 46.92ZM402.58 67.75L387.92 67.75L387.92 54.42L402.58 54.42ZM409.83 21.5L372.23 21.5L364 29.73L364 121.5L372.33 113.17L372.33 29.83L409.83 29.83Z" fill="#FFFFFF"/><path d="M266.01 178.5V156.73H254V151.46H283.99V156.73H271.99V178.5ZM293.33 178.5V151.46H299.31V162.09H317.69V151.46H323.67V178.5H317.69V167.36H299.31V178.5ZM335.8 178.5V151.46H357.21Q360.08 151.46 361.91 152.62Q363.74 153.78 364.65 155.69Q365.55 157.6 365.55 159.92Q365.55 162.32 364.31 164.43Q363.07 166.53 360.48 167.72L366.22 178.5H359.49L354.53 168.86H341.78V178.5ZM341.78 163.9H355.56Q357.41 163.9 358.41 162.82Q359.41 161.73 359.41 160.04Q359.41 158.9 358.98 158.09Q358.55 157.29 357.68 156.87Q356.82 156.46 355.56 156.46H341.78ZM376.5 178.5V151.46H382.48V178.5ZM410 178.97Q404.53 178.97 400.83 177.38Q397.13 175.78 395.28 172.66Q393.43 169.53 393.43 164.96Q393.43 158.27 397.68 154.63Q401.93 150.99 409.96 150.99Q414.53 150.99 418.01 152.29Q421.49 153.59 423.44 156.03Q425.39 158.47 425.39 161.93H419.52Q419.52 159.96 418.3 158.64Q417.08 157.33 414.92 156.66Q412.75 155.99 409.84 155.99Q406.69 155.99 404.39 156.99Q402.09 157.99 400.83 159.88Q399.57 161.77 399.57 164.45V165.43Q399.57 168.15 400.83 170.06Q402.09 171.97 404.41 172.97Q406.73 173.97 409.88 173.97Q412.91 173.97 415.1 173.32Q417.28 172.67 418.48 171.36Q419.68 170.04 419.68 168.11H425.43Q425.43 171.49 423.5 173.93Q421.57 176.37 418.11 177.67Q414.64 178.97 410 178.97ZM436.33 178.5V151.46H463.69V156.46H442.32V162.24H461.33V167.24H442.32V173.5H464V178.5Z" fill="#FFFFFF"/></svg>
-  <p>三顾（浙江）人工智能科技有限公司</p>
-  <p>© 2026 三顾 Thrice</p>
+  <p>三顾（浙江）人工智能<t-nw>科技有限公司</t-nw></p>
+  <p>© 2026 三顾 <t-nw>Thrice</t-nw></p>
 </div></footer>
 
 <script src="config.js"></script>
@@ -1367,6 +1429,7 @@ h4{font-size:14px;line-height:1.5;color:var(--mute);font-weight:700}
     m2: function (w, n) { return '指标：缺货品种数，当周缺货超过三天的品种<br>范围：第 ' + w + ' 周，' + n + ' 家门店'; },
     a3: function (s, g) { return '<b>' + s + '</b>。最近 4 周的销售额比最早 4 周多 ' + g + '%。'; },
     m3: function (w0, w1, n) { return '指标：销售额，按周合计<br>范围：第 ' + w0 + ' 至 ' + w1 + ' 周，' + n + ' 家门店'; },
+    film: { name: '三顾宣传片', close: '关闭', wait: '正在打开宣传片' },
     j: { head: '申请加入：', tracks: { expert: '专家', staff: '公司岗位' }, bg: '现在的工作或所学专业：', intro: '做过什么，会什么：', link: '作品或简历的链接：' },
     f: { off: '留言功能开通中', name: '请填写怎么称呼您。', contact: '请填写手机或微信。', company: '请填写企业名称。', city: '请填写所在城市。', background: '请填写现在的工作或所学专业。', sending: '正在提交', submit: '提交', fail: '提交没有成功，请过一会儿再试一次。', doneT: '已经收到', doneP: '谢谢。我们会尽快按您留下的方式联系您。' }
   }/*>I18N*/; /* all wording lives in this object, one per language */
@@ -1616,6 +1679,94 @@ h4{font-size:14px;line-height:1.5;color:var(--mute);font-weight:700}
     var rt, fit = function () { clearTimeout(rt); rt = setTimeout(function () { if ((svg.clientWidth || 0) !== lastW || (svg.clientHeight || 0) !== lastH) line(false); }, 120); };
     window.addEventListener('resize', fit);
     if ('ResizeObserver' in window) new ResizeObserver(fit).observe(svg);
+  })();
+
+  /* ---------- the film: links marked data-film play it over the page; without this script they lead to the film's own page ---------- */
+  (function () {
+    var links = $$('a[data-film]'); if (!links.length || !T || !T.film) return;
+    if (location.protocol === 'file:') return;   /* opened from disk: addresses without .html do not resolve, leave the plain links */
+    var F = T.film, src = links[0].getAttribute('href');
+    var box = null, frame = null, closeBtn = null, ready = false, wanted = false, warm = false, isOpen = false, pushed = false, from = null, behind = [];
+    function film() { try { return frame.contentWindow.film || null; } catch (e) { return null; } }
+    function make() {
+      if (box) return;
+      box = document.createElement('div');
+      box.className = 'film-box'; box.hidden = true;
+      box.setAttribute('role', 'dialog'); box.setAttribute('aria-modal', 'true'); box.setAttribute('aria-label', F.name);
+      box.innerHTML = '<p class="film-wait">' + F.wait + '</p>' +
+        '<iframe title="' + F.name + '" allow="autoplay; fullscreen" allowfullscreen></iframe>' +
+        '<button type="button" class="film-x">' + F.close + '<svg viewBox="0 0 14 14" aria-hidden="true"><path d="M2 2l10 10M12 2L2 12" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></button>';
+      frame = $('iframe', box); closeBtn = $('.film-x', box);
+      closeBtn.addEventListener('click', function () { shut(); });
+      /* the close button is the last thing in the layer: Tab goes on into the film, not out of the page */
+      closeBtn.addEventListener('keydown', function (e) { if (e.key === 'Tab' && !e.shiftKey) { e.preventDefault(); frame.focus(); } });
+      /* if the film page never reports that it is ready, show whatever has loaded after a while */
+      frame.addEventListener('load', function () { setTimeout(function () { box.classList.add('on'); }, 4000); });
+      document.body.appendChild(box);
+      frame.src = src;
+    }
+    function start() {
+      var f = film(); if (!f) return;
+      wanted = false;
+      try { frame.contentWindow.dispatchEvent(new Event('resize')); } catch (e) {}
+      f.start();
+    }
+    function show(a) {
+      make();
+      if (isOpen) return;
+      isOpen = true; from = a; wanted = true;
+      box.hidden = false;
+      document.documentElement.classList.add('film-open');
+      behind = $$('body > header, body > main, body > footer');
+      behind.forEach(function (el) { el.setAttribute('inert', ''); });
+      if (ready) start();   /* inside the click, so that browsers which tie sound to a tap accept it */
+      try { history.pushState({ thriceFilm: 1 }, ''); pushed = true; } catch (e) { pushed = false; }
+      closeBtn.focus();
+    }
+    function shut(fromHistory) {
+      if (!isOpen) return;
+      isOpen = false; wanted = false;
+      var f = film(); if (f) { try { f.stop(); } catch (e) {} }
+      box.hidden = true;
+      document.documentElement.classList.remove('film-open');
+      behind.forEach(function (el) { el.removeAttribute('inert'); }); behind = [];
+      if (pushed && !fromHistory) { pushed = false; try { history.back(); } catch (e) {} } else pushed = false;
+      if (from && from.focus) { try { from.focus({ preventScroll: true }); } catch (e) { from.focus(); } }
+    }
+    window.addEventListener('message', function (e) {
+      if (!frame || e.source !== frame.contentWindow || !e.data || !e.data.thriceFilm) return;
+      var m = e.data.thriceFilm, f;
+      if (m === 'ready') { ready = true; box.classList.add('on'); f = film(); if (f && warm) f.warm(); if (wanted && isOpen) start(); }
+      else if (m === 'close') shut();
+      /* the contact button at the end of the film: go there in place of the entry that opened the film */
+      else if (m === 'go' && typeof e.data.href === 'string' && e.data.href.indexOf(location.origin + '/') === 0) { pushed = false; location.replace(e.data.href); }
+    });
+    window.addEventListener('popstate', function () { if (isOpen) shut(true); });
+    window.addEventListener('pageshow', function (e) { if (e.persisted && isOpen) shut(true); });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && isOpen) shut(); });
+    document.addEventListener('focusin', function (e) { if (isOpen && !box.contains(e.target)) closeBtn.focus(); });
+    function intent() { warm = true; make(); var f = ready && film(); if (f) f.warm(); }
+    links.forEach(function (a) {
+      a.addEventListener('click', function (e) {
+        if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button) return;
+        e.preventDefault(); show(a);
+      });
+      a.addEventListener('pointerenter', intent); a.addEventListener('touchstart', intent, { passive: true }); a.addEventListener('focus', intent);
+    });
+    /* fetch the film page ahead of the click, so that it starts at once: on the home page a few seconds after the page
+       has loaded (the link is in the first screen), and anywhere when the film's screen comes near.
+       Not when the visitor has asked to save data or is on a very slow connection. */
+    var scr = $('.film-screen'), conn = navigator.connection;
+    if (!(conn && (conn.saveData || /2g/.test(conn.effectiveType || '')))) {
+      if ($('.hero .film-link')) {
+        var later = function () { setTimeout(make, 3500); };
+        if (document.readyState === 'complete') later(); else window.addEventListener('load', later);
+      }
+      if (scr && 'IntersectionObserver' in window) {
+        var io = new IntersectionObserver(function (es) { es.forEach(function (x) { if (x.isIntersecting) { make(); io.disconnect(); } }); }, { rootMargin: '300px 0px' });
+        io.observe(scr);
+      }
+    }
   })();
 
   /* ---------- forms: post what the visitor wrote to the address set in config.js ---------- */

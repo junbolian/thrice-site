@@ -590,7 +590,7 @@ h4{font-size:14px;line-height:1.5;color:var(--mute);font-weight:700}
 .fields .f-kinds{margin-top:10px;font-size:14.5px;line-height:1.7;color:var(--mute)}
 .tracks-s{grid-template-columns:repeat(2,minmax(0,1fr));gap:22px}
 @media (max-width:860px){.tracks-s{grid-template-columns:minmax(0,1fr)}}
-.nw{white-space:nowrap}
+.nw,t-nw{white-space:nowrap}
 
 /* hero: the decision areas named under the headline */
 .hero-areas{margin-top:18px;font-size:clamp(17px,1.55vw,21px);font-weight:700;line-height:1.5;letter-spacing:.06em;color:var(--ink)}
@@ -688,6 +688,50 @@ h4{font-size:14px;line-height:1.5;color:var(--mute);font-weight:700}
 .foot-nav{flex-basis:100%;display:flex;flex-wrap:wrap;gap:8px 30px;padding-bottom:26px;margin-bottom:4px;border-bottom:1px solid rgba(255,255,255,.14)}
 .foot-nav a{color:#D5DAE3;font-size:15px}
 .foot-nav a:hover{color:#fff}
+/* the film: a link in the first screen and on the about page, one frame as a screen after the four situations,
+   and a layer over the page that plays it (app.js) */
+.film-link{display:inline-flex;align-items:center;gap:10px;border-bottom:0;padding-bottom:0}
+.film-link svg{width:24px;height:24px;flex:none}
+.film-link span{border-bottom:1.5px solid currentColor;padding-bottom:2px;line-height:1.4}
+.about-t p .film-link{margin-top:2px}
+.home .film{padding-top:0}
+.film-in{border-top:1px solid rgba(255,255,255,.16);padding-top:60px}
+.film-head{display:flex;flex-wrap:wrap;align-items:baseline;gap:10px 44px}
+.film-head h2{flex:none;max-width:100%;font-size:clamp(27px,2.9vw,38px);line-height:1.35}
+.film .film-head p{flex:1 1 320px;color:#D5DAE3;font-size:17.5px;line-height:1.9}
+.film-screen{display:block;position:relative;margin-top:40px;padding:1px;background:rgba(255,255,255,.22);color:#fff;clip-path:polygon(44px 0,100% 0,100% 100%,0 100%,0 44px)}
+.film-screen:hover{text-decoration:none}
+.film-screen picture{display:block;overflow:hidden;background:#0B0C10;clip-path:polygon(43.4px 0,100% 0,100% 100%,0 100%,0 43.4px)}
+.film-screen img{display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;transition:transform .6s cubic-bezier(.2,.7,.2,1),filter .3s}
+.film-screen:hover img{filter:brightness(1.12);transform:scale(1.012)}
+.film-play{position:absolute;left:7.3%;bottom:9%;display:flex;align-items:center;gap:14px;padding:15px 26px 15px 22px;background:var(--blue);color:#fff;font-weight:700;font-size:18px;line-height:1.25;clip-path:polygon(12px 0,100% 0,100% 100%,0 100%,0 12px);transition:background .15s}
+.film-play svg{width:22px;height:22px;flex:none}
+.film-play small{display:block;margin-top:3px;font-weight:500;font-size:13px;opacity:.92}
+.film-screen:hover .film-play{background:var(--blue-d)}
+.film-screen:focus-visible{outline:0}
+.film-screen:focus-visible::after{content:"";position:absolute;top:0;right:0;bottom:0;left:0;border:3px solid #9DB4FF;pointer-events:none}
+@media (prefers-reduced-motion:reduce){.film-screen img{transition:none}.film-screen:hover img{transform:none}}
+/* the layer that plays the film: the film page fills it and keeps its top row free for the close button */
+.film-box{position:fixed;top:0;right:0;bottom:0;left:0;z-index:200;background:#0C0D10}
+.film-box[hidden]{display:none}
+.film-box iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0;opacity:0;transition:opacity .25s}
+.film-box.on iframe{opacity:1}
+.film-wait{position:absolute;left:0;right:0;top:50%;margin-top:-1em;text-align:center;color:#8F99AB;font-size:15px}
+.film-box.on .film-wait{display:none}
+.film-x{position:absolute;top:12px;right:16px;right:max(16px,env(safe-area-inset-right,0px));height:40px;padding:0 14px 0 16px;display:inline-flex;align-items:center;gap:8px;border:0;cursor:pointer;background:#1B1E24;color:#E8ECF3;font:500 14px/1 var(--sans)}
+.film-x svg{width:14px;height:14px;flex:none}
+.film-x:hover{background:#2A2E37;color:#fff}
+.film-x:focus-visible{outline:2px solid #fff;outline-offset:3px}
+html.film-open{overflow:hidden}
+
+/* questions on the FAQ page: lines of similar length, so that no question ends with two or three characters on a line of
+   their own. Breaking only at commas was tried and dropped: at 320 px a clause that does not fit left the question mark alone. */
+.faq summary{text-wrap:balance}
+/* the fact rows of the three steps: lines of similar length, so that a row does not end with one or two words on a line of their own */
+.steps .meta li{text-wrap:balance}
+
+/* Short items and labels that wrap in a narrow column: split them into lines of similar length, so that none ends with one or two characters. */
+.cap-names li,.fields ul li,.c-steps li,.ans .hint{text-wrap:balance}
 
 /* tablet */
 @media (max-width:1080px){
@@ -924,12 +968,27 @@ h4{font-size:14px;line-height:1.5;color:var(--mute);font-weight:700}
   .head.open .nav a:last-child{border-bottom:0}
   .head.open .nav a.on::after{display:none}
 }
+/* the film screen */
+@media (max-width:900px){
+  .film-play{bottom:7%}
+}
+@media (max-width:760px){
+  .film-in{padding-top:44px}
+  .film .film-head p{font-size:17px}
+  .film-screen{margin-top:28px;clip-path:polygon(28px 0,100% 0,100% 100%,0 100%,0 28px)}
+  .film-screen picture{clip-path:polygon(27.4px 0,100% 0,100% 100%,0 100%,0 27.4px)}
+  .film-play{font-size:17px;padding:13px 22px 13px 18px;gap:12px}
+}
+@media (max-width:640px){
+  .film-screen img{aspect-ratio:4/5}
+  .film-play{left:7.8%;bottom:6%}
+}
 
 /* ================= news ================= */
 /* the finding the paper opens with, as two pairs of bars on ink with the cut corner */
 .gap{background:var(--ink);color:#D9DDE5;padding:34px 36px 30px 44px;clip-path:polygon(34px 0,100% 0,100% 100%,0 100%,0 34px)}
 .gap figcaption{font-size:15px;line-height:1.6;color:#AEB6C4}
-.gap figcaption b{display:block;font-size:17px;color:#fff;font-weight:700}
+.gap figcaption b{display:block;font-size:17px;color:#fff;font-weight:700;text-wrap:balance}
 .gap-g{margin-top:24px}
 .gap-g + .gap-g{padding-top:22px;border-top:1px solid rgba(255,255,255,.16)}
 .gap-g h4{font-size:14px;color:#fff;font-weight:700}
@@ -1003,7 +1062,7 @@ h4{font-size:14px;line-height:1.5;color:var(--mute);font-weight:700}
 .rule h3{margin-top:0;font-size:17px}
 .rule ul{margin-top:14px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0 24px}
 .rule li{padding-left:18px;border-left:3px solid var(--line);font-size:15px;line-height:1.7;color:var(--text)}
-.rule li b{display:block;font-size:16.5px;color:var(--ink)}
+.rule li b{display:block;font-size:16.5px;color:var(--ink);text-wrap:balance}
 .rule li.warn{border-left-color:#D99A2B}
 .rule li.pass{border-left-color:var(--ok)}
 .rule p{margin-top:18px;font-size:14.5px;line-height:1.8;color:var(--mute)}
@@ -1081,6 +1140,8 @@ h4{font-size:14px;line-height:1.5;color:var(--mute);font-weight:700}
   .art-facts{grid-template-columns:minmax(0,1fr)}
   .art-links{grid-template-columns:minmax(0,1fr)}
 }
+/* the narrowest phones: the last part of the article headline stays on one line and has to fit */
+@media (max-width:359px){.art h1{font-size:27px}}
 </style>
 </head>
 <body>
@@ -1112,7 +1173,7 @@ h4{font-size:14px;line-height:1.5;color:var(--mute);font-weight:700}
     <div>
       <p class="art-crumb"><a href="news">新闻</a><span>2026 年 11 月 13 日</span><span>三顾（浙江）人工智能科技有限公司</span></p>
       <h1>三顾编写的<span class="nw">《人工智能入门》</span><span class="nw">公开发布，</span><span class="nw">免费阅读</span></h1>
-      <p class="art-lead">这本书写给没有学过人工智能的企业员工和管理者，例如店员、店长、业务员、财务人员和各部门的负责人。读者不需要会编程，也不需要数学基础。全书 90 页，电子版放在本站，任何人都可以免费打开。</p>
+      <p class="art-lead">这本书写给没有学过人工智能的企业员工和管理者，例如店员、店长、业务员、财务人员和各部门的负责人。读者不需要会编程，也不需要数学基础。全书 90 页，电子版放在本站，任何人都可<t-nw>以免费打开。</t-nw></p>
       <p class="art-cta"><a class="btn" href="ai-intro-book.pdf" target="_blank" rel="noopener">打开这本书</a><span>PDF，1.2 MB</span></p>
     </div>
     <a class="news-cover" href="ai-intro-book.pdf" target="_blank" rel="noopener" aria-label="打开《人工智能入门》的 PDF"><img src="book-cover.jpg" width="640" height="899" alt="《人工智能入门》的封面：深色底，白色书名，一张神经网络示意图，下方是三顾的标志。"></a>
@@ -1123,8 +1184,8 @@ h4{font-size:14px;line-height:1.5;color:var(--mute);font-weight:700}
       <dl>
         <div class="fact"><dt>书名</dt><dd>人工智能入门<small>原理、工具与工作中的使用</small></dd></div>
         <div class="fact"><dt>编著</dt><dd>三顾 Thrice<small>企业员工培训教材</small></dd></div>
-        <div class="fact"><dt>篇幅</dt><dd>90 页，11 章<small>13 张图，33 道练习，附答案</small></dd></div>
-        <div class="fact"><dt>版本</dt><dd>2026 年 11 月第 1 版</dd></div>
+        <div class="fact"><dt>篇幅</dt><dd>90 页，11 章<small>13 张图，33 道<t-nw>练习，附答案</t-nw></small></dd></div>
+        <div class="fact"><dt>版本</dt><dd>2026 年 11 <t-nw>月第 1 版</t-nw></dd></div>
         <div class="fact"><dt>价格</dt><dd>免费<small>电子版，不用注册</small></dd></div>
       </dl>
       <p class="art-links">
@@ -1135,51 +1196,51 @@ h4{font-size:14px;line-height:1.5;color:var(--mute);font-weight:700}
 
     <div class="art-body">
       <h2>这本书写给谁</h2>
-      <p>不少员工已经在用 AI 工具，但只会问几句话，不知道它能帮自己做什么，也不知道它什么时候会答错。这本书是为他们写的。它从零开始讲，只要求读者会用手机和电脑打字。</p>
-      <p>读者包括门店的店员和店长、区域经理、业务员、财务和行政人员，以及各部门的负责人。</p>
+      <p>不少员工已经在用 AI 工具，但只会问几句话，不知道它能帮自己做什么，也不知道它什么时候会答错。这本书是为他们写的。它从零开始讲，只要求读者会用手机<t-nw>和电脑打字。</t-nw></p>
+      <p>读者包括门店的店员和店长、区域经理、业务员、财务和行政人员，以及各部<t-nw>门的负责人。</t-nw></p>
 
       <h2>读完能做到什么</h2>
       <ul class="means">
         <li>
           <h3>说清楚 AI 是什么</h3>
-          <p>人工智能是什么，它在过去七十多年里经历了哪些阶段，今天能做什么，不能做什么。</p>
+          <p>人工智能是什么，它在过去七十多年里经历了哪些阶段，今天能做什么，<t-nw>不能做什么。</t-nw></p>
         </li>
         <li>
           <h3>知道它为什么会答错</h3>
-          <p>大语言模型怎样生成回答。明白了这一点，就知道哪些回答可以直接用，哪些必须核对。</p>
+          <p>大语言模型怎样生成回答。明白了这一点，就知道哪些回答可以直接用，哪<t-nw>些必须核对。</t-nw></p>
         </li>
         <li>
           <h3>会选工具，会写提示词</h3>
-          <p>根据任务选合适的工具，写出能得到可用结果的提示词。书里的提示词可以直接复制使用。</p>
+          <p>根据任务选合适的工具，写出能得到可用结果的提示词。书里的提示词可以直<t-nw>接复制使用。</t-nw></p>
         </li>
         <li>
           <h3>看懂近两年的新概念</h3>
-          <p>智能体、Skill 和 Harness 各是什么，工作里怎么用。</p>
+          <p>智能体、Skill 和 Harness 各是什么，工<t-nw>作里怎么用。</t-nw></p>
         </li>
       </ul>
 
       <h2>书里讲什么</h2>
       <ul class="kv">
-        <li><b>90 页</b>分为 11 章和 3 个附录。</li>
-        <li><b>13 张图</b>原理和流程尽量用图说明。</li>
-        <li><b>33 道练习</b>每章三道，参考答案在附录里。</li>
+        <li><b>90 页</b>分为 11 章和 <t-nw>3 个附录。</t-nw></li>
+        <li><b>13 张图</b>原理和流程尽<t-nw>量用图说明。</t-nw></li>
+        <li><b>33 道练习</b>每章三道，参考答<t-nw>案在附录里。</t-nw></li>
       </ul>
       <ul class="means">
         <li>
           <h3>第 1 到 3 章</h3>
-          <p>人工智能是什么，七十多年里经历了哪些阶段，大语言模型怎样生成回答，为什么有时会答错。</p>
+          <p>人工智能是什么，七十多年里经历了哪些阶段，大语言模型怎样生成回答，为什么<t-nw>有时会答错。</t-nw></p>
         </li>
         <li>
           <h3>第 4、5 章</h3>
-          <p>主流工具怎么选，第一次使用时怎么操作。</p>
+          <p>主流工具怎么选，第一次使用<t-nw>时怎么操作。</t-nw></p>
         </li>
         <li>
           <h3>第 6 到 9 章</h3>
-          <p>提示词、智能体、Skill 和 Harness，难度逐章提高。</p>
+          <p>提示词、智能体、Skill 和 Harness，难<t-nw>度逐章提高。</t-nw></p>
         </li>
         <li>
           <h3>第 10、11 章</h3>
-          <p>零售、办公和药店门店的使用实例，数据安全与使用规范。</p>
+          <p>零售、办公和药店门店的使用实例，数据安全<t-nw>与使用规范。</t-nw></p>
         </li>
       </ul>
       <figure>
@@ -1188,27 +1249,27 @@ h4{font-size:14px;line-height:1.5;color:var(--mute);font-weight:700}
           <img src="img/book-page-prompt.jpg" width="802" height="1126" loading="lazy" alt="书中第 6 章的一页：一条会员生日短信的提示词，按身份、任务、背景、要求、格式、示例六个要素标出。">
           <img src="img/book-page-agent.jpg" width="802" height="1126" loading="lazy" alt="书中第 7 章的一页：智能体的工作循环，模型决定下一步，软件执行工具，结果加入上下文。">
         </div>
-        <figcaption>书里的三页：人工智能的发展过程，一条提示词的六个要素，智能体的工作循环。</figcaption>
+        <figcaption>书里的三页：人工智能的发展过程，一条提示词的六个要素，智能体<t-nw>的工作循环。</t-nw></figcaption>
       </figure>
 
       <h2>为什么三顾要写这本书</h2>
-      <p>三顾做每件事，第三步是教会：教会使用的人和一位接手人。系统做得再好，企业里没有人会用，也用不起来。</p>
-      <p>所以每做一件事，三顾都送一场前沿 AI 使用课，全体员工参加。这本书是这场课的课本。上完课，员工可以照着书继续练。</p>
-      <p>书里的例子来自零售、办公和药店门店，都是员工每天会遇到的事。最后一章讲数据安全。</p>
+      <p>三顾做每件事，第三步是教会：教会使用的人和一位接手人。系统做得再好，企业里没有人会用，<t-nw>也用不起来。</t-nw></p>
+      <p>所以每做一件事，三顾都送一场前沿 AI 使用课，全体员工参加。这本书是这场课的课本。上完课，员工可以照<t-nw>着书继续练。</t-nw></p>
+      <p>书里的例子来自零售、办公和药店门店，都是员工每天会遇到的事。最后一章<t-nw>讲数据安全。</t-nw></p>
 
       <h2>怎么用这本书</h2>
       <ul class="means">
         <li>
           <h3>自己学</h3>
-          <p>想尽快上手的，先读第 5、6、10 章，再回头读原理。</p>
+          <p>想尽快上手的，先读第 5、6、10 章，再<t-nw>回头读原理。</t-nw></p>
         </li>
         <li>
           <h3>企业培训</h3>
-          <p>可以直接用作教材。每章有三道练习，答案在附录 C。</p>
+          <p>可以直接用作教材。每章有三道练习，答案<t-nw>在附录 C。</t-nw></p>
         </li>
         <li>
           <h3>注意时间</h3>
-          <p>书中关于各家公司、模型版本和能力排名的内容截至 2026 年 11 月。原理、提示词的写法和使用规范变化较慢，具体的模型名称和排名以各家官方网站的最新信息为准。</p>
+          <p>书中关于各家公司、模型版本和能力排名的内容截至 2026 年 11 月。原理、提示词的写法和使用规范变化较慢，具体的模型名称和排名以各家官方网站的最<t-nw>新信息为准。</t-nw></p>
         </li>
       </ul>
       <p class="see-all art-back"><a class="link" href="ai-intro-book.pdf" target="_blank" rel="noopener">打开这本书</a><a class="link" href="news">全部新闻</a><a class="link" href="contact">联系我们</a></p>
@@ -1219,7 +1280,7 @@ h4{font-size:14px;line-height:1.5;color:var(--mute);font-weight:700}
 <section class="s s-blue" id="contact"><div class="wrap contact cta">
   <div>
     <h2>从 30 分钟的沟通开始</h2>
-    <p>留下联系方式，我们会尽快联系您约时间。沟通不收费，用视频或电话，约 30 分钟。方便的话，请先想好三件事：想先解决哪件事，现在用哪些系统，手头有哪几张报表。没有想清楚也没关系，我们和您一起理。事情清楚或者简单的，下一步是核对。说不清，下一步是诊断。</p>
+    <p>留下联系方式，我们会尽快联系您约时间。沟通不收费，用视频或电话，约 30 分钟。方便的话，请先想好三件事：想先解决哪件事，现在用哪些系统，手头有哪几张报表。没有想清楚也没关系，我们和您一起理。事情清楚或者简单的，下一步是核对。说不清，下<t-nw>一步是诊断。</t-nw></p>
   </div>
   <a class="btn btn-w" href="contact">联系我们</a>
 </div></section>
@@ -1234,6 +1295,7 @@ h4{font-size:14px;line-height:1.5;color:var(--mute);font-weight:700}
     <a href="services">能做的事</a>
     <a href="demo">示例</a>
     <a href="cases">案例</a>
+    <a href="film" data-film>宣传片</a>
     <a href="news">新闻</a>
     <a href="why">为什么选三顾</a>
     <a href="about">关于</a>
@@ -1242,8 +1304,8 @@ h4{font-size:14px;line-height:1.5;color:var(--mute);font-weight:700}
     <a href="contact">联系我们</a>
   </nav>
   <svg role="img" aria-label="三顾 Thrice" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 464 200"><rect x="0" y="0" width="200" height="200" rx="45" fill="#3366FF"/><path d="M113.01 160L130 143.01L146.99 160L160 160L135 135L135 80L125 80L125 135L100 160ZM145 70L145 130L155 130L155 60L135 60L135 50L160 50L160 40L100 40L100 50L125 50L125 60L105 60L105 130L115 130L115 70ZM50 150L50 50L95 50L95 40L49.88 40L40 49.88L40 160ZM62.5 70L62.5 80L92.5 80L92.5 70ZM65 95L65 105L90 105L90 95Z" fill="#FFFFFF"/><path d="M95 120L60 120L60 130L95 130Z" fill="#FFFFFF"/><path d="M261 28.5L261 39.7L335 39.7L335 28.5ZM267 65.9L267 77.1L329 77.1L329 65.9Z" fill="#FFFFFF"/><path d="M342 103.3L254 103.3L254 114.5L342 114.5Z" fill="#FFFFFF"/><path d="M439 107.34L453.16 121.5L464 121.5L443.17 100.67L443.17 54.83L434.83 54.83L434.83 100.67L414 121.5L424.84 121.5ZM434.83 29.83L434.83 38.17L418.17 38.17L418.17 96.5L426.5 96.5L426.5 46.5L451.5 46.5L451.5 96.5L459.83 96.5L459.83 38.17L443.17 38.17L443.17 29.83L464 29.83L464 21.5L414 21.5L414 29.83ZM380.67 46.92L380.67 96.08L409.83 96.08L409.83 82.33L402.58 82.33L402.58 88.58L387.92 88.58L387.92 75.25L409.83 75.25L409.83 46.92ZM402.58 67.75L387.92 67.75L387.92 54.42L402.58 54.42ZM409.83 21.5L372.23 21.5L364 29.73L364 121.5L372.33 113.17L372.33 29.83L409.83 29.83Z" fill="#FFFFFF"/><path d="M266.01 178.5V156.73H254V151.46H283.99V156.73H271.99V178.5ZM293.33 178.5V151.46H299.31V162.09H317.69V151.46H323.67V178.5H317.69V167.36H299.31V178.5ZM335.8 178.5V151.46H357.21Q360.08 151.46 361.91 152.62Q363.74 153.78 364.65 155.69Q365.55 157.6 365.55 159.92Q365.55 162.32 364.31 164.43Q363.07 166.53 360.48 167.72L366.22 178.5H359.49L354.53 168.86H341.78V178.5ZM341.78 163.9H355.56Q357.41 163.9 358.41 162.82Q359.41 161.73 359.41 160.04Q359.41 158.9 358.98 158.09Q358.55 157.29 357.68 156.87Q356.82 156.46 355.56 156.46H341.78ZM376.5 178.5V151.46H382.48V178.5ZM410 178.97Q404.53 178.97 400.83 177.38Q397.13 175.78 395.28 172.66Q393.43 169.53 393.43 164.96Q393.43 158.27 397.68 154.63Q401.93 150.99 409.96 150.99Q414.53 150.99 418.01 152.29Q421.49 153.59 423.44 156.03Q425.39 158.47 425.39 161.93H419.52Q419.52 159.96 418.3 158.64Q417.08 157.33 414.92 156.66Q412.75 155.99 409.84 155.99Q406.69 155.99 404.39 156.99Q402.09 157.99 400.83 159.88Q399.57 161.77 399.57 164.45V165.43Q399.57 168.15 400.83 170.06Q402.09 171.97 404.41 172.97Q406.73 173.97 409.88 173.97Q412.91 173.97 415.1 173.32Q417.28 172.67 418.48 171.36Q419.68 170.04 419.68 168.11H425.43Q425.43 171.49 423.5 173.93Q421.57 176.37 418.11 177.67Q414.64 178.97 410 178.97ZM436.33 178.5V151.46H463.69V156.46H442.32V162.24H461.33V167.24H442.32V173.5H464V178.5Z" fill="#FFFFFF"/></svg>
-  <p>三顾（浙江）人工智能科技有限公司</p>
-  <p>© 2026 三顾 Thrice</p>
+  <p>三顾（浙江）人工智能<t-nw>科技有限公司</t-nw></p>
+  <p>© 2026 三顾 <t-nw>Thrice</t-nw></p>
 </div></footer>
 
 <script src="config.js"></script>
@@ -1277,6 +1339,7 @@ h4{font-size:14px;line-height:1.5;color:var(--mute);font-weight:700}
     m2: function (w, n) { return '指标：缺货品种数，当周缺货超过三天的品种<br>范围：第 ' + w + ' 周，' + n + ' 家门店'; },
     a3: function (s, g) { return '<b>' + s + '</b>。最近 4 周的销售额比最早 4 周多 ' + g + '%。'; },
     m3: function (w0, w1, n) { return '指标：销售额，按周合计<br>范围：第 ' + w0 + ' 至 ' + w1 + ' 周，' + n + ' 家门店'; },
+    film: { name: '三顾宣传片', close: '关闭', wait: '正在打开宣传片' },
     j: { head: '申请加入：', tracks: { expert: '专家', staff: '公司岗位' }, bg: '现在的工作或所学专业：', intro: '做过什么，会什么：', link: '作品或简历的链接：' },
     f: { off: '留言功能开通中', name: '请填写怎么称呼您。', contact: '请填写手机或微信。', company: '请填写企业名称。', city: '请填写所在城市。', background: '请填写现在的工作或所学专业。', sending: '正在提交', submit: '提交', fail: '提交没有成功，请过一会儿再试一次。', doneT: '已经收到', doneP: '谢谢。我们会尽快按您留下的方式联系您。' }
   }/*>I18N*/; /* all wording lives in this object, one per language */
@@ -1526,6 +1589,94 @@ h4{font-size:14px;line-height:1.5;color:var(--mute);font-weight:700}
     var rt, fit = function () { clearTimeout(rt); rt = setTimeout(function () { if ((svg.clientWidth || 0) !== lastW || (svg.clientHeight || 0) !== lastH) line(false); }, 120); };
     window.addEventListener('resize', fit);
     if ('ResizeObserver' in window) new ResizeObserver(fit).observe(svg);
+  })();
+
+  /* ---------- the film: links marked data-film play it over the page; without this script they lead to the film's own page ---------- */
+  (function () {
+    var links = $$('a[data-film]'); if (!links.length || !T || !T.film) return;
+    if (location.protocol === 'file:') return;   /* opened from disk: addresses without .html do not resolve, leave the plain links */
+    var F = T.film, src = links[0].getAttribute('href');
+    var box = null, frame = null, closeBtn = null, ready = false, wanted = false, warm = false, isOpen = false, pushed = false, from = null, behind = [];
+    function film() { try { return frame.contentWindow.film || null; } catch (e) { return null; } }
+    function make() {
+      if (box) return;
+      box = document.createElement('div');
+      box.className = 'film-box'; box.hidden = true;
+      box.setAttribute('role', 'dialog'); box.setAttribute('aria-modal', 'true'); box.setAttribute('aria-label', F.name);
+      box.innerHTML = '<p class="film-wait">' + F.wait + '</p>' +
+        '<iframe title="' + F.name + '" allow="autoplay; fullscreen" allowfullscreen></iframe>' +
+        '<button type="button" class="film-x">' + F.close + '<svg viewBox="0 0 14 14" aria-hidden="true"><path d="M2 2l10 10M12 2L2 12" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></button>';
+      frame = $('iframe', box); closeBtn = $('.film-x', box);
+      closeBtn.addEventListener('click', function () { shut(); });
+      /* the close button is the last thing in the layer: Tab goes on into the film, not out of the page */
+      closeBtn.addEventListener('keydown', function (e) { if (e.key === 'Tab' && !e.shiftKey) { e.preventDefault(); frame.focus(); } });
+      /* if the film page never reports that it is ready, show whatever has loaded after a while */
+      frame.addEventListener('load', function () { setTimeout(function () { box.classList.add('on'); }, 4000); });
+      document.body.appendChild(box);
+      frame.src = src;
+    }
+    function start() {
+      var f = film(); if (!f) return;
+      wanted = false;
+      try { frame.contentWindow.dispatchEvent(new Event('resize')); } catch (e) {}
+      f.start();
+    }
+    function show(a) {
+      make();
+      if (isOpen) return;
+      isOpen = true; from = a; wanted = true;
+      box.hidden = false;
+      document.documentElement.classList.add('film-open');
+      behind = $$('body > header, body > main, body > footer');
+      behind.forEach(function (el) { el.setAttribute('inert', ''); });
+      if (ready) start();   /* inside the click, so that browsers which tie sound to a tap accept it */
+      try { history.pushState({ thriceFilm: 1 }, ''); pushed = true; } catch (e) { pushed = false; }
+      closeBtn.focus();
+    }
+    function shut(fromHistory) {
+      if (!isOpen) return;
+      isOpen = false; wanted = false;
+      var f = film(); if (f) { try { f.stop(); } catch (e) {} }
+      box.hidden = true;
+      document.documentElement.classList.remove('film-open');
+      behind.forEach(function (el) { el.removeAttribute('inert'); }); behind = [];
+      if (pushed && !fromHistory) { pushed = false; try { history.back(); } catch (e) {} } else pushed = false;
+      if (from && from.focus) { try { from.focus({ preventScroll: true }); } catch (e) { from.focus(); } }
+    }
+    window.addEventListener('message', function (e) {
+      if (!frame || e.source !== frame.contentWindow || !e.data || !e.data.thriceFilm) return;
+      var m = e.data.thriceFilm, f;
+      if (m === 'ready') { ready = true; box.classList.add('on'); f = film(); if (f && warm) f.warm(); if (wanted && isOpen) start(); }
+      else if (m === 'close') shut();
+      /* the contact button at the end of the film: go there in place of the entry that opened the film */
+      else if (m === 'go' && typeof e.data.href === 'string' && e.data.href.indexOf(location.origin + '/') === 0) { pushed = false; location.replace(e.data.href); }
+    });
+    window.addEventListener('popstate', function () { if (isOpen) shut(true); });
+    window.addEventListener('pageshow', function (e) { if (e.persisted && isOpen) shut(true); });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && isOpen) shut(); });
+    document.addEventListener('focusin', function (e) { if (isOpen && !box.contains(e.target)) closeBtn.focus(); });
+    function intent() { warm = true; make(); var f = ready && film(); if (f) f.warm(); }
+    links.forEach(function (a) {
+      a.addEventListener('click', function (e) {
+        if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button) return;
+        e.preventDefault(); show(a);
+      });
+      a.addEventListener('pointerenter', intent); a.addEventListener('touchstart', intent, { passive: true }); a.addEventListener('focus', intent);
+    });
+    /* fetch the film page ahead of the click, so that it starts at once: on the home page a few seconds after the page
+       has loaded (the link is in the first screen), and anywhere when the film's screen comes near.
+       Not when the visitor has asked to save data or is on a very slow connection. */
+    var scr = $('.film-screen'), conn = navigator.connection;
+    if (!(conn && (conn.saveData || /2g/.test(conn.effectiveType || '')))) {
+      if ($('.hero .film-link')) {
+        var later = function () { setTimeout(make, 3500); };
+        if (document.readyState === 'complete') later(); else window.addEventListener('load', later);
+      }
+      if (scr && 'IntersectionObserver' in window) {
+        var io = new IntersectionObserver(function (es) { es.forEach(function (x) { if (x.isIntersecting) { make(); io.disconnect(); } }); }, { rootMargin: '300px 0px' });
+        io.observe(scr);
+      }
+    }
   })();
 
   /* ---------- forms: post what the visitor wrote to the address set in config.js ---------- */

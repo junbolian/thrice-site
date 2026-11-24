@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>常见的问题｜三顾 Thrice</title>
-<meta name="description" content="企业常问三顾的问题：为什么不自己招人或买软件，数据不能出内网怎么办，线下和远程有什么不同，没有按期做完或验收不通过怎么办。">
+<meta name="description" content="企业常问三顾的问题：为什么不自己招人或买软件，数据不能出内网怎么办，不想开账号能不能做，线下和远程有什么不同，没有按期做完或验收不通过怎么办。">
 <meta name="theme-color" content="#ffffff">
 <meta name="format-detection" content="telephone=no">
 <link rel="canonical" href="https://thrice.cn/faq">
@@ -12,7 +12,7 @@
 <link rel="alternate" hreflang="en" href="https://thrice.cn/faq-en">
 <script>document.documentElement.className+=" js"</script>
 <meta property="og:title" content="常见的问题｜三顾 Thrice">
-<meta property="og:description" content="企业常问三顾的问题：为什么不自己招人或买软件，数据不能出内网怎么办，线下和远程有什么不同，没有按期做完或验收不通过怎么办。">
+<meta property="og:description" content="企业常问三顾的问题：为什么不自己招人或买软件，数据不能出内网怎么办，不想开账号能不能做，线下和远程有什么不同，没有按期做完或验收不通过怎么办。">
 <link rel="icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyMDAgMjAwIiB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCI+PHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjIwMCIgaGVpZ2h0PSIyMDAiIHJ4PSI0NSIgZmlsbD0iIzE0MTYxQSIvPjxwYXRoIGQ9Ik0xMTMuMDEgMTYwTDEzMCAxNDMuMDFMMTQ2Ljk5IDE2MEwxNjAgMTYwTDEzNSAxMzVMMTM1IDgwTDEyNSA4MEwxMjUgMTM1TDEwMCAxNjBaTTE0NSA3MEwxNDUgMTMwTDE1NSAxMzBMMTU1IDYwTDEzNSA2MEwxMzUgNTBMMTYwIDUwTDE2MCA0MEwxMDAgNDBMMTAwIDUwTDEyNSA1MEwxMjUgNjBMMTA1IDYwTDEwNSAxMzBMMTE1IDEzMEwxMTUgNzBaTTUwIDE1MEw1MCA1MEw5NSA1MEw5NSA0MEw0OS44OCA0MEw0MCA0OS44OEw0MCAxNjBaTTYyLjUgNzBMNjIuNSA4MEw5Mi41IDgwTDkyLjUgNzBaTTY1IDk1TDY1IDEwNUw5MCAxMDVMOTAgOTVaIiBmaWxsPSIjRkZGRkZGIi8+PHBhdGggZD0iTTk1IDEyMEw2MCAxMjBMNjAgMTMwTDk1IDEzMFoiIGZpbGw9IiMzMzY2RkYiLz48L3N2Zz4=">
 <style>
 /* Headline typeface: Noto Serif CJK SC Bold (subset). Copyright Google and Adobe. SIL Open Font License 1.1. */
@@ -590,7 +590,7 @@ h4{font-size:14px;line-height:1.5;color:var(--mute);font-weight:700}
 .fields .f-kinds{margin-top:10px;font-size:14.5px;line-height:1.7;color:var(--mute)}
 .tracks-s{grid-template-columns:repeat(2,minmax(0,1fr));gap:22px}
 @media (max-width:860px){.tracks-s{grid-template-columns:minmax(0,1fr)}}
-.nw{white-space:nowrap}
+.nw,t-nw{white-space:nowrap}
 
 /* hero: the decision areas named under the headline */
 .hero-areas{margin-top:18px;font-size:clamp(17px,1.55vw,21px);font-weight:700;line-height:1.5;letter-spacing:.06em;color:var(--ink)}
@@ -688,6 +688,50 @@ h4{font-size:14px;line-height:1.5;color:var(--mute);font-weight:700}
 .foot-nav{flex-basis:100%;display:flex;flex-wrap:wrap;gap:8px 30px;padding-bottom:26px;margin-bottom:4px;border-bottom:1px solid rgba(255,255,255,.14)}
 .foot-nav a{color:#D5DAE3;font-size:15px}
 .foot-nav a:hover{color:#fff}
+/* the film: a link in the first screen and on the about page, one frame as a screen after the four situations,
+   and a layer over the page that plays it (app.js) */
+.film-link{display:inline-flex;align-items:center;gap:10px;border-bottom:0;padding-bottom:0}
+.film-link svg{width:24px;height:24px;flex:none}
+.film-link span{border-bottom:1.5px solid currentColor;padding-bottom:2px;line-height:1.4}
+.about-t p .film-link{margin-top:2px}
+.home .film{padding-top:0}
+.film-in{border-top:1px solid rgba(255,255,255,.16);padding-top:60px}
+.film-head{display:flex;flex-wrap:wrap;align-items:baseline;gap:10px 44px}
+.film-head h2{flex:none;max-width:100%;font-size:clamp(27px,2.9vw,38px);line-height:1.35}
+.film .film-head p{flex:1 1 320px;color:#D5DAE3;font-size:17.5px;line-height:1.9}
+.film-screen{display:block;position:relative;margin-top:40px;padding:1px;background:rgba(255,255,255,.22);color:#fff;clip-path:polygon(44px 0,100% 0,100% 100%,0 100%,0 44px)}
+.film-screen:hover{text-decoration:none}
+.film-screen picture{display:block;overflow:hidden;background:#0B0C10;clip-path:polygon(43.4px 0,100% 0,100% 100%,0 100%,0 43.4px)}
+.film-screen img{display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;transition:transform .6s cubic-bezier(.2,.7,.2,1),filter .3s}
+.film-screen:hover img{filter:brightness(1.12);transform:scale(1.012)}
+.film-play{position:absolute;left:7.3%;bottom:9%;display:flex;align-items:center;gap:14px;padding:15px 26px 15px 22px;background:var(--blue);color:#fff;font-weight:700;font-size:18px;line-height:1.25;clip-path:polygon(12px 0,100% 0,100% 100%,0 100%,0 12px);transition:background .15s}
+.film-play svg{width:22px;height:22px;flex:none}
+.film-play small{display:block;margin-top:3px;font-weight:500;font-size:13px;opacity:.92}
+.film-screen:hover .film-play{background:var(--blue-d)}
+.film-screen:focus-visible{outline:0}
+.film-screen:focus-visible::after{content:"";position:absolute;top:0;right:0;bottom:0;left:0;border:3px solid #9DB4FF;pointer-events:none}
+@media (prefers-reduced-motion:reduce){.film-screen img{transition:none}.film-screen:hover img{transform:none}}
+/* the layer that plays the film: the film page fills it and keeps its top row free for the close button */
+.film-box{position:fixed;top:0;right:0;bottom:0;left:0;z-index:200;background:#0C0D10}
+.film-box[hidden]{display:none}
+.film-box iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0;opacity:0;transition:opacity .25s}
+.film-box.on iframe{opacity:1}
+.film-wait{position:absolute;left:0;right:0;top:50%;margin-top:-1em;text-align:center;color:#8F99AB;font-size:15px}
+.film-box.on .film-wait{display:none}
+.film-x{position:absolute;top:12px;right:16px;right:max(16px,env(safe-area-inset-right,0px));height:40px;padding:0 14px 0 16px;display:inline-flex;align-items:center;gap:8px;border:0;cursor:pointer;background:#1B1E24;color:#E8ECF3;font:500 14px/1 var(--sans)}
+.film-x svg{width:14px;height:14px;flex:none}
+.film-x:hover{background:#2A2E37;color:#fff}
+.film-x:focus-visible{outline:2px solid #fff;outline-offset:3px}
+html.film-open{overflow:hidden}
+
+/* questions on the FAQ page: lines of similar length, so that no question ends with two or three characters on a line of
+   their own. Breaking only at commas was tried and dropped: at 320 px a clause that does not fit left the question mark alone. */
+.faq summary{text-wrap:balance}
+/* the fact rows of the three steps: lines of similar length, so that a row does not end with one or two words on a line of their own */
+.steps .meta li{text-wrap:balance}
+
+/* Short items and labels that wrap in a narrow column: split them into lines of similar length, so that none ends with one or two characters. */
+.cap-names li,.fields ul li,.c-steps li,.ans .hint{text-wrap:balance}
 
 /* tablet */
 @media (max-width:1080px){
@@ -924,6 +968,21 @@ h4{font-size:14px;line-height:1.5;color:var(--mute);font-weight:700}
   .head.open .nav a:last-child{border-bottom:0}
   .head.open .nav a.on::after{display:none}
 }
+/* the film screen */
+@media (max-width:900px){
+  .film-play{bottom:7%}
+}
+@media (max-width:760px){
+  .film-in{padding-top:44px}
+  .film .film-head p{font-size:17px}
+  .film-screen{margin-top:28px;clip-path:polygon(28px 0,100% 0,100% 100%,0 100%,0 28px)}
+  .film-screen picture{clip-path:polygon(27.4px 0,100% 0,100% 100%,0 100%,0 27.4px)}
+  .film-play{font-size:17px;padding:13px 22px 13px 18px;gap:12px}
+}
+@media (max-width:640px){
+  .film-screen img{aspect-ratio:4/5}
+  .film-play{left:7.8%;bottom:6%}
+}
 </style>
 </head>
 <body>
@@ -957,47 +1016,55 @@ h4{font-size:14px;line-height:1.5;color:var(--mute);font-weight:700}
   <div class="faq">
     <details>
       <summary>为什么不自己招一个人，或者直接买一套软件？</summary>
-      <p>自己招人有两个难处。有经验的人不在本地，招来之后也很难判断他是不是真的会做。他还要独自面对没有整理的数据和没有说清楚的任务。买软件的难处在数据：数据问答这类功能准不准，取决于企业有没有统一的指标算法，数据没有整理时软件用不起来。三顾先把数据和指标整理好，把第一件事做成，同时教会您的人，或者把买来的软件用起来。</p>
+      <p>自己招人有两个难处。有经验的人不在本地，招来之后也很难判断他是不是真的会做。他还要独自面对没有整理的数据和没有说清楚的任务。买软件的难处在数据：数据问答这类功能准不准，取决于企业有没有统一的指标算法，数据没有整理时软件用不起来。三顾先把数据和指标整理好，把第一件事做成，同时教会您的人，或者把买来的<t-nw>软件用起来。</t-nw></p>
     </details>
     <details>
       <summary>工程师现在都用 AI 写代码，你们和别的服务商有什么不同？</summary>
-      <p>写代码的速度没有不同，我们用的是同样的工具。不同在工具之外的三件事：把您的话变成可以计算的指标定义，了解您企业的数据，核对 AI 写出的查询。每件事都用您确认过答案的测试题验收，这一条写进合同。</p>
+      <p>写代码的速度没有不同，我们用的是同样的工具。不同在工具之外的三件事：把您的话变成可以计算的指标定义，了解您企业的数据，核对 AI 写出的查询。每件事都用您确认过答案的测试题验收，这一<t-nw>条写进合同。</t-nw></p>
     </details>
     <details>
       <summary>AI 更新很快，现在做的系统会不会过时？</summary>
-      <p>不会。模型只会越来越强，您的系统可以换用更强的模型。您的数据、指标的算法和验收测试题都归您，不会因为换模型而作废。换模型或系统之后要重新检验一次：把同一套测试题再运行一遍，通过了再继续用。这件事您的接手人自己就能做，不用另外付费，运行测试题是我们教会他的第一项内容。想让三顾来检验的，包含在年度复验里，每年可以做两次。我们每年还用您的测试题测一遍当时的新模型，告诉您哪些值得换。</p>
+      <p>不会。模型只会越来越强，您的系统可以换用更强的模型。您的数据、指标的算法和验收测试题都归您，不会因为换模型而作废。换模型或系统之后要重新检验一次：把同一套测试题再运行一遍，通过了再继续用。这件事您的接手人自己就能做，不用另外付费，运行测试题是我们教会他的第一项内容。想让三顾来检验的，包含在年度复验里，每年可以做两次。我们每年还用您的测试题测一遍当时的新模型，告诉您<t-nw>哪些值得换。</t-nw></p>
     </details>
     <details>
       <summary>我们的数据不能出内网，可以做私有化部署吗？</summary>
-      <p>可以。两种方式我们都做：调用模型服务的 API，或者把开源模型部署在您自己的服务器上。API 上线快，成本低。数据不能离开内网时做私有化部署，硬件由您采购，我们给出配置建议并完成部署。用 API 时，哪些数据可以发给模型，事先写进协议。两种方式都用同一套测试题验收。</p>
+      <p>可以。两种方式我们都做：调用模型服务的 API，或者把开源模型部署在您自己的服务器上。API 上线快，成本低。数据不能离开内网时做私有化部署，硬件由您采购，我们给出配置建议并完成部署。用 API 时，哪些数据可以发给模型，事先写进协议。两种方式都用同一套<t-nw>测试题验收。</t-nw></p>
+    </details>
+    <details>
+      <summary>不想把系统的账号开给外面的人，可以做吗？</summary>
+      <p>可以。数据是您的，怎么给由您选，有三种方式。第一种是开一个只读账号，我们只能查看，不能修改，做完后由您收回。第二种是不开账号，由您的人按清单把表导出来，放在您指定的一台电脑上，我们只在这台电脑上做。用这种方式，之后报表每次更新前也要先导出，可以设成定时导出。第三种是由您的接手人自己登录和操作，我们的人在旁边或通过视频带着他做，不拿任何账号，适合简单的事。三种方式用同一套测试题验收。后两种要等导出和安排时间，完成日<t-nw>期写进报价。</t-nw></p>
+    </details>
+    <details>
+      <summary>还没有合作过，一开始要给哪些数据？</summary>
+      <p>数据是一步一步给的。30 分钟的沟通不需要任何数据。核对和诊断用您导出的几张表就能做，不用开账号。表交给我们之前，由您确认里面有什么，姓名、手机号和证件号不用给，其他不想给的栏目也可以不导出，我们会说明少了它哪些事判断不了。用完后我们删除这些表，并给您书面确认。定下要做哪件事之后，才谈账号或<t-nw>导出的安排。</t-nw></p>
     </details>
     <details>
       <summary>需要我们配合什么？</summary>
-      <p>四件事。第一，指定一位负责人，指标怎么算、哪个数字为准，由他决定并签字。第二，指定一位接手人，并给他留出跟着做的时间。第三，安排两到三次访谈，每次约一小时，对象是您本人、相关的部门负责人和管系统的人。第四，提供只读的数据访问，以及几张现在正在用的报表。</p>
+      <p>四件事。第一，指定一位负责人，指标怎么算、哪个数字为准，由他决定并签字。第二，指定一位接手人，并给他留出跟着做的时间。第三，安排两到三次访谈，每次约一小时，对象是您本人、相关的部门负责人和管系统的人。第四，提供数据和几张现在正在用的报表。数据怎么给由您选：开只读账号，或者不开账号，由您的人<t-nw>把表导出来。</t-nw></p>
     </details>
     <details>
       <summary>线下和远程有什么不同？我们不在温州，可以做吗？</summary>
-      <p>可以做。两种方式的交付内容、验收标准和完成日期相同。线下指诊断和共识会、中期演示、验收、教学和交接这几个环节到您的企业，不是每天驻场。远程时这些环节用视频会议。两种方式下，开发都在您的环境里远程操作，数据不下载。同一件事选远程，比线下低约一成。外地的企业选线下的，差旅费用另计。</p>
+      <p>可以做。两种方式的交付内容、验收标准和完成日期相同。线下指诊断和共识会、中期演示、验收、教学和交接这几个环节到您的企业，不是每天驻场。远程时这些环节用视频会议。两种方式下，开发都在您的环境里远程操作，数据不下载。同一件事选远程，比线下低约一成。外地的企业选线下的，差<t-nw>旅费用另计。</t-nw></p>
     </details>
     <details>
       <summary>没有按期做完，或者验收不通过，怎么办？</summary>
-      <p>都写在合同里。因为我们的原因每晚一周，少收合同价的 1%，累计不超过 10%。复验两轮仍不通过，您可以解除合同，我们退还已收的项目款，诊断费除外。</p>
+      <p>都写在合同里。因为我们的原因每晚一周，少收合同价的 1%，累计不超过 10%。复验两轮仍不通过，您可以解除合同，我们退还已收的项目款，<t-nw>诊断费除外。</t-nw></p>
     </details>
     <details>
       <summary>开工后发现数据比诊断时看到的差，怎么办？</summary>
-      <p>这种情况我们在合同里写了办法。价格以诊断报告写明的数据情况为前提：用哪几个系统、哪些表、从哪一年开始。开工后十个工作日内我们会核查一遍，有不一样的地方当时书面告诉您，再一起商量怎么办：由您的人把数据整理好，调整范围和价格，或者先停下。停下时最多结算合同价的两成。这十个工作日里我们没有提出的，数据上多出来的工作由我们承担，价格不变。</p>
+      <p>这种情况我们在合同里写了办法。价格以诊断报告写明的数据情况为前提：用哪几个系统、哪些表、从哪一年开始。开工后十个工作日内我们会核查一遍，有不一样的地方当时书面告诉您，再一起商量怎么办：由您的人把数据整理好，调整范围和价格，或者先停下。停下时最多结算合同价的两成。这十个工作日里我们没有提出的，数据上多出来的工作由我们承<t-nw>担，价格不变。</t-nw></p>
     </details>
     <details>
       <summary>接手人教不会，或者教会之后离职了，怎么办？</summary>
-      <p>这两种情况都有办法，请放心。没有通过测试的，我们免费补教一次并重测。仍没有通过，请您另选一人，我们免费再教一次。通过测试后 6 个月内离职的，再教一人 1 万元。一直没有合适的人，可以选年度代维护：日常的维护和小的修改由三顾做，系统照常使用，等您有了合适的人，我们再教会他。教学在验收之后继续进行，不影响验收和付款的安排。</p>
+      <p>这两种情况都有办法，请放心。没有通过测试的，我们免费补教一次并重测。仍没有通过，请您另选一人，我们免费再教一次。通过测试后 6 个月内离职的，再教一人 1 万元。一直没有合适的人，可以选年度代维护：日常的维护和小的修改由三顾做，系统照常使用，等您有了合适的人，我们再教会他。教学在验收之后继续进行，不影响验收和<t-nw>付款的安排。</t-nw></p>
     </details>
     <details>
       <summary>做完第一件事，后面还要一直付费吗？</summary>
-      <p>不用。系统、代码和验收测试题都归您，您的接手人会维护。报价里默认带第一年的年度复验，不需要的话划掉就可以。之后要不要做下一件事，要不要续年度服务，由您决定。下一件事由您的接手人多做一些，所以价格更低：第二件约为同等难度第一件事的六成，第三件起约三成。</p>
+      <p>不用。系统、代码和验收测试题都归您，您的接手人会维护。报价里默认带第一年的年度复验，不需要的话划掉就可以。之后要不要做下一件事，要不要续年度服务，由您决定。下一件事由您的接手人多做一些，所以价格更低：第二件约为同等难度第一件事的六成，第三件起约三成。要接新的系统或新的数据时，新接的部分按第一件<t-nw>事的价格算。</t-nw></p>
     </details>
     <details>
       <summary>送的前沿 AI 使用课讲什么？教 GPT 和 Claude 吗？</summary>
-      <p>每件事送一场，约 3 小时。全体员工学 DeepSeek 等国内已经正式上线的模型怎么用，用您企业自己的例子练。接手人和技术人员再学 DeepSeek Harness，这是 DeepSeek 开源的智能体框架，能让模型读文件、运行程序、分步完成一件工作。GPT、Claude 等国外模型没有在中国内地提供服务，课上只介绍它们的能力和通用的方法，我们不提供账号和网络。</p>
+      <p>每件事送一场，约 3 小时。全体员工学 DeepSeek 等国内已经正式上线的模型怎么用，用您企业自己的例子练。接手人和技术人员再学 DeepSeek Harness，这是 DeepSeek 开源的智能体框架，能让模型读文件、运行程序、分步完成一件工作。GPT、Claude 等国外模型没有在中国内地提供服务，课上只介绍它们的能力和通用的方法，我们不提供<t-nw>账号和网络。</t-nw></p>
     </details>
   </div>
   <p class="see-all"><a class="link" href="why">看三顾和其他做法的区别</a></p>
@@ -1006,7 +1073,7 @@ h4{font-size:14px;line-height:1.5;color:var(--mute);font-weight:700}
 <section class="s s-blue" id="contact"><div class="wrap contact cta">
   <div>
     <h2>从 30 分钟的沟通开始</h2>
-    <p>留下联系方式，我们会尽快联系您约时间。沟通不收费，用视频或电话，约 30 分钟。方便的话，请先想好三件事：想先解决哪件事，现在用哪些系统，手头有哪几张报表。没有想清楚也没关系，我们和您一起理。事情清楚或者简单的，下一步是核对。说不清，下一步是诊断。</p>
+    <p>留下联系方式，我们会尽快联系您约时间。沟通不收费，用视频或电话，约 30 分钟。方便的话，请先想好三件事：想先解决哪件事，现在用哪些系统，手头有哪几张报表。没有想清楚也没关系，我们和您一起理。事情清楚或者简单的，下一步是核对。说不清，下<t-nw>一步是诊断。</t-nw></p>
   </div>
   <a class="btn btn-w" href="contact">联系我们</a>
 </div></section>
@@ -1021,6 +1088,7 @@ h4{font-size:14px;line-height:1.5;color:var(--mute);font-weight:700}
     <a href="services">能做的事</a>
     <a href="demo">示例</a>
     <a href="cases">案例</a>
+    <a href="film" data-film>宣传片</a>
     <a href="news">新闻</a>
     <a href="why">为什么选三顾</a>
     <a href="about">关于</a>
@@ -1029,8 +1097,8 @@ h4{font-size:14px;line-height:1.5;color:var(--mute);font-weight:700}
     <a href="contact">联系我们</a>
   </nav>
   <svg role="img" aria-label="三顾 Thrice" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 464 200"><rect x="0" y="0" width="200" height="200" rx="45" fill="#3366FF"/><path d="M113.01 160L130 143.01L146.99 160L160 160L135 135L135 80L125 80L125 135L100 160ZM145 70L145 130L155 130L155 60L135 60L135 50L160 50L160 40L100 40L100 50L125 50L125 60L105 60L105 130L115 130L115 70ZM50 150L50 50L95 50L95 40L49.88 40L40 49.88L40 160ZM62.5 70L62.5 80L92.5 80L92.5 70ZM65 95L65 105L90 105L90 95Z" fill="#FFFFFF"/><path d="M95 120L60 120L60 130L95 130Z" fill="#FFFFFF"/><path d="M261 28.5L261 39.7L335 39.7L335 28.5ZM267 65.9L267 77.1L329 77.1L329 65.9Z" fill="#FFFFFF"/><path d="M342 103.3L254 103.3L254 114.5L342 114.5Z" fill="#FFFFFF"/><path d="M439 107.34L453.16 121.5L464 121.5L443.17 100.67L443.17 54.83L434.83 54.83L434.83 100.67L414 121.5L424.84 121.5ZM434.83 29.83L434.83 38.17L418.17 38.17L418.17 96.5L426.5 96.5L426.5 46.5L451.5 46.5L451.5 96.5L459.83 96.5L459.83 38.17L443.17 38.17L443.17 29.83L464 29.83L464 21.5L414 21.5L414 29.83ZM380.67 46.92L380.67 96.08L409.83 96.08L409.83 82.33L402.58 82.33L402.58 88.58L387.92 88.58L387.92 75.25L409.83 75.25L409.83 46.92ZM402.58 67.75L387.92 67.75L387.92 54.42L402.58 54.42ZM409.83 21.5L372.23 21.5L364 29.73L364 121.5L372.33 113.17L372.33 29.83L409.83 29.83Z" fill="#FFFFFF"/><path d="M266.01 178.5V156.73H254V151.46H283.99V156.73H271.99V178.5ZM293.33 178.5V151.46H299.31V162.09H317.69V151.46H323.67V178.5H317.69V167.36H299.31V178.5ZM335.8 178.5V151.46H357.21Q360.08 151.46 361.91 152.62Q363.74 153.78 364.65 155.69Q365.55 157.6 365.55 159.92Q365.55 162.32 364.31 164.43Q363.07 166.53 360.48 167.72L366.22 178.5H359.49L354.53 168.86H341.78V178.5ZM341.78 163.9H355.56Q357.41 163.9 358.41 162.82Q359.41 161.73 359.41 160.04Q359.41 158.9 358.98 158.09Q358.55 157.29 357.68 156.87Q356.82 156.46 355.56 156.46H341.78ZM376.5 178.5V151.46H382.48V178.5ZM410 178.97Q404.53 178.97 400.83 177.38Q397.13 175.78 395.28 172.66Q393.43 169.53 393.43 164.96Q393.43 158.27 397.68 154.63Q401.93 150.99 409.96 150.99Q414.53 150.99 418.01 152.29Q421.49 153.59 423.44 156.03Q425.39 158.47 425.39 161.93H419.52Q419.52 159.96 418.3 158.64Q417.08 157.33 414.92 156.66Q412.75 155.99 409.84 155.99Q406.69 155.99 404.39 156.99Q402.09 157.99 400.83 159.88Q399.57 161.77 399.57 164.45V165.43Q399.57 168.15 400.83 170.06Q402.09 171.97 404.41 172.97Q406.73 173.97 409.88 173.97Q412.91 173.97 415.1 173.32Q417.28 172.67 418.48 171.36Q419.68 170.04 419.68 168.11H425.43Q425.43 171.49 423.5 173.93Q421.57 176.37 418.11 177.67Q414.64 178.97 410 178.97ZM436.33 178.5V151.46H463.69V156.46H442.32V162.24H461.33V167.24H442.32V173.5H464V178.5Z" fill="#FFFFFF"/></svg>
-  <p>三顾（浙江）人工智能科技有限公司</p>
-  <p>© 2026 三顾 Thrice</p>
+  <p>三顾（浙江）人工智能<t-nw>科技有限公司</t-nw></p>
+  <p>© 2026 三顾 <t-nw>Thrice</t-nw></p>
 </div></footer>
 
 <script src="config.js"></script>
@@ -1064,6 +1132,7 @@ h4{font-size:14px;line-height:1.5;color:var(--mute);font-weight:700}
     m2: function (w, n) { return '指标：缺货品种数，当周缺货超过三天的品种<br>范围：第 ' + w + ' 周，' + n + ' 家门店'; },
     a3: function (s, g) { return '<b>' + s + '</b>。最近 4 周的销售额比最早 4 周多 ' + g + '%。'; },
     m3: function (w0, w1, n) { return '指标：销售额，按周合计<br>范围：第 ' + w0 + ' 至 ' + w1 + ' 周，' + n + ' 家门店'; },
+    film: { name: '三顾宣传片', close: '关闭', wait: '正在打开宣传片' },
     j: { head: '申请加入：', tracks: { expert: '专家', staff: '公司岗位' }, bg: '现在的工作或所学专业：', intro: '做过什么，会什么：', link: '作品或简历的链接：' },
     f: { off: '留言功能开通中', name: '请填写怎么称呼您。', contact: '请填写手机或微信。', company: '请填写企业名称。', city: '请填写所在城市。', background: '请填写现在的工作或所学专业。', sending: '正在提交', submit: '提交', fail: '提交没有成功，请过一会儿再试一次。', doneT: '已经收到', doneP: '谢谢。我们会尽快按您留下的方式联系您。' }
   }/*>I18N*/; /* all wording lives in this object, one per language */
@@ -1313,6 +1382,94 @@ h4{font-size:14px;line-height:1.5;color:var(--mute);font-weight:700}
     var rt, fit = function () { clearTimeout(rt); rt = setTimeout(function () { if ((svg.clientWidth || 0) !== lastW || (svg.clientHeight || 0) !== lastH) line(false); }, 120); };
     window.addEventListener('resize', fit);
     if ('ResizeObserver' in window) new ResizeObserver(fit).observe(svg);
+  })();
+
+  /* ---------- the film: links marked data-film play it over the page; without this script they lead to the film's own page ---------- */
+  (function () {
+    var links = $$('a[data-film]'); if (!links.length || !T || !T.film) return;
+    if (location.protocol === 'file:') return;   /* opened from disk: addresses without .html do not resolve, leave the plain links */
+    var F = T.film, src = links[0].getAttribute('href');
+    var box = null, frame = null, closeBtn = null, ready = false, wanted = false, warm = false, isOpen = false, pushed = false, from = null, behind = [];
+    function film() { try { return frame.contentWindow.film || null; } catch (e) { return null; } }
+    function make() {
+      if (box) return;
+      box = document.createElement('div');
+      box.className = 'film-box'; box.hidden = true;
+      box.setAttribute('role', 'dialog'); box.setAttribute('aria-modal', 'true'); box.setAttribute('aria-label', F.name);
+      box.innerHTML = '<p class="film-wait">' + F.wait + '</p>' +
+        '<iframe title="' + F.name + '" allow="autoplay; fullscreen" allowfullscreen></iframe>' +
+        '<button type="button" class="film-x">' + F.close + '<svg viewBox="0 0 14 14" aria-hidden="true"><path d="M2 2l10 10M12 2L2 12" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></button>';
+      frame = $('iframe', box); closeBtn = $('.film-x', box);
+      closeBtn.addEventListener('click', function () { shut(); });
+      /* the close button is the last thing in the layer: Tab goes on into the film, not out of the page */
+      closeBtn.addEventListener('keydown', function (e) { if (e.key === 'Tab' && !e.shiftKey) { e.preventDefault(); frame.focus(); } });
+      /* if the film page never reports that it is ready, show whatever has loaded after a while */
+      frame.addEventListener('load', function () { setTimeout(function () { box.classList.add('on'); }, 4000); });
+      document.body.appendChild(box);
+      frame.src = src;
+    }
+    function start() {
+      var f = film(); if (!f) return;
+      wanted = false;
+      try { frame.contentWindow.dispatchEvent(new Event('resize')); } catch (e) {}
+      f.start();
+    }
+    function show(a) {
+      make();
+      if (isOpen) return;
+      isOpen = true; from = a; wanted = true;
+      box.hidden = false;
+      document.documentElement.classList.add('film-open');
+      behind = $$('body > header, body > main, body > footer');
+      behind.forEach(function (el) { el.setAttribute('inert', ''); });
+      if (ready) start();   /* inside the click, so that browsers which tie sound to a tap accept it */
+      try { history.pushState({ thriceFilm: 1 }, ''); pushed = true; } catch (e) { pushed = false; }
+      closeBtn.focus();
+    }
+    function shut(fromHistory) {
+      if (!isOpen) return;
+      isOpen = false; wanted = false;
+      var f = film(); if (f) { try { f.stop(); } catch (e) {} }
+      box.hidden = true;
+      document.documentElement.classList.remove('film-open');
+      behind.forEach(function (el) { el.removeAttribute('inert'); }); behind = [];
+      if (pushed && !fromHistory) { pushed = false; try { history.back(); } catch (e) {} } else pushed = false;
+      if (from && from.focus) { try { from.focus({ preventScroll: true }); } catch (e) { from.focus(); } }
+    }
+    window.addEventListener('message', function (e) {
+      if (!frame || e.source !== frame.contentWindow || !e.data || !e.data.thriceFilm) return;
+      var m = e.data.thriceFilm, f;
+      if (m === 'ready') { ready = true; box.classList.add('on'); f = film(); if (f && warm) f.warm(); if (wanted && isOpen) start(); }
+      else if (m === 'close') shut();
+      /* the contact button at the end of the film: go there in place of the entry that opened the film */
+      else if (m === 'go' && typeof e.data.href === 'string' && e.data.href.indexOf(location.origin + '/') === 0) { pushed = false; location.replace(e.data.href); }
+    });
+    window.addEventListener('popstate', function () { if (isOpen) shut(true); });
+    window.addEventListener('pageshow', function (e) { if (e.persisted && isOpen) shut(true); });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && isOpen) shut(); });
+    document.addEventListener('focusin', function (e) { if (isOpen && !box.contains(e.target)) closeBtn.focus(); });
+    function intent() { warm = true; make(); var f = ready && film(); if (f) f.warm(); }
+    links.forEach(function (a) {
+      a.addEventListener('click', function (e) {
+        if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button) return;
+        e.preventDefault(); show(a);
+      });
+      a.addEventListener('pointerenter', intent); a.addEventListener('touchstart', intent, { passive: true }); a.addEventListener('focus', intent);
+    });
+    /* fetch the film page ahead of the click, so that it starts at once: on the home page a few seconds after the page
+       has loaded (the link is in the first screen), and anywhere when the film's screen comes near.
+       Not when the visitor has asked to save data or is on a very slow connection. */
+    var scr = $('.film-screen'), conn = navigator.connection;
+    if (!(conn && (conn.saveData || /2g/.test(conn.effectiveType || '')))) {
+      if ($('.hero .film-link')) {
+        var later = function () { setTimeout(make, 3500); };
+        if (document.readyState === 'complete') later(); else window.addEventListener('load', later);
+      }
+      if (scr && 'IntersectionObserver' in window) {
+        var io = new IntersectionObserver(function (es) { es.forEach(function (x) { if (x.isIntersecting) { make(); io.disconnect(); } }); }, { rootMargin: '300px 0px' });
+        io.observe(scr);
+      }
+    }
   })();
 
   /* ---------- forms: post what the visitor wrote to the address set in config.js ---------- */
